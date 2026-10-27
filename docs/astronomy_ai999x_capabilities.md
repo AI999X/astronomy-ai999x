@@ -882,6 +882,10 @@ $$
 - **Assumes:** $0  \leq  A < 1$; a > R_star; full heat redistribution, unit emissivity
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![Equilibrium temperatures of the eight planets for the Sun (5772 K, radius 6](https://huggingface.co/AI999X/astronomy-ai999x/resolve/main/figures/planet-equilibrium-temperature-bars.svg)
+
+*Equilibrium temperatures of the eight planets for the Sun (5772 K, radius 6.957e8 m), from their mean distances and Bond albedos (inputs), each computed by the package: Mercury 437.223 K, Venus 229.11 K, Earth 254.038 K, Mars 209.813 K, Jupiter 102.452 K, Saturn 81.1727 K, Uranus 58.1161 K, Neptune 46.5916 K (Earth highlighted; these are no-atmosphere values, without any greenhouse warming).*
+
 ```python
 astronomy_ai999x.solve('planet_equilibrium_temperature', T_star=1000.0, R_star=2.0, a=4.0)
 # -> T_eq = 500 K, S = 14175.9 W/m^2   (SOLVED)
@@ -1146,6 +1150,10 @@ $$
 - **Assumes:** r1, r2, $M > 0$; $r_{1}  \neq  r_{2}$; impulsive burns, coplanar circular orbits
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
+![The Hohmann transfer from a circular orbit of r₁ = 1 au to one of r₂ = 1](https://huggingface.co/AI999X/astronomy-ai999x/resolve/main/figures/hohmann-transfer-orbit.svg)
+
+*The Hohmann transfer from a circular orbit of r₁ = 1 au to one of r₂ = 1.52368 au around the Sun, computed by the package: transfer ellipse a = 1.26184 au, e = 0.207506 (drawn from 91 positions it solved over the 258.862-day half orbit), burns Δv₁ = 2.94473 km/s and Δv₂ = 2.64894 km/s, total 5.59367 km/s.*
+
 ```python
 astronomy_ai999x.solve('hohmann_transfer', r1=1.0, r2=3.0, M=14982844642.8839)
 # -> dv1 = 0.224745 m/s, dv2 = 0.169102 m/s, dv = 0.393847 m/s, t_transfer = 8.88577 s, t_days = 0.000102845, a_transfer = 2 m   (SOLVED)
@@ -1374,6 +1382,10 @@ $$
 - **Method:** Kepler's equation $M = E - e$ sin E solved by safeguarded Newton iteration; tan(nu/2) = sqrt($(1+e)/(1-e)$) tan(E/2); $r = a$($1 - e$ cos E)
 - **Assumes:** $0  \leq  e < 0.99$; $t  \geq  0$ (reduced modulo the period); two-body motion
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![An orbit with a = 1](https://huggingface.co/AI999X/astronomy-ai999x/resolve/main/figures/kepler-position-at-time-orbit.svg)
+
+*An orbit with a = 1.5 au and e = 0.6 around one solar mass: 181 positions (true anomaly and distance) solved by the package from Kepler's equation over one period P = 671.01 days, and 16 positions at equal time steps — equal areas swept, bunched near aphelion; marked: perihelion r = 0.6 au, speed 48.6389 km/s (aphelion 12.1597 km/s).*
 
 ```python
 astronomy_ai999x.solve('kepler_position_at_time', M=14982844642.8839, a=1.0, e=0.0, t=1.5707963267948966)
@@ -1611,6 +1623,10 @@ $$
 - **Method:** $D_C = (c/H_{0})$ integral_0^z dz'/E(z'), $E = sqrt$(Om (1+z)^3 + 1 - Om) (mpmath quadrature); $D_L = (1+z)$ D_C; $D_A = D_C/(1+z)$
 - **Assumes:** $0 < z  \leq  1100$; $1  \leq  H_{0}  \leq  1000$ km/s/Mpc; $0.01  \leq  Omega_m  \leq  1$; flat, no radiation
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![Distance measures in a flat ΛCDM universe with H₀ = 70 km/s/Mpc and Ωm = 0](https://huggingface.co/AI999X/astronomy-ai999x/resolve/main/figures/cosmological-distances-curve.svg)
+
+*Distance measures in a flat ΛCDM universe with H₀ = 70 km/s/Mpc and Ωm = 0.3, 100 redshifts each computed by the package; at z = 3: comoving 6355.69 Mpc, luminosity 25422.7 Mpc, angular-diameter 1588.92 Mpc. The angular-diameter distance peaks — marked: z = 1.6, D_A = 1747.57 Mpc (largest of the computed points).*
 
 ```python
 astronomy_ai999x.solve('cosmological_distances', z=3.0, H0=70.0, Om=1.0)
@@ -2153,6 +2169,10 @@ $$
 - **Method:** sin $a = sin$(lat) sin(dec) + cos(lat) cos(dec) cos H; tan $A = -cos$(dec) sin H / (sin(dec) cos(lat) - cos(dec) sin(lat) cos H)
 - **Assumes:** |dec| <= 90 degrees; |lat| <= 90 degrees; not at the zenith or nadir; no refraction
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
+
+![Daily paths across the sky of stars of four declinations, seen from latitude 45° north (azimuth around the rim, zenith distance outward; 97 hour angles each converted by the package to altitude and azimuth, only the part above the horizon drawn): δ = 60°: culminates at altitude 75°, azimuth 0°; δ = 20°: culminates at altitude 65°, azimuth 180°; δ = 0°: culminates at altitude 45°, azimuth 180°; δ = -30°: culminates at altitude 15°, azimuth 180°](https://huggingface.co/AI999X/astronomy-ai999x/resolve/main/figures/altaz-from-hadec-polar.svg)
+
+*Daily paths across the sky of stars of four declinations, seen from latitude 45° north (azimuth around the rim, zenith distance outward; 97 hour angles each converted by the package to altitude and azimuth, only the part above the horizon drawn): δ = 60°: culminates at altitude 75°, azimuth 0°; δ = 20°: culminates at altitude 65°, azimuth 180°; δ = 0°: culminates at altitude 45°, azimuth 180°; δ = -30°: culminates at altitude 15°, azimuth 180°. The δ = 60° star circles the pole without setting.*
 
 ```python
 astronomy_ai999x.solve('altaz_from_hadec', H=1.5707963267948966, dec=0.5235987755982988, lat=0.7853981633974483)

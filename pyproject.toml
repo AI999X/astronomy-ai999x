@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "astronomy-ai999x"
-version = "1.0.0"
+version = "1.0.1"
 description = "Offline astronomy solver: distances and magnitudes, stars and blackbody radiation, orbits and exoplanets, flat Lambda-CDM cosmology, telescopes, positional astronomy and time, plasma and space physics, with steps, LaTeX and honest refusals"
 readme = "README.md"
 requires-python = ">=3.10"
