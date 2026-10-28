@@ -1,5 +1,5 @@
 {
- "package": "1.0.1",
+ "package": "1.0.2",
  "pack": "1.0.0",
  "knowledge_db": null,
  "files": {
@@ -9,7 +9,7 @@
   "knowledge/reference_cases.json": "7414a14e2c4202a7fae8cdd14e1a2ef7267f35a9665b0633001349c698d4e4e7",
   "capabilities/procedures.py": "3518fc534fb0d24452745e07743aad347f0a48133cf59de68172835d4a0b80c0",
   "capabilities/procedures_certified.json": "1567f2a11ff8d6e9820ba0662e128d05218d898450ed8e75b14c1c9e3e994d23",
-  "astronomy_knowledge_public.sqlite": "ab80acf7356dbb97f693bd7b4692174391ac8d37370fa5bed16e6bf0beef60e0",
+  "astronomy_knowledge_public.sqlite": "87f7fb663543ba824778bf198a2cd9a356a85ad932102eafbfeb6f48235cad96",
   "search/encoder.int8.onnx": "521452d928a72da4d241b1835ab0f46b0e81ff58ffff0367b9a7029bd129fbd9",
   "search/tokenizer.json": "b2f2deb461e6ad672b8e42aac29773e7a9be77d582cdf58808113ea43fda565e",
   "search/index.json": "d8f81d9706c9a0efa7d9643bcec3d39a6c3500766ce0f44937d85ad90f772507",

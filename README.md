@@ -4,7 +4,7 @@
 
 **[Install](https://pypi.org/project/astronomy-ai999x/)** · **[Capability guide](https://huggingface.co/AI999X/astronomy-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/astronomy-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
 
-License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.1
+License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.2
 
 Field: **Physical Sciences** · Tasks: Question Answering, Token Classification, Text Classification, Sentence Similarity, Feature Extraction
 
@@ -27,7 +27,7 @@ astronomy-ai999x is an offline, deterministic Python solver that answers astrono
 
 | Property | Value |
 |---|---|
-| Package | `astronomy-ai999x` 1.0.1 (import `astronomy_ai999x`) |
+| Package | `astronomy-ai999x` 1.0.2 (import `astronomy_ai999x`) |
 | Type | Deterministic neuro-symbolic astronomy engine (rule-based reading + certified symbolic capabilities) |
 | Capabilities | 67 certified procedures |
 | Knowledge pack | version 1.0.0 |
@@ -61,7 +61,7 @@ astronomy.ask("Who created you?").message
 # -> astronomy-ai999x was created and engineered by Ibnul Jaif Farabi at AI999X.
 ```
 
-Command line: `astronomy-ai999x "<question>"`, `astronomy-ai999x --capabilities`. The outputs above were produced by running this exact code on astronomy-ai999x 1.0.1.
+Command line: `astronomy-ai999x "<question>"`, `astronomy-ai999x --capabilities`. The outputs above were produced by running this exact code on astronomy-ai999x 1.0.2.
 
 ## Find the right capability, and draw it
 
@@ -216,10 +216,10 @@ _Equilibrium temperatures of the eight planets for the Sun (5772 K, radius 6.957
 ## Citation
 
 ```bibtex
-@software{astronomy_ai999x_1_0_1,
+@software{astronomy_ai999x_1_0_2,
   title  = {astronomy-ai999x: an offline, verified astronomy solver},
   author = {Farabi, Ibnul Jaif}, organization = {AI999X},
-  year   = {2026}, version = {1.0.1},
+  year   = {2026}, version = {1.0.2},
   url    = {https://huggingface.co/AI999X/astronomy-ai999x}
 }
 ```
