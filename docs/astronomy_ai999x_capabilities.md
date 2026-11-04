@@ -200,7 +200,7 @@ $$
 
 ![Distances of six objects (inputs in metres: Moon 3](https://www.ai999x.com/?ax_fig=astronomy-ai999x/distance-unit-conversion-bars)
 
-*Distances of six objects (inputs in metres: Moon 3.844e8, Sun 1 au, Neptune 30.07 au, Proxima Centauri 1.302 pc, galactic centre 8.18 kpc, Andromeda 765 kpc), each converted by the package; bars in light-years. Marked: Moon 0.00257 au = 1.246e-8 pc; Sun 1 au = 4.848e-6 pc; Neptune 30.07 au = 1.458e-4 pc; Proxima 268557 au = 1.302 pc; Gal. centre 1.687e9 au = 8180 pc; Andromeda 1.578e11 au = 765000 pc.*
+*Distances of six objects (inputs in metres: Moon 3.844e8, Sun 1 au, Neptune 30.07 au, Proxima Centauri 1.302 pc, galactic centre 8.18 kpc, Andromeda 765 kpc) and of the worked example (3.0857e+16 m), each converted by the package; bars in light-years. Marked: Moon 0.00257 au = 1.246e-8 pc; Sun 1 au = 4.848e-6 pc; Neptune 30.07 au = 1.458e-4 pc; example 206265 au = 1 pc; Proxima 268557 au = 1.302 pc; Gal. centre 1.687e9 au = 8180 pc; Andromeda 1.578e11 au = 765000 pc.*
 
 ```python
 astronomy_ai999x.solve('distance_unit_conversion', d=3.085677581491367e+16)
@@ -253,7 +253,7 @@ $$
 
 ![Distance against annual parallax from 0](https://www.ai999x.com/?ax_fig=astronomy-ai999x/parallax-distance-curve)
 
-*Distance against annual parallax from 0.1 to 1000 milliarcseconds (41 runs; d = 1/p). Marked (parallaxes as inputs, distances returned): Proxima Centauri 768.07 mas, Sirius 379.21 mas, Vega 130.23 mas, Betelgeuse 5.95 mas and a 0.2 mas star near the faint limit of space astrometry.*
+*Distance against annual parallax from 0.1 to 1000 milliarcseconds (41 runs; d = 1/p). Marked (parallaxes as inputs, distances returned): Proxima Centauri 768.07 mas, Sirius 379.21 mas, Vega 130.23 mas, Betelgeuse 5.95 mas and a 0.2 mas star near the faint limit of space astrometry; and the worked example, 1000 mas → 1 pc.*
 
 ```python
 astronomy_ai999x.solve('parallax_distance', p=4.84813681109536e-06)
@@ -308,7 +308,7 @@ $$
 
 ![Distance against distance modulus m − M from −5 to 30 (71 runs with M = 0, m varied), without extinction and with A = 2 mag (inputs): each 5 magnitudes is a factor 10 in distance](https://www.ai999x.com/?ax_fig=astronomy-ai999x/distance-from-distance-modulus-curve)
 
-*Distance against distance modulus m − M from −5 to 30 (71 runs with M = 0, m varied), without extinction and with A = 2 mag (inputs): each 5 magnitudes is a factor 10 in distance. Marked: μ = 0 → 10 pc, μ = 14.5 → the distance of the galactic centre, μ = 24.4 → the Andromeda galaxy (moduli as inputs; distances returned).*
+*Distance against distance modulus m − M from −5 to 30 (71 runs with M = 0, m varied), without extinction and with A = 2 mag (inputs): each 5 magnitudes is a factor 10 in distance. Marked: μ = 0 → 10 pc, μ = 14.5 → the distance of the galactic centre, μ = 24.4 → the Andromeda galaxy (moduli as inputs; distances returned), and the worked example, μ = 10 → 1000 pc.*
 
 ```python
 astronomy_ai999x.solve('distance_from_distance_modulus', m=10.0, M=0.0)
@@ -360,9 +360,9 @@ $$
 - **Assumes:** $d > 0$; $A  \geq  0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Apparent magnitudes and distances of six bright stars (inputs: Sirius m = -1](https://www.ai999x.com/?ax_fig=astronomy-ai999x/absolute-magnitude-ladder)
+![Apparent magnitudes and distances of six bright stars and of the worked example (inputs: Sirius m = -1](https://www.ai999x.com/?ax_fig=astronomy-ai999x/absolute-magnitude-ladder)
 
-*Apparent magnitudes and distances of six bright stars (inputs: Sirius m = -1.46, 2.64 pc, Vega m = 0.03, 7.68 pc, Arcturus m = -0.05, 11.26 pc, Polaris m = 1.98, 133 pc, Rigel m = 0.13, 264 pc, Deneb m = 1.25, 802 pc; no extinction) and the absolute magnitude the package returned for each, the magnitude the star would show from 10 pc (axis inverted: brighter up). Marked: Sirius M = 1.43198 (μ = -2.89198), Vega M = 0.603194 (μ = -0.573194), Arcturus M = -0.307692 (μ = 0.257692), Polaris M = -3.63926 (μ = 5.61926), Rigel M = -6.97802 (μ = 7.10802), Deneb M = -8.27087 (μ = 9.52087).*
+*Apparent magnitudes and distances of six bright stars and of the worked example (inputs: Sirius m = -1.46, 2.64 pc, Vega m = 0.03, 7.68 pc, Arcturus m = -0.05, 11.26 pc, Polaris m = 1.98, 133 pc, Rigel m = 0.13, 264 pc, Deneb m = 1.25, 802 pc, example m = 12, 1000 pc; no extinction) and the absolute magnitude the package returned for each, the magnitude the star would show from 10 pc (axis inverted: brighter up). Marked: Sirius M = 1.43198 (μ = -2.89198), Vega M = 0.603194 (μ = -0.573194), Arcturus M = -0.307692 (μ = 0.257692), Polaris M = -3.63926 (μ = 5.61926), Rigel M = -6.97802 (μ = 7.10802), Deneb M = -8.27087 (μ = 9.52087), example M = 2 (μ = 10).*
 
 ```python
 astronomy_ai999x.solve('absolute_magnitude', m=12.0, d=3.085677581491367e+19)
@@ -414,7 +414,7 @@ $$
 
 ![Flux ratio against magnitude difference from 0 to 25 (51 runs, m₁ = 0): every 5 magnitudes is a factor 100](https://www.ai999x.com/?ax_fig=astronomy-ai999x/flux-ratio-from-magnitudes-curve)
 
-*Flux ratio against magnitude difference from 0 to 25 (51 runs, m₁ = 0): every 5 magnitudes is a factor 100. Marked, magnitudes as inputs: Sirius (−1.46) and Polaris (1.98), Vega (0.03) and a 6.5-mag star at the naked-eye limit, the Sun (−26.74) and the full Moon (−12.74), the Sun and Sirius; ratios returned.*
+*Flux ratio against magnitude difference from 0 to 25 (51 runs, m₁ = 0): every 5 magnitudes is a factor 100. Marked, magnitudes as inputs: Sirius (−1.46) and Polaris (1.98), Vega (0.03) and a 6.5-mag star at the naked-eye limit, the Sun (−26.74) and the full Moon (−12.74), the Sun and Sirius; ratios returned; and the worked example, m₁ = 1, m₂ = 6 → 100.*
 
 ```python
 astronomy_ai999x.solve('flux_ratio_from_magnitudes', m1=1.0, m2=6.0)
@@ -464,7 +464,7 @@ $$
 
 ![A ruler of flux ratios 1, 10, 100 … 1e10 (inputs, one per tick) and the magnitude difference the package returned under each: a factor 10 in flux is 2](https://www.ai999x.com/?ax_fig=astronomy-ai999x/magnitude-difference-from-flux-ratio-scale)
 
-*A ruler of flux ratios 1, 10, 100 … 1e10 (inputs, one per tick) and the magnitude difference the package returned under each: a factor 10 in flux is 2.5 magnitudes, a factor 1e10 is 25 — the span from the Sun to a faint star in a large telescope.*
+*A ruler of flux ratios 1, 10, 100 … 1e10 (inputs, one per tick) and the magnitude difference the package returned under each: a factor 10 in flux is 2.5 magnitudes, a factor 1e10 is 25 — the span from the Sun to a faint star in a large telescope. Marked: the worked example, a ratio of 100, Δm = -5.*
 
 ```python
 astronomy_ai999x.solve('magnitude_difference_from_flux_ratio', ratio=100.0)
@@ -516,7 +516,7 @@ $$
 
 ![The combined magnitude of a star of m₁ = 5 with a companion of m₂ from 0 to 12 (61 runs; axis inverted: brighter up), and how much the pair outshines star 1 alone](https://www.ai999x.com/?ax_fig=astronomy-ai999x/combined-magnitude-curve)
 
-*The combined magnitude of a star of m₁ = 5 with a companion of m₂ from 0 to 12 (61 runs; axis inverted: brighter up), and how much the pair outshines star 1 alone. A faint companion adds almost nothing. Marked: two equal stars give m = 4.24743, a brightening of 0.752575 mag.*
+*The combined magnitude of a star of m₁ = 5 with a companion of m₂ from 0 to 12 (61 runs; axis inverted: brighter up), and how much the pair outshines star 1 alone. A faint companion adds almost nothing; two equal stars give m = 4.24743 (grey dot). Marked: the worked example, m₂ = 5: the pair shines at m = 4.24743, a brightening of 0.752575 mag.*
 
 ![m (combined magnitude) against m1 (magnitude of the first star) from 0](https://www.ai999x.com/?ax_fig=astronomy-ai999x/combined-magnitude-curve-2)
 
@@ -566,7 +566,7 @@ $$
 
 ![Absolute bolometric magnitude against luminosity from 1e-4 to 1e6 solar luminosities (61 runs, L in W = L/L☉ × 3](https://www.ai999x.com/?ax_fig=astronomy-ai999x/bolometric-magnitude-from-luminosity-curve)
 
-*Absolute bolometric magnitude against luminosity from 1e-4 to 1e6 solar luminosities (61 runs, L in W = L/L☉ × 3.828e26; axis inverted: brighter up). Marked, luminosities as inputs: Proxima 0.00155 L☉, Sun 1 L☉, Sirius A 25.4 L☉, Vega 40.1 L☉, Rigel 120000 L☉, Deneb 196000 L☉.*
+*Absolute bolometric magnitude against luminosity from 1e-4 to 1e6 solar luminosities (61 runs, L in W = L/L☉ × 3.828e26; axis inverted: brighter up). Marked, luminosities as inputs: Proxima 0.00155 L☉, Sun 1 L☉, Sirius A 25.4 L☉, Vega 40.1 L☉, Rigel 120000 L☉, Deneb 196000 L☉; and the worked example, 78.7043 L☉ → M_bol = 0.*
 
 ```python
 astronomy_ai999x.solve('bolometric_magnitude_from_luminosity', L=3.0128e+28)
@@ -617,7 +617,7 @@ $$
 
 ![Luminosity in solar units for every whole absolute bolometric magnitude from −10 to 15 (26 runs): each step of 5 magnitudes is a factor of exactly 100, one magnitude a factor of about 2](https://www.ai999x.com/?ax_fig=astronomy-ai999x/luminosity-from-bolometric-magnitude-stems)
 
-*Luminosity in solar units for every whole absolute bolometric magnitude from −10 to 15 (26 runs): each step of 5 magnitudes is a factor of exactly 100, one magnitude a factor of about 2.512. Marked: the luminosities returned at M_bol = −10, −5, 0, 5, 10 and 15.*
+*Luminosity in solar units for every whole absolute bolometric magnitude from −10 to 15 (26 runs): each step of 5 magnitudes is a factor of exactly 100, one magnitude a factor of about 2.512. Marked: the luminosities returned at M_bol = −10, −5, 0, 5, 10 and 15, and the worked example, M_bol = 0 → 78.7043 L☉.*
 
 ```python
 astronomy_ai999x.solve('luminosity_from_bolometric_magnitude', M_bol=0.0)
@@ -665,7 +665,7 @@ $$
 
 ![How bright the Sun (L = 3](https://www.ai999x.com/?ax_fig=astronomy-ai999x/apparent-bolometric-magnitude-curve)
 
-*How bright the Sun (L = 3.828e26 W, input) would look from 0.1 au to 1000 pc: 61 apparent bolometric magnitudes returned by the package (axis inverted: brighter up). Marked: from Earth (1 au), from Proxima Centauri (1.302 pc) and from 10 pc, where the apparent magnitude equals the absolute one.*
+*How bright the Sun (L = 3.828e26 W, input) would look from 0.1 au to 1000 pc: 61 apparent bolometric magnitudes returned by the package (axis inverted: brighter up). Marked: from Earth (1 au), from Proxima Centauri (1.302 pc) and from 10 pc, where the apparent magnitude equals the absolute one; and the worked example, L = 3.0128e+28 W at 3.0857e+18 m → m_bol = 5.*
 
 ```python
 astronomy_ai999x.solve('apparent_bolometric_magnitude', L=3.0128e+28, d=3.0856775814913674e+18)
@@ -713,7 +713,7 @@ $$
 
 ![Angular diameters from size and distance (inputs: Sun 1](https://www.ai999x.com/?ax_fig=astronomy-ai999x/angular-size-bars)
 
-*Angular diameters from size and distance (inputs: Sun 1.3927e9 m at 1 au, Moon 3.4748e6 m at 3.844e8 m, Andromeda galaxy 46.56 kpc at 765 kpc, Venus 1.2104e7 m at 0.277 au, Jupiter 1.3982e8 m at 4.2 au, Betelgeuse 764 R☉ radius at 168 pc), in arcseconds on a logarithmic axis. Marked: Sun 1920.23″, Moon 1864.53″, Andromeda 12550″, Venus 60.2489″, Jupiter 45.9007″, Betelgeuse 0.0422971″.*
+*Angular diameters from size and distance (inputs: Sun 1.3927e9 m at 1 au, Moon 3.4748e6 m at 3.844e8 m, Andromeda galaxy 46.56 kpc at 765 kpc, Venus 1.2104e7 m at 0.277 au, Jupiter 1.3982e8 m at 4.2 au, Betelgeuse 764 R☉ radius at 168 pc; the worked example 2 m at 1 m), in arcseconds on a logarithmic axis. Marked: Sun 1920.23″, Moon 1864.53″, Andromeda 12550″, Venus 60.2489″, Jupiter 45.9007″, Betelgeuse 0.0422971″, example 324000″.*
 
 ```python
 astronomy_ai999x.solve('angular_size', D=2.0, d=1.0)
@@ -759,9 +759,9 @@ $$
 - **Assumes:** $0 < \theta < 180$ degrees; $d > 0$
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![What one arcsecond spans at six distances (inputs: Moon 3](https://www.ai999x.com/?ax_fig=astronomy-ai999x/linear-size-from-angle-bars)
+![What an angle of 90 ° (the worked example's) spans at six distances (inputs: Moon 3](https://www.ai999x.com/?ax_fig=astronomy-ai999x/linear-size-from-angle-bars)
 
-*What one arcsecond spans at six distances (inputs: Moon 3.844e8 m, Sun 1 au, Proxima Centauri 1.302 pc, galactic centre 8.18 kpc, Andromeda 765 kpc, 1650 Mpc as a stand-in for a distant galaxy, Euclidean): the linear size the package returned, from under two kilometres on the Moon to thousands of light-years. Marked: Moon 1.86362 km, Sun 725.271 km, Proxima 1.9478e+08 km, Gal. centre 1.2237e+12 km, Andromeda 1.1444e+14 km, z ≈ 1 galaxy 2.4684e+17 km.*
+*What an angle of 90 ° (the worked example's) spans at six distances (inputs: Moon 3.844e8 m, Sun 1 au, Proxima Centauri 1.302 pc, galactic centre 8.18 kpc, Andromeda 765 kpc, 1650 Mpc as a stand-in for a distant galaxy, Euclidean) and at the worked example's own distance, 1 m: the linear size the package returned. Marked: Moon 768800 km, Sun 2.9920e+08 km, Proxima 8.0351e+13 km, Gal. centre 5.0482e+17 km, Andromeda 4.7211e+19 km, z ≈ 1 galaxy 1.0183e+23 km, example 0.002 km.*
 
 ```python
 astronomy_ai999x.solve('linear_size_from_angle', theta=1.5707963267948966, d=1.0)
@@ -808,7 +808,7 @@ $$
 
 ![Lines of equal radius on the Hertzsprung–Russell plane: the luminosity returned for radii 0](https://www.ai999x.com/?ax_fig=astronomy-ai999x/stellar-luminosity-hr)
 
-*Lines of equal radius on the Hertzsprung–Russell plane: the luminosity returned for radii 0.001 to 1000 R☉ (inputs, R☉ = 6.957e8 m) at 40 temperatures from 2300 to 50 000 K each (temperature decreasing to the right; L = 4πR²σT⁴). White dwarfs sit near 0.01 R☉, supergiants near 1000 R☉. Marked: R = 1 R☉ at T = 5772 K gives L = 0.999998 L☉ (3.828e26 W).*
+*Lines of equal radius on the Hertzsprung–Russell plane: the luminosity returned for radii 0.001 to 1000 R☉ (inputs, R☉ = 6.957e8 m) at 40 temperatures from 2300 to 50 000 K each (temperature decreasing to the right; L = 4πR²σT⁴). White dwarfs sit near 0.01 R☉, supergiants near 1000 R☉. Marked: R = 1 R☉ at T = 5772 K gives L = 0.999998 L☉ (3.828e26 W); the worked example, R = 1 m at T = 100 K, gives L = 1.8614e-25 L☉ (71.26 W).*
 
 ```python
 astronomy_ai999x.solve('stellar_luminosity', R=1.0, T=100.0)
@@ -855,7 +855,7 @@ $$
 
 ![Radii returned from luminosity and effective temperature (inputs: Sun 1 L☉, 5772 K, Sirius B 0](https://www.ai999x.com/?ax_fig=astronomy-ai999x/stellar-radius-bars)
 
-*Radii returned from luminosity and effective temperature (inputs: Sun 1 L☉, 5772 K, Sirius B 0.056 L☉, 25200 K, Proxima 0.00155 L☉, 3042 K, Vega 40.1 L☉, 9602 K, Arcturus 170 L☉, 4286 K, Rigel 120000 L☉, 12100 K, Betelgeuse 126000 L☉, 3600 K; L☉ = 3.828e26 W), in solar radii on a logarithmic axis: from an Earth-sized white dwarf to a supergiant that would swallow the orbit of Mars. Marked: Sun 1 R☉, Sirius B 0.012415 R☉, Proxima 0.141743 R☉, Vega 2.28824 R☉, Arcturus 23.6468 R☉, Rigel 78.8266 R☉, Betelgeuse 912.501 R☉.*
+*Radii returned from luminosity and effective temperature (inputs: Sun 1 L☉, 5772 K, Sirius B 0.056 L☉, 25200 K, Proxima 0.00155 L☉, 3042 K, Vega 40.1 L☉, 9602 K, Arcturus 170 L☉, 4286 K, Rigel 120000 L☉, 12100 K, Betelgeuse 126000 L☉, 3600 K; the worked example 71.256 W, 100 K; L☉ = 3.828e26 W), in solar radii on a logarithmic axis: from an Earth-sized white dwarf to a supergiant that would swallow the orbit of Mars. Marked: Sun 1 R☉, Sirius B 0.012415 R☉, Proxima 0.141743 R☉, Vega 2.28824 R☉, Arcturus 23.6468 R☉, Rigel 78.8266 R☉, Betelgeuse 912.501 R☉, example 1.4374e-09 R☉.*
 
 ```python
 astronomy_ai999x.solve('stellar_radius', L=71.25602647365321, T=100.0)
@@ -900,7 +900,7 @@ $$
 
 ![A Hertzsprung–Russell diagram (temperature decreasing to the right): nine stars placed at the effective temperature the package returned from their luminosity and radius (inputs, in units of L☉ = 3](https://www.ai999x.com/?ax_fig=astronomy-ai999x/effective-temperature-hr)
 
-*A Hertzsprung–Russell diagram (temperature decreasing to the right): nine stars placed at the effective temperature the package returned from their luminosity and radius (inputs, in units of L☉ = 3.828e26 W and R☉ = 6.957e8 m: Sun 1 L☉, 1 R☉, Sirius A 25.4 L☉, 1.711 R☉, Sirius B 0.056 L☉, 0.0084 R☉, Vega 40.1 L☉, 2.36 R☉, Proxima 0.00155 L☉, 0.154 R☉, Betelgeuse 126000 L☉, 764 R☉, Rigel 120000 L☉, 78.9 R☉, Aldebaran 439 L☉, 45.1 R☉, Spica 20500 L☉, 7.47 R☉). Dashed: lines of equal radius 0.01, 1 and 100 R☉ (luminosities computed over temperature). Marked: Sun 5772 K, Sirius A 9906.27 K, Sirius B 30636.1 K, Vega 9454.89 K, Proxima 2918.43 K, Betelgeuse 3934.35 K, Rigel 12094.4 K, Aldebaran 3934.18 K, Spica 25270 K.*
+*A Hertzsprung–Russell diagram (temperature decreasing to the right): nine stars placed at the effective temperature the package returned from their luminosity and radius (inputs, in units of L☉ = 3.828e26 W and R☉ = 6.957e8 m: Sun 1 L☉, 1 R☉, Sirius A 25.4 L☉, 1.711 R☉, Sirius B 0.056 L☉, 0.0084 R☉, Vega 40.1 L☉, 2.36 R☉, Proxima 0.00155 L☉, 0.154 R☉, Betelgeuse 126000 L☉, 764 R☉, Rigel 120000 L☉, 78.9 R☉, Aldebaran 439 L☉, 45.1 R☉, Spica 20500 L☉, 7.47 R☉). Dashed: lines of equal radius 0.01, 1 and 100 R☉ (luminosities computed over temperature). Marked: Sun 5772 K, Sirius A 9906.27 K, Sirius B 30636.1 K, Vega 9454.89 K, Proxima 2918.43 K, Betelgeuse 3934.35 K, Rigel 12094.4 K, Aldebaran 3934.18 K, Spica 25270 K, the worked example (1.8614e-25 L☉, 1.4374e-09 R☉) 100 K.*
 
 ```python
 astronomy_ai999x.solve('effective_temperature', L=71.25602647365321, R=1.0)
@@ -952,7 +952,7 @@ $$
 
 ![Equilibrium temperature against orbital distance (61 distances from 0](https://www.ai999x.com/?ax_fig=astronomy-ai999x/planet-equilibrium-temperature-curve)
 
-*Equilibrium temperature against orbital distance (61 distances from 0.005 to 50 au, Bond albedo 0.3) around the Sun and around the cool dwarf TRAPPIST-1 (inputs in the legend). Marked: Earth at 1 au (254.586 K) and TRAPPIST-1e at 0.02925 au (228.476 K) — temperate planets of a small star orbit forty times closer.*
+*Equilibrium temperature against orbital distance (61 distances from 0.005 to 50 au, Bond albedo 0.3) around the Sun and around the cool dwarf TRAPPIST-1 (inputs in the legend). Dots: Earth at 1 au (254.586 K) and TRAPPIST-1e at 0.02925 au (228.476 K) — temperate planets of a small star orbit forty times closer. Dashed and marked: the worked example, a 1000 K star of radius 2 m with a planet at 4 m (albedo 0): T_eq = 500 K.*
 
 ```python
 astronomy_ai999x.solve('planet_equilibrium_temperature', T_star=1000.0, R_star=2.0, a=4.0)
@@ -1000,7 +1000,7 @@ $$
 
 ![Ionized fraction of hydrogen in thermal equilibrium against temperature, 89 temperatures from 3000 to 25 000 K for four densities of hydrogen nuclei (inputs): denser gas needs a higher temperature to ionize](https://www.ai999x.com/?ax_fig=astronomy-ai999x/saha-hydrogen-ionization-curve)
 
-*Ionized fraction of hydrogen in thermal equilibrium against temperature, 89 temperatures from 3000 to 25 000 K for four densities of hydrogen nuclei (inputs): denser gas needs a higher temperature to ionize. Dots: the computed point closest to half ionization on each curve. At 10 000 K and 1e23 m⁻³ the package gives x = 0.0565124 (electron density 5.651e21 m⁻³).*
+*Ionized fraction of hydrogen in thermal equilibrium against temperature, 89 temperatures from 3000 to 25 000 K for four densities of hydrogen nuclei (inputs): denser gas needs a higher temperature to ionize. Dots: the computed point closest to half ionization on each curve. At the worked example, 10000 K and 6.7699e+20 m⁻³ (dashed), the package gives x = 0.5 (electron density 3.385e20 m⁻³).*
 
 ![x (ionized fraction n_II / n) against T (temperature) from 5000 K to 15000 K](https://www.ai999x.com/?ax_fig=astronomy-ai999x/saha-hydrogen-ionization-curve-2)
 
@@ -1050,7 +1050,7 @@ $$
 
 ![Schwarzschild radius against mass, 43 masses from 1e20 to 1e41 kg (r_s = 2GM/c², a straight line)](https://www.ai999x.com/?ax_fig=astronomy-ai999x/schwarzschild-radius-curve)
 
-*Schwarzschild radius against mass, 43 masses from 1e20 to 1e41 kg (r_s = 2GM/c², a straight line). Marked, masses as inputs: Earth (5.9722e24 kg), the Sun (1.98847e30 kg), the Milky Way's central black hole Sgr A* (4.3e6 M☉) and M87* (6.5e9 M☉), with the radii returned.*
+*Schwarzschild radius against mass, 43 masses from 1e20 to 1e41 kg (r_s = 2GM/c², a straight line). Marked, masses as inputs: Earth (5.9722e24 kg), the Sun (1.98847e30 kg), the Milky Way's central black hole Sgr A* (4.3e6 M☉) and M87* (6.5e9 M☉), with the radii returned; and the worked example, 1.9884e+30 kg → 2953.25 m.*
 
 ```python
 astronomy_ai999x.solve('schwarzschild_radius', M=1.988409870698051e+30)
@@ -1098,7 +1098,7 @@ $$
 
 ![Atmospheric scale heights — the height over which pressure falls by a factor e — from temperature, mean molar mass and surface gravity (inputs: Venus 737 K, 43](https://www.ai999x.com/?ax_fig=astronomy-ai999x/atmospheric-scale-height-bars)
 
-*Atmospheric scale heights — the height over which pressure falls by a factor e — from temperature, mean molar mass and surface gravity (inputs: Venus 737 K, 43.45 g/mol, 8.87 m/s²; Earth 288 K, 28.97 g/mol, 9.81 m/s²; Mars 210 K, 43.34 g/mol, 3.71 m/s²; Jupiter 165 K, 2.22 g/mol, 24.79 m/s²; Titan 94 K, 28 g/mol, 1.352 m/s²). Marked: Venus 15.8997 km, Earth 8.42576 km, Mars 10.859 km, Jupiter 24.9281 km, Titan 20.6456 km. Titan's cold, low-gravity air is the most extended.*
+*Atmospheric scale heights — the height over which pressure falls by a factor e — from temperature, mean molar mass and surface gravity (inputs: Venus 737 K, 43.45 g/mol, 8.87 m/s²; Earth 288 K, 28.97 g/mol, 9.81 m/s²; Mars 210 K, 43.34 g/mol, 3.71 m/s²; Jupiter 165 K, 2.22 g/mol, 24.79 m/s²; Titan 94 K, 28 g/mol, 1.352 m/s²; example 300 K, 254.524 g/mol, 9.8 m/s²). Marked: Venus 15.8997 km, Earth 8.42576 km, Mars 10.859 km, Jupiter 24.9281 km, Titan 20.6456 km, example 1 km. Titan's cold, low-gravity air is the most extended.*
 
 ```python
 astronomy_ai999x.solve('atmospheric_scale_height', T=300.0, mu=0.25452436586183386, g=9.8)
@@ -1143,7 +1143,7 @@ $$
 
 ![Gravitational free-fall time against mean density from 1e-21 to 1e18 kg/m³ (60 runs; t ∝ ρ^−½)](https://www.ai999x.com/?ax_fig=astronomy-ai999x/free-fall-time-curve)
 
-*Gravitational free-fall time against mean density from 1e-21 to 1e18 kg/m³ (60 runs; t ∝ ρ^−½). Marked, densities as inputs: a molecular cloud (4.7e-19 kg/m³, about 100 H₂ per cm³), a dense core (4.7e-17), the Sun (1408), a white dwarf (1e9) and a neutron star (4e17): from millions of years to a fraction of a millisecond.*
+*Gravitational free-fall time against mean density from 1e-21 to 1e18 kg/m³ (60 runs; t ∝ ρ^−½). Marked, densities as inputs: a molecular cloud (4.7e-19 kg/m³, about 100 H₂ per cm³), a dense core (4.7e-17), the Sun (1408), a white dwarf (1e9) and a neutron star (4e17): from millions of years to a fraction of a millisecond; and the worked example, 4.4128e+09 kg/m³ → 1 s.*
 
 ```python
 astronomy_ai999x.solve('free_fall_time', rho=4412811999.3713665)
@@ -1191,9 +1191,9 @@ $$
 - **Assumes:** P, a1, $a_{2} > 0$; true (de-projected) semi-major axes
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The Sirius binary drawn to scale about its centre of mass, taking circular orbits: period 50](https://www.ai999x.com/?ax_fig=astronomy-ai999x/binary-star-masses-orbit)
+![A binary star drawn to scale about its centre of mass, taking circular orbits: period 6](https://www.ai999x.com/?ax_fig=astronomy-ai999x/binary-star-masses-orbit)
 
-*The Sirius binary drawn to scale about its centre of mass, taking circular orbits: period 50.13 yr, orbit radii 6.56 au (Sirius A) and 13.24 au (Sirius B) (inputs). The package returned a total mass of 3.08899 M☉ for a separation a = 19.8 au, split inversely to the orbit radii: M_A = 2.06557 M☉, M_B = 1.02342 M☉ — the heavier star moves on the smaller circle.*
+*A binary star drawn to scale about its centre of mass, taking circular orbits: period 6.28319 s, orbit radii 0.25 m (star 1) and 0.75 m (star 2) (the worked example). The package returned a total mass of 7.5351e-21 M☉ for a separation a = 6.6846e-12 au, split inversely to the orbit radii: M₁ = 5.6513e-21 M☉, M₂ = 1.8838e-21 M☉ — the heavier star moves on the smaller circle.*
 
 ```python
 astronomy_ai999x.solve('binary_star_masses', P=6.283185307179586, a1=0.25, a2=0.75)
@@ -1246,9 +1246,9 @@ $$
 
 *The Hohmann transfer from a circular orbit of r₁ = 1 au to one of r₂ = 1.52368 au around the Sun, computed by the package: transfer ellipse a = 1.26184 au, e = 0.207506 (drawn from 91 positions it solved over the 258.862-day half orbit), burns Δv₁ = 2.94473 km/s and Δv₂ = 2.64894 km/s, total 5.59367 km/s.*
 
-![Hohmann transfers around the Sun from the Earth's 1 au orbit to circular orbits of 1 to 60 au (61 runs): the two burns and their total](https://www.ai999x.com/?ax_fig=astronomy-ai999x/hohmann-transfer-curve)
+![Hohmann transfers round a mass M = 1](https://www.ai999x.com/?ax_fig=astronomy-ai999x/hohmann-transfer-curve)
 
-*Hohmann transfers around the Sun from the Earth's 1 au orbit to circular orbits of 1 to 60 au (61 runs): the two burns and their total. The total peaks for a final radius near 15.6 times the first (marked: the largest of the computed points) and then falls toward the escape cost. Marked also: Mars (1.524 au) and Jupiter (5.203 au) with their total Δv and transfer times.*
+*Hohmann transfers round a mass M = 1.4983e+10 kg from a circular orbit of r₁ = 1 m (the worked example's system) to circular orbits of 1.02 to 60 times that radius (61 runs): the two burns and their total. The total peaks for a final radius near 15.6 times the first (dotted: the largest of the computed points) and then falls toward the escape cost. Marked: the worked example, to r₂ = 3 m: Δv = 0.393847 m/s.*
 
 ```python
 astronomy_ai999x.solve('hohmann_transfer', r1=1.0, r2=3.0, M=14982844642.8839)
@@ -1296,9 +1296,9 @@ $$
 - **Assumes:** $0 < rp < ra$; $M > 0$; two-body orbit, the orbiting mass negligible
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![An orbit around the Sun (M = 1](https://www.ai999x.com/?ax_fig=astronomy-ai999x/apsis-speeds-orbit)
+![An orbit around a mass M = 1](https://www.ai999x.com/?ax_fig=astronomy-ai999x/apsis-speeds-orbit)
 
-*An orbit around the Sun (M = 1.98847e30 kg) from perihelion 0.5 au to aphelion 2.5 au (inputs), drawn to scale with the Earth's 1 au orbit dashed for reference; velocity arrows to a common scale. The package returned v_p = 54.38 km/s, v_a = 10.876 km/s (ratio 5 = r_a/r_p, derived), a = 1.5 au, e = 0.666667, P = 1.83712 yr.*
+*An orbit around a mass M = 1.4983e+10 kg from periapsis 1 m to apoapsis 3 m (the worked example), drawn to scale; velocity arrows to a common scale. The package returned v_p = 0.00122474 km/s, v_a = 0.000408248 km/s (ratio 3 = r_a/r_p, derived), a = 2 m, e = 0.5, P = 17.7715 s.*
 
 ```python
 astronomy_ai999x.solve('apsis_speeds', rp=1.0, ra=3.0, M=14982844642.8839)
@@ -1344,9 +1344,9 @@ $$
 - **Assumes:** M, $r > 0$; v_inf >= 0; a single impulsive burn
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The burn needed to leave a circular orbit 400 km above the Earth (r = 6](https://www.ai999x.com/?ax_fig=astronomy-ai999x/escape-delta-v-curve)
+![The burn needed to leave a circular orbit at r = 1 m round a mass M = 1](https://www.ai999x.com/?ax_fig=astronomy-ai999x/escape-delta-v-curve)
 
-*The burn needed to leave a circular orbit 400 km above the Earth (r = 6.771e6 m, M = 5.9722e24 kg) with a given excess speed far away (49 runs from 0 to 12 km/s). Marked: plain escape (v∞ = 0) Δv = 3.1781 km/s from v_c = 7.67262 km/s, and the excess speeds of Hohmann departures to Mars (2.945 km/s) and Jupiter (8.79 km/s) as inputs — the Oberth effect makes Δv grow far slower than v∞.*
+*The burn needed to leave a circular orbit at r = 1 m round a mass M = 1.4983e+10 kg (the worked example) with a given excess speed far away (49 runs from 0 to 0.003 km/s). Plain escape (v∞ = 0) takes Δv = 0.000414214 km/s from v_c = 0.001 km/s — the Oberth effect makes Δv grow far slower than v∞. Marked: the worked example, v∞ = 0 m/s → Δv = 0.414214 m/s.*
 
 ```python
 astronomy_ai999x.solve('escape_delta_v', M=14982844642.8839, r=1.0)
@@ -1390,9 +1390,9 @@ $$
 - **Assumes:** v1, $v_{2} > 0$; $0  \leq  di  \leq  180$ degrees; an impulsive burn
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The burn that turns an orbit's plane without changing its speed, against the turning angle (61 angles from 0 to 60°) at three orbital speeds (inputs)](https://www.ai999x.com/?ax_fig=astronomy-ai999x/plane-change-delta-v-curve)
+![The burn that turns an orbit's plane, against the turning angle (61 angles from 0 to 72°) for the worked example's speeds v₁ = 1 m/s and v₂ = 1 m/s](https://www.ai999x.com/?ax_fig=astronomy-ai999x/plane-change-delta-v-curve)
 
-*The burn that turns an orbit's plane without changing its speed, against the turning angle (61 angles from 0 to 60°) at three orbital speeds (inputs). Marked: removing the 28.5° inclination of a launch from Florida costs 3.77599 km/s in low orbit but 1.51384 km/s at geostationary speed — why the plane is changed high and slow.*
+*The burn that turns an orbit's plane, against the turning angle (61 angles from 0 to 72°) for the worked example's speeds v₁ = 1 m/s and v₂ = 1 m/s. Marked: the worked example, Δi = 60° → Δv = 1 m/s.*
 
 ```python
 astronomy_ai999x.solve('plane_change_delta_v', v1=1.0, v2=1.0, di=1.0471975511965976)
@@ -1443,9 +1443,9 @@ $$
 - **Assumes:** $v^{2} < 2$ G M / r (bound orbit); |gamma| < 90 degrees; two-body motion
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Four orbits launched from the same point 1 au from the Sun, horizontally (flight-path angle 0), at 0](https://www.ai999x.com/?ax_fig=astronomy-ai999x/orbit-from-state-orbit)
+![Orbits launched from the same point r = 1 m from a mass M = 1](https://www.ai999x.com/?ax_fig=astronomy-ai999x/orbit-from-state-orbit)
 
-*Four orbits launched from the same point 1 au from the Sun, horizontally (flight-path angle 0), at 0.8, 1, 1.2 and 1.3 times the circular speed v_c = 29.79 km/s (returned by the package's escape calculation; speeds as inputs). Each ellipse is drawn from the periapsis and apoapsis the package returned: 0.8 v_c → a = 0.735294 au, e = 0.36, r_p = 0.470588 au, r_a = 1 au, P = 0.630512 yr; 1 v_c → a = 1 au, e = 1.4118e-12, r_p = 1 au, r_a = 1 au, P = 1 yr; 1.2 v_c → a = 1.78571 au, e = 0.44, r_p = 1 au, r_a = 2.57143 au, P = 2.38627 yr; 1.3 v_c → a = 3.22581 au, e = 0.69, r_p = 1 au, r_a = 5.45161 au, P = 5.79374 yr.*
+*Orbits launched from the same point r = 1 m from a mass M = 1.4983e+10 kg (the worked example), horizontally (flight-path angle 0), at 0.8, 1, 1.2 and 1.3 times the circular speed v_c = 1 m/s (returned by the package's escape calculation); drawn with r as the unit. Each ellipse is drawn from the periapsis and apoapsis the package returned: 0.8 v_c → a = 0.735294 m, e = 0.36, r_p = 0.470588 m, r_a = 1 m, P = 3.96161 s; 1 v_c → a = 1 m, e = 0, r_p = 1 m, r_a = 1 m, P = 6.28319 s; 1.2 v_c → a = 1.78571 m, e = 0.44, r_p = 1 m, r_a = 2.57143 m, P = 14.9933 s; 1.3 v_c → e = 0.69 (not a closed orbit that fits the drawing).*
 
 ```python
 astronomy_ai999x.solve('orbit_from_state', M=14982844642.8839, r=1.0, v=1.0)
@@ -1499,9 +1499,9 @@ $$
 
 *An orbit with a = 1.5 au and e = 0.6 around one solar mass: 181 positions (true anomaly and distance) solved by the package from Kepler's equation over one period P = 671.01 days, and 16 positions at equal time steps — equal areas swept, bunched near aphelion; marked: perihelion r = 0.6 au, speed 48.6389 km/s (aphelion 12.1597 km/s).*
 
-![True anomaly against time for orbits of a = 1 au around the Sun with eccentricity 0, 0](https://www.ai999x.com/?ax_fig=astronomy-ai999x/kepler-position-at-time-curve)
+![True anomaly against time for orbits of a = 1 m around a mass M = 1](https://www.ai999x.com/?ax_fig=astronomy-ai999x/kepler-position-at-time-curve)
 
-*True anomaly against time for orbits of a = 1 au around the Sun with eccentricity 0, 0.3, 0.6 and 0.9 (inputs), 121 times over one period each, every point a solution of Kepler's equation by the package (P = 365.251 days). An eccentric orbit races through perihelion and creeps near aphelion. Marked: e = 0.9 after a tenth of the period, ν = 153.054° (r = 0.961022 au).*
+*True anomaly against time for orbits of a = 1 m around a mass M = 1.4983e+10 kg with eccentricity 0, 0.3, 0.6, 0.9, 121 times over one period each, every point a solution of Kepler's equation by the package (P = 6.28319 s). An eccentric orbit races through perihelion and creeps near aphelion. Marked: the worked example, e = 0 at t = 1.5708 s (0.25 of the period), ν = 90° (r = 1 m).*
 
 ```python
 astronomy_ai999x.solve('kepler_position_at_time', M=14982844642.8839, a=1.0, e=0.0, t=1.5707963267948966)
@@ -1549,9 +1549,9 @@ $$
 - **Assumes:** $0  \leq  e < 0.99$; $nu1  \neq  nu2$; motion in the forward (prograde) direction
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Equal 90° sweeps of true anomaly on an orbit with a = 1 au and e = 0](https://www.ai999x.com/?ax_fig=astronomy-ai999x/time-of-flight-orbit)
+![Equal 90° sweeps of true anomaly on an orbit with a = 1 m and e = 0 around a mass M = 1](https://www.ai999x.com/?ax_fig=astronomy-ai999x/time-of-flight-orbit)
 
-*Equal 90° sweeps of true anomaly on an orbit with a = 1 au and e = 0.6 around the Sun (inputs): from −45° to 45° about perihelion the package returned 19.7802 days, from 135° to 225° about aphelion 229.41 days, of a period of 365.251 days — the two shaded areas take times in proportion to their areas (Kepler's second law).*
+*Equal 90° sweeps of true anomaly on an orbit with a = 1 m and e = 0 around a mass M = 1.4983e+10 kg: from −45° to 45° about periapsis the package returned 1.5708 s, from 135° to 225° about apoapsis 1.5708 s, of a period of 6.28319 s — the two shaded areas take times in proportion to their areas (Kepler's second law). The worked example, e = 0 from ν = 0° to 180°, takes 3.14159 s.*
 
 ```python
 astronomy_ai999x.solve('time_of_flight', M=14982844642.8839, a=1.0, e=0.0, nu1=0.0, nu2=3.141592653589793)
@@ -1606,7 +1606,7 @@ $$
 
 ![The radial-velocity wobble of a one-solar-mass star caused by a planet on a circular, edge-on orbit, against orbital period (41 periods from 1 to 10 000 days) for Jupiter, Neptune and Earth masses (inputs)](https://www.ai999x.com/?ax_fig=astronomy-ai999x/radial-velocity-semi-amplitude-curve)
 
-*The radial-velocity wobble of a one-solar-mass star caused by a planet on a circular, edge-on orbit, against orbital period (41 periods from 1 to 10 000 days) for Jupiter, Neptune and Earth masses (inputs). Marked: Jupiter (4332.6 d) and Earth (365.25 d) tugging on the Sun, and the hot Jupiter 51 Pegasi b (0.46 Jupiter masses, 4.23 d).*
+*The radial-velocity wobble of a one-solar-mass star caused by a planet on a circular, edge-on orbit, against orbital period (41 periods from 1 to 10 000 days) for Jupiter, Neptune and Earth masses (inputs). Dots: Jupiter (4332.6 d) and Earth (365.25 d) tugging on the Sun, and the hot Jupiter 51 Pegasi b (0.46 Jupiter masses, 4.23 d). Marked: the worked example, a 1.4983e+07 kg planet round a 1.4968e+10 kg star every 6.28319 s → K = 0.001 m/s.*
 
 ```python
 astronomy_ai999x.solve('radial_velocity_semi_amplitude', M_star=14967861798.241016, m_p=14982844.6428839, P=6.283185307179586)
@@ -1655,7 +1655,7 @@ $$
 
 ![Planets crossing a Sun-sized star (R = 6](https://www.ai999x.com/?ax_fig=astronomy-ai999x/transit-depth-sketch)
 
-*Planets crossing a Sun-sized star (R = 6.957e8 m), drawn to scale: Earth (6.371e6 m), Neptune (2.4622e7 m) and Jupiter (7.1492e7 m) through the centre, and Jupiter on a chord with impact parameter 0.95 (inputs; dashed: the path). Marked: the fractional dimming the package returned — Earth 83.8632 ppm, Neptune 1252.57 ppm, Jupiter 10560.2 ppm, Jupiter, b = 0.95 8337.24 ppm; the last transit grazes the limb, so less light is blocked.*
+*Planets crossing a Sun-sized star (R = 6.957e8 m), drawn to scale: Earth (6.371e6 m), Neptune (2.4622e7 m) and Jupiter (7.1492e7 m) through the centre, and Jupiter on a chord with impact parameter 0.95 (inputs; dashed: the path); last, the worked example, a planet of 1 m across a star of 10 m at b = 0, drawn with its star at the same size. Marked: the fractional dimming the package returned — Earth 83.8632 ppm, Neptune 1252.57 ppm, Jupiter 10560.2 ppm, Jupiter, b = 0.95 8337.24 ppm, example 10000 ppm; a transit that grazes the limb blocks less light.*
 
 ```python
 astronomy_ai999x.solve('transit_depth', Rp=1.0, Rs=10.0)
@@ -1710,9 +1710,9 @@ $$
 - **Assumes:** circular orbit; $Rp < Rs$; $a > Rs + Rp$; $0 < i  \leq  90$ degrees; $b < 1 + Rp/Rs$ (the planet transits)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Transit durations of a hot Jupiter (P = 3](https://www.ai999x.com/?ax_fig=astronomy-ai999x/transit-duration-curve)
+![Transit durations for the worked example's system (P = 6](https://www.ai999x.com/?ax_fig=astronomy-ai999x/transit-duration-curve)
 
-*Transit durations of a hot Jupiter (P = 3.5 days, a = 0.045 au, Jupiter radius 7.1492e7 m across a Sun-sized star of 6.957e8 m; inputs) for inclinations from 90° down to 83° (61 runs), plotted against the impact parameter b the package returned: off-centre chords are shorter, and the flat full-transit part vanishes when the planet grazes the limb. Marked: a central transit lasts 3.0538 h.*
+*Transit durations for the worked example's system (P = 6.28319 s, a = 2 m, a planet of 0.1 m across a star of 0.9 m) for inclinations from 90° down to the grazing limit 60° (61 runs), plotted against the impact parameter b the package returned: off-centre chords are shorter, and the flat full-transit part vanishes when the planet grazes the limb. A central transit lasts 1.0472 s; marked: the worked example's inclination, 90°, b = 0, T14 = 1.0472 s.*
 
 ```python
 astronomy_ai999x.solve('transit_duration', P=6.283185307179586, a=2.0, Rs=0.9, Rp=0.1, i=1.5707963267948966)
@@ -1762,7 +1762,7 @@ $$
 
 ![A Hubble diagram: distance modulus against redshift (51 redshifts from 0](https://www.ai999x.com/?ax_fig=astronomy-ai999x/cosmological-distances-hubble)
 
-*A Hubble diagram: distance modulus against redshift (51 redshifts from 0.01 to 3, H₀ = 70 km/s/Mpc) for a universe with dark energy (Ωm = 0.3) and one without (Ωm = 1). Distant supernovae look fainter than the second curve allows. Marked at z = 0.5: μ = 42.2612 against 41.8624 — a difference of 0.398745 mag (difference of the returned values).*
+*A Hubble diagram: distance modulus against redshift (51 redshifts from 0.01 to 3, H₀ = 70 km/s/Mpc) for a universe with dark energy (Ωm = 0.3) and one without (Ωm = 1). Distant supernovae look fainter than the second curve allows. Dots at z = 0.5: μ = 42.2612 against 41.8624 — a difference of 0.398745 mag (difference of the returned values). Marked: the worked example, z = 3 (H₀ = 70, Ωm = 1) → μ = 46.1689.*
 
 ```python
 astronomy_ai999x.solve('cosmological_distances', z=3.0, H0=70.0, Om=1.0)
@@ -1811,7 +1811,7 @@ $$
 
 ![The angular size of a galaxy 30 kpc across (input) against redshift (61 redshifts, H₀ = 70 km/s/Mpc): it shrinks, reaches a minimum and then grows again, because the light left when the universe was small](https://www.ai999x.com/?ax_fig=astronomy-ai999x/angular-size-at-redshift-curve)
 
-*The angular size of a galaxy 30 kpc across (input) against redshift (61 redshifts, H₀ = 70 km/s/Mpc): it shrinks, reaches a minimum and then grows again, because the light left when the universe was small. Marked: the smallest computed size on each curve — Ωm = 0.3: 3.54198″ at z ≈ 1.54992; Ωm = 1: 4.87645″ at z ≈ 1.25992.*
+*The angular size of a galaxy 30 kpc across (input) against redshift (61 redshifts, H₀ = 70 km/s/Mpc): it shrinks, reaches a minimum and then grows again, because the light left when the universe was small. Dots: the smallest computed size on each curve — Ωm = 0.3: 3.54198″ at z ≈ 1.54992; Ωm = 1: 4.87645″ at z ≈ 1.25992. Marked: the worked example, an object 1.6017e+20 m across at z = 3 → 1″.*
 
 ```python
 astronomy_ai999x.solve('angular_size_at_redshift', z=3.0, H0=70.0, Om=1.0, D=1.6017254774542562e+20)
@@ -1830,7 +1830,7 @@ astronomy_ai999x.solve('angular_size_at_redshift', z=3.0, H0=70.0, Om=1.0, D=1.6
 
 ### Lookback time to a redshift — `lookback_time`
 
-How long ago the light we receive from redshift z was emitted, in a flat Lambda-CDM universe.
+How long ago the light received from redshift z was emitted, in a flat Lambda-CDM universe.
 
 $$
 t_L = \frac{1}{H_0}\int_0^z \frac{dz'}{(1+z')\sqrt{\Omega_m(1+z')^3 + \Omega_\Lambda}}
@@ -1853,7 +1853,7 @@ $$
 
 ![How long ago light from redshift z set out, for a flat universe with H₀ = 70 km/s/Mpc and Ωm = 0](https://www.ai999x.com/?ax_fig=astronomy-ai999x/lookback-time-curve)
 
-*How long ago light from redshift z set out, for a flat universe with H₀ = 70 km/s/Mpc and Ωm = 0.3 (inputs): 61 redshifts from 0.01 to 20. The curve approaches the age of the universe (dashed, from the package's age at z = 0) but never reaches it. Marked: z = 0.1: 1.3013 Gyr, z = 1: 7.71534 Gyr, z = 3: 11.3545 Gyr.*
+*How long ago light from redshift z set out, for a flat universe with H₀ = 70 km/s/Mpc and Ωm = 0.3 (inputs): 61 redshifts from 0.01 to 20. The curve approaches the age of the universe (dashed, from the package's age at z = 0) but never reaches it. Dots: z = 0.1: 1.3013 Gyr, z = 1: 7.71534 Gyr, z = 3: 11.3545 Gyr. Marked: the worked example, z = 3 (H₀ = 70, Ωm = 1) → 8.14827 Gyr.*
 
 ```python
 astronomy_ai999x.solve('lookback_time', z=3.0, H0=70.0, Om=1.0)
@@ -1896,7 +1896,7 @@ $$
 
 ![The age of the universe when light now seen at redshift z was emitted, for a flat universe with H₀ = 70 km/s/Mpc and Ωm = 0](https://www.ai999x.com/?ax_fig=astronomy-ai999x/age-at-redshift-curve)
 
-*The age of the universe when light now seen at redshift z was emitted, for a flat universe with H₀ = 70 km/s/Mpc and Ωm = 0.3 (inputs) and for a matter-only universe (Ωm = 1), 61 redshifts from 0.01 to 1100 each. Marked (Ωm = 0.3): z = 1: 5.75165 Gyr, z = 6: 0.916977 Gyr, z = 1100: 0.000465389 Gyr; today 13.467 Gyr.*
+*The age of the universe when light now seen at redshift z was emitted, for a flat universe with H₀ = 70 km/s/Mpc and Ωm = 0.3 (inputs) and for a matter-only universe (Ωm = 1), 61 redshifts from 0.01 to 1100 each. Dots (Ωm = 0.3): z = 1: 5.75165 Gyr, z = 6: 0.916977 Gyr, z = 1100: 0.000465389 Gyr; today 13.467 Gyr. Marked: the worked example, z = 3 (H₀ = 70, Ωm = 1) → 1.16404 Gyr.*
 
 ```python
 astronomy_ai999x.solve('age_at_redshift', z=3.0, H0=70.0, Om=1.0)
@@ -1938,7 +1938,7 @@ $$
 
 ![The redshift of light emitted a given time ago, 26 lookback times from 0](https://www.ai999x.com/?ax_fig=astronomy-ai999x/redshift-at-lookback-time-curve)
 
-*The redshift of light emitted a given time ago, 26 lookback times from 0.5 to 13 Gyr (inputs) for a flat universe with H₀ = 70 km/s/Mpc and Ωm = 0.3 (inputs); 1 Gyr = 3.15576e16 s. Marked: light from when the Sun formed (4.6 Gyr), 10 Gyr and 13 Gyr ago, with the redshifts returned — the last few hundred million years before the Big Bang stretch over an enormous range of redshift.*
+*The redshift of light emitted a given time ago, 26 lookback times from 0.5 to 13 Gyr (inputs) for a flat universe with H₀ = 70 km/s/Mpc and Ωm = 0.3 (inputs); 1 Gyr = 3.15576e16 s. Labelled: light from when the Sun formed (4.6 Gyr), 10 Gyr and 13 Gyr ago, with the redshifts returned — the last few hundred million years before the Big Bang stretch over an enormous range of redshift. Marked: the worked example, 8.14827 Gyr ago (H₀ = 70, Ωm = 1) → z = 3.*
 
 ```python
 astronomy_ai999x.solve('redshift_at_lookback_time', t=2.571397984576139e+17, H0=70.0, Om=1.0)
@@ -1980,7 +1980,7 @@ $$
 
 ![The comoving volume of the whole sky out to redshift z, for a flat universe with H₀ = 70 km/s/Mpc and Ωm = 0](https://www.ai999x.com/?ax_fig=astronomy-ai999x/comoving-volume-curve)
 
-*The comoving volume of the whole sky out to redshift z, for a flat universe with H₀ = 70 km/s/Mpc and Ωm = 0.3 (inputs) and for a matter-only universe, 51 redshifts from 0.01 to 10: nearby it grows as z³, then slows. Marked (Ωm = 0.3): z = 0.1: 0.306926 Gpc³, z = 1: 151.057 Gpc³, z = 3: 1075.41 Gpc³.*
+*The comoving volume of the whole sky out to redshift z, for a flat universe with H₀ = 70 km/s/Mpc and Ωm = 0.3 (inputs) and for a matter-only universe, 51 redshifts from 0.01 to 10: nearby it grows as z³, then slows. Dots (Ωm = 0.3): z = 0.1: 0.306926 Gpc³, z = 1: 151.057 Gpc³, z = 3: 1075.41 Gpc³. Marked: the worked example, z = 3 (H₀ = 70, Ωm = 1) → 329.046 Gpc³.*
 
 ```python
 astronomy_ai999x.solve('comoving_volume', z=3.0, H0=70.0, Om=1.0)
@@ -2021,7 +2021,7 @@ $$
 
 ![Line-of-sight speed against redshift from 0 to 6 (61 runs; speeds divided by c = 299 792 458 m/s): the relativistic Doppler speed approaches c but never reaches it, while cz passes c at z = 1](https://www.ai999x.com/?ax_fig=astronomy-ai999x/recession-velocity-from-redshift-curve)
 
-*Line-of-sight speed against redshift from 0 to 6 (61 runs; speeds divided by c = 299 792 458 m/s): the relativistic Doppler speed approaches c but never reaches it, while cz passes c at z = 1. Marked: z = 1 gives v = 0.6 c (179875 km/s).*
+*Line-of-sight speed against redshift from 0 to 6 (61 runs; speeds divided by c = 299 792 458 m/s): the relativistic Doppler speed approaches c but never reaches it, while cz passes c at z = 1. Marked: the worked example, z = 1, gives v = 0.6 c (179875 km/s).*
 
 ```python
 astronomy_ai999x.solve('recession_velocity_from_redshift', z=1.0)
@@ -2069,7 +2069,7 @@ $$
 
 ![Four Balmer lines of hydrogen at their rest wavelengths (Hα 656](https://www.ai999x.com/?ax_fig=astronomy-ai999x/redshift-from-wavelengths-spectrum)
 
-*Four Balmer lines of hydrogen at their rest wavelengths (Hα 656.28, Hβ 486.13, Hγ 434.05, Hδ 410.17 nm) and as observed in a galaxy, each observed wavelength 1.158 × the rest one (inputs); the package returned the same redshift for every pair, z = 0.158, 0.158, 0.158, 0.158, a recession speed of 43665 km/s. Every line shifts by the same factor, so redder lines move farther (Hα by 103.7 nm).*
+*Four Balmer lines of hydrogen at their rest wavelengths (Hα 656.28, Hβ 486.13, Hγ 434.05, Hδ 410.17 nm) and as observed, each observed wavelength 2 × the rest one — the worked example's ratio, 2.0000e-07 m observed for 1.0000e-07 m at rest; the package returned the same redshift for every pair, z = 1, 1, 1, 1, a recession speed of 179875 km/s. Every line shifts by the same factor, so redder lines move farther (Hα by 656.3 nm).*
 
 ```python
 astronomy_ai999x.solve('redshift_from_wavelengths', lam_obs=2e-07, lam_rest=1e-07)
@@ -2115,7 +2115,7 @@ $$
 
 ![The diffraction limit (Rayleigh criterion, θ = 1](https://www.ai999x.com/?ax_fig=astronomy-ai999x/rayleigh-resolution-curve)
 
-*The diffraction limit (Rayleigh criterion, θ = 1.22 λ/D) against aperture from 3 mm to 10 km (51 runs; the radio line starts at three wavelengths of aperture) for visible light (550 nm) and the 21 cm hydrogen line (inputs): a radio dish must be about 400 000 times wider for the same sharpness. Marked: the eye (7 mm) and Hubble (2.4 m) in visible light, the 500 m FAST dish at 21 cm.*
+*The diffraction limit (Rayleigh criterion, θ = 1.22 λ/D) against aperture from 3 mm to 10 km (51 runs; the radio line starts at three wavelengths of aperture) for visible light (550 nm) and the 21 cm hydrogen line (inputs): a radio dish must be about 400 000 times wider for the same sharpness. Dots: the eye (7 mm) and Hubble (2.4 m) in visible light, the 500 m FAST dish at 21 cm. Marked: the worked example, λ = 0.204973 m through a 1 m aperture → 52119″.*
 
 ```python
 astronomy_ai999x.solve('rayleigh_resolution', lam=0.20497349470552245, D=1.0)
@@ -2163,9 +2163,9 @@ $$
 - **Assumes:** focal lengths and aperture > 0; thin lenses, afocal (focused at infinity); true field = apparent field / M
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![A 200 mm aperture telescope of 1](https://www.ai999x.com/?ax_fig=astronomy-ai999x/telescope-magnification-curve)
+![The worked example's telescope, 200 mm aperture and 1](https://www.ai999x.com/?ax_fig=astronomy-ai999x/telescope-magnification-curve)
 
-*A 200 mm aperture telescope of 1.2 m focal length with eyepieces of 4 to 40 mm (37 runs) of 52° apparent field (inputs): magnification, exit pupil and true field returned by the package; the 7 mm line is a typical dark-adapted eye pupil (reference). Marked: 6 mm → ×200, exit pupil 1 mm, field 0.26°; 25 mm → ×48, exit pupil 4.16667 mm, field 1.08333°.*
+*The worked example's telescope, 200 mm aperture and 1.2 m focal length, with eyepieces of 4 to 40 mm (37 runs) of 52° apparent field: magnification, exit pupil and true field returned by the package; the 7 mm line is a typical dark-adapted eye pupil (reference). Marked: the worked example's 25 mm eyepiece → ×48, exit pupil 4.16667 mm, field 1.08333°.*
 
 ```python
 astronomy_ai999x.solve('telescope_magnification', f_obj=1.2, f_eye=0.025, D=0.2, afov=0.9075712110370514)
@@ -2211,7 +2211,7 @@ $$
 
 ![How much more light five apertures collect than a 7 mm dark-adapted eye (inputs: binoculars 50 mm, a 200 mm telescope, Hubble 2](https://www.ai999x.com/?ax_fig=astronomy-ai999x/light-gathering-power-bars)
 
-*How much more light five apertures collect than a 7 mm dark-adapted eye (inputs: binoculars 50 mm, a 200 mm telescope, Hubble 2.4 m, the VLT 8.2 m, the ELT 39 m), with the gain in limiting magnitude under each value. Marked: binoculars ×51.0204 (+4.26936 mag), 200 mm ×816.327 (+7.27966 mag), Hubble ×117551 (+12.6756 mag), VLT ×1.37224e+06 (+15.3436 mag), ELT ×3.1041e+07 (+18.7298 mag).*
+*How much more light five apertures collect than a 7 mm dark-adapted eye (inputs: binoculars 50 mm, a 200 mm telescope, Hubble 2.4 m, the VLT 8.2 m, the ELT 39 m), and the worked example's 0.2 m aperture against its own 0.002 m reference, with the gain in limiting magnitude under each value. Marked: binoculars ×51.0204 (+4.26936 mag), 200 mm ×816.327 (+7.27966 mag), Hubble ×117551 (+12.6756 mag), VLT ×1.37224e+06 (+15.3436 mag), ELT ×3.1041e+07 (+18.7298 mag), example ×10000 (+10 mag).*
 
 ```python
 astronomy_ai999x.solve('light_gathering_power', D1=0.2, D2=0.002)
@@ -2257,9 +2257,9 @@ $$
 - **Assumes:** f, $p > 0$; $N  \geq  1$; distortion-free optics; angles centred on the axis
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Fields of view of one camera (6000 pixels of 3](https://www.ai999x.com/?ax_fig=astronomy-ai999x/camera-pixel-scale-field-of-view)
+![Fields of view of one camera (1 pixels of 1e+06 µm across — the worked example's) behind telescopes of focal length 0](https://www.ai999x.com/?ax_fig=astronomy-ai999x/camera-pixel-scale-field-of-view)
 
-*Fields of view of one camera (6000 pixels of 3.76 µm across, inputs) behind telescopes of focal length 0.4, 1 and 2.8 m (inputs), drawn to scale around the full Moon, whose angular diameter (31.0754′) the package's angular-size calculation returned for 3.4748e6 m at 3.844e8 m. Marked: f = 0.4 m → 193.838′ field, 1.93889″ per pixel; f = 1 m → 77.5523′ field, 0.775556″ per pixel; f = 2.8 m → 27.6983′ field, 0.276984″ per pixel.*
+*Fields of view of one camera (1 pixels of 1e+06 µm across — the worked example's) behind telescopes of focal length 0.4 m, 0.5 m, 1 m, 2.8 m (the worked example's 0.5 m among them), drawn to scale around the full Moon, whose angular diameter (31.0754′) the package's angular-size calculation returned for 3.4748e6 m at 3.844e8 m. Marked: f = 0.4 m → 6160.82′ field, 369649″ per pixel; f = 0.5 m → 5400′ field, 324000″ per pixel; f = 1 m → 3187.81′ field, 191268″ per pixel; f = 2.8 m → 1214.96′ field, 72897.6″ per pixel.*
 
 ```python
 astronomy_ai999x.solve('camera_pixel_scale', f=0.5, p=1.0, N=1)
@@ -2308,7 +2308,7 @@ $$
 
 ![Airmass — the path length through the atmosphere relative to straight up — against zenith angle from 0° to 85° (86 runs)](https://www.ai999x.com/?ax_fig=astronomy-ai999x/airmass-extinction-curve)
 
-*Airmass — the path length through the atmosphere relative to straight up — against zenith angle from 0° to 85° (86 runs). Light from 60° down passes through twice the air of the zenith, and the airmass climbs steeply near the horizon. Marked: 0°, 60° and 75°.*
+*Airmass — the path length through the atmosphere relative to straight up — against zenith angle from 0° to 85° (86 runs). Light from 60° down passes through twice the air of the zenith, and the airmass climbs steeply near the horizon. Dots: 0°, 60° and 75°. Marked: the worked example, 60° → X = 2.*
 
 ```python
 astronomy_ai999x.solve('airmass_extinction', zen=1.0471975511965976)
@@ -2358,9 +2358,9 @@ $$
 
 *Daily paths across the sky of stars of four declinations, seen from latitude 45° north (azimuth around the rim, zenith distance outward; 97 hour angles each converted by the package to altitude and azimuth, only the part above the horizon drawn): δ = 60°: culminates at altitude 75°, azimuth 0°; δ = 20°: culminates at altitude 65°, azimuth 180°; δ = 0°: culminates at altitude 45°, azimuth 180°; δ = -30°: culminates at altitude 15°, azimuth 180°. The δ = 60° star circles the pole without setting.*
 
-![The altitude of a star of declination 20° (input) through one sidereal day, 97 hour angles from −12 h to 12 h, seen from latitudes 0°, 30°, 52° and 70° N (inputs): highest at the meridian, below the horizon for part of the day except at 70° N, where it never sets](https://www.ai999x.com/?ax_fig=astronomy-ai999x/altaz-from-hadec-curve)
+![The altitude of a star of declination 30° (the worked example's) through one sidereal day, 97 hour angles from −12 h to 12 h, seen from latitudes 0°, 30°, 52°, 70°, 45°: highest at the meridian, below the horizon for part of the day unless it is circumpolar there](https://www.ai999x.com/?ax_fig=astronomy-ai999x/altaz-from-hadec-curve)
 
-*The altitude of a star of declination 20° (input) through one sidereal day, 97 hour angles from −12 h to 12 h, seen from latitudes 0°, 30°, 52° and 70° N (inputs): highest at the meridian, below the horizon for part of the day except at 70° N, where it never sets. Marked: at 52° N it culminates at altitude 58°.*
+*The altitude of a star of declination 30° (the worked example's) through one sidereal day, 97 hour angles from −12 h to 12 h, seen from latitudes 0°, 30°, 52°, 70°, 45°: highest at the meridian, below the horizon for part of the day unless it is circumpolar there. Marked: the worked example, hour angle 6 h at latitude 45°: altitude 20.7048°.*
 
 ```python
 astronomy_ai999x.solve('altaz_from_hadec', H=1.5707963267948966, dec=0.5235987755982988, lat=0.7853981633974483)
@@ -2407,9 +2407,9 @@ $$
 - **Assumes:** |dec|, |lat| <= 90 degrees; geometric horizon, no refraction
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The meridian seen edge-on from latitude 52° N (input): horizon from north to south, the celestial pole at the latitude's altitude, the celestial equator (dashed) at right angles, and three stars whose daily circles appear as chords from upper to lower culmination (declinations as inputs; the culmination altitudes the package returned place the ends)](https://www.ai999x.com/?ax_fig=astronomy-ai999x/culmination-altitude-sky)
+![The meridian seen edge-on from latitude 50° (the worked example's): horizon from north to south, the celestial pole at the latitude's altitude, the celestial equator (dashed) at right angles, and stars whose daily circles appear as chords from upper to lower culmination (declinations as inputs, the worked example's δ = 20° among them; the culmination altitudes the package returned place the ends)](https://www.ai999x.com/?ax_fig=astronomy-ai999x/culmination-altitude-sky)
 
-*The meridian seen edge-on from latitude 52° N (input): horizon from north to south, the celestial pole at the latitude's altitude, the celestial equator (dashed) at right angles, and three stars whose daily circles appear as chords from upper to lower culmination (declinations as inputs; the culmination altitudes the package returned place the ends). Marked: δ = 60°: upper 82°, lower 22° (circumpolar); δ = 15°: upper 53°, lower -23° (rises and sets); δ = -45°: upper -7°, lower -83° (never rises).*
+*The meridian seen edge-on from latitude 50° (the worked example's): horizon from north to south, the celestial pole at the latitude's altitude, the celestial equator (dashed) at right angles, and stars whose daily circles appear as chords from upper to lower culmination (declinations as inputs, the worked example's δ = 20° among them; the culmination altitudes the package returned place the ends). Marked: δ = 60°: upper 80°, lower 20° (circumpolar); δ = 15°: upper 55°, lower -25° (rises and sets); δ = -45°: upper -5°, lower -85° (never rises); δ = 20°: upper 60°, lower -20° (rises and sets).*
 
 ![never sets (circumpolar) over dec (declination) from 0 rad to 1](https://www.ai999x.com/?ax_fig=astronomy-ai999x/culmination-altitude-decision)
 
@@ -2460,9 +2460,9 @@ $$
 - **Assumes:** the star rises and sets: |tan(lat) tan(dec)| < 1; geometric horizon (no refraction, no star size)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![How long a star stays above the horizon (top) and where it rises (bottom, azimuth from north) against declination −80° to 80°, seen from latitudes 0°, 30°, 52° and 65° (inputs; 81 runs each)](https://www.ai999x.com/?ax_fig=astronomy-ai999x/rise-set-hour-angle-curve)
+![How long a star stays above the horizon (top) and where it rises (bottom, azimuth from north) against declination −80° to 80°, seen from latitudes 0°, 30°, 52°, 65°, 45° (inputs; 81 runs each)](https://www.ai999x.com/?ax_fig=astronomy-ai999x/rise-set-hour-angle-curve)
 
-*How long a star stays above the horizon (top) and where it rises (bottom, azimuth from north) against declination −80° to 80°, seen from latitudes 0°, 30°, 52° and 65° (inputs; 81 runs each). Missing parts are stars that never set or never rise there. At the equator every star is up 12 hours. Marked: at 52° N a star of declination 23.44° (the Sun at the June solstice) is up 16.4942 sidereal hours and rises at azimuth 49.7506°.*
+*How long a star stays above the horizon (top) and where it rises (bottom, azimuth from north) against declination −80° to 80°, seen from latitudes 0°, 30°, 52°, 65°, 45° (inputs; 81 runs each). Missing parts are stars that never set or never rise there. At the equator every star is up 12 hours. Marked: the worked example, a star of declination 0° seen from latitude 45°: up 12 sidereal hours, rising at azimuth 90°.*
 
 ```python
 astronomy_ai999x.solve('rise_set_hour_angle', dec=0.0, lat=0.7853981633974483)
@@ -2510,7 +2510,7 @@ $$
 
 ![The angle between two stars at the same declination against their difference in right ascension (61 values from 0 to 180°) at declinations 0°, 30°, 60° and 80° (inputs): hour circles converge toward the pole, so the same Δα spans less sky](https://www.ai999x.com/?ax_fig=astronomy-ai999x/angular-separation-curve)
 
-*The angle between two stars at the same declination against their difference in right ascension (61 values from 0 to 180°) at declinations 0°, 30°, 60° and 80° (inputs): hour circles converge toward the pole, so the same Δα spans less sky. Marked: Δα = 90° at δ = 60° is a separation of 41.4096°.*
+*The angle between two stars at the same declination against their difference in right ascension (61 values from 0 to 180°) at declinations 0°, 30°, 60° and 80° (inputs): hour circles converge toward the pole, so the same Δα spans less sky. Marked: the worked example, Δα = 90° between δ = 0° and δ = 0°, a separation of 90°.*
 
 ```python
 astronomy_ai999x.solve('angular_separation', ra1=0.0, dec1=0.0, ra2=1.5707963267948966, dec2=0.0)
@@ -2557,7 +2557,7 @@ $$
 
 ![Position angles of six companions around a star at RA 150°, Dec 30° (input), drawn as on the sky with north up and east to the left; each companion's offset in arcseconds east and north is an input (RA offset divided by cos δ)](https://www.ai999x.com/?ax_fig=astronomy-ai999x/position-angle-sky)
 
-*Position angles of six companions around a star at RA 150°, Dec 30° (input), drawn as on the sky with north up and east to the left; each companion's offset in arcseconds east and north is an input (RA offset divided by cos δ). The package measured each angle from north through east: (0″ E, 10″ N) → 0°; (8″ E, 6″ N) → 53.1292°; (10″ E, 0″ N) → 89.9992°; (6″ E, -8″ N) → 143.129°; (-6″ E, -8″ N) → 216.871°; (-10″ E, 2″ N) → 281.311°.*
+*Position angles of six companions around a star at RA 150°, Dec 30° (input), drawn as on the sky with north up and east to the left; each companion's offset in arcseconds east and north is an input (RA offset divided by cos δ). The package measured each angle from north through east: (0″ E, 10″ N) → 0°; (8″ E, 6″ N) → 53.1292°; (10″ E, 0″ N) → 89.9992°; (6″ E, -8″ N) → 143.129°; (-6″ E, -8″ N) → 216.871°; (-10″ E, 2″ N) → 281.311°. Also drawn, in its direction (not to scale): the worked example's companion, position angle 0°.*
 
 ```python
 astronomy_ai999x.solve('position_angle', ra1=0.0, dec1=0.0, ra2=0.0, dec2=0.1)
@@ -2605,13 +2605,13 @@ $$
 - **Assumes:** Gregorian calendar (on or after 1582-10-15); a valid date and time of day (no leap second)
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Six dates on the Julian day count (dates as inputs, UT): Gregorian calendar in use 1583-01-01 0h → JD 2](https://www.ai999x.com/?ax_fig=astronomy-ai999x/julian-date-timeline)
+![7 dates on the Julian day count, the worked example's among them (dates as inputs, UT): Gregorian calendar in use 1583-01-01 0h → JD 2](https://www.ai999x.com/?ax_fig=astronomy-ai999x/julian-date-timeline)
 
-*Six dates on the Julian day count (dates as inputs, UT): Gregorian calendar in use 1583-01-01 0h → JD 2.29924e+06 (MJD -100762); MJD day 0 1858-11-17 0h → JD 2.4e+06 (MJD 0); 1900 January 0.5 1900-01-01 12h → JD 2.41502e+06 (MJD 15020.5); Unix epoch 1970-01-01 0h → JD 2.44059e+06 (MJD 40587); J2000.0 2000-01-01 12h → JD 2.45154e+06 (MJD 51544.5); 2024 eclipse 2024-04-08 18h → JD 2.46041e+06 (MJD 60408.8). The axis is JD minus 2 300 000 (an offset of the returned values).*
+*7 dates on the Julian day count, the worked example's among them (dates as inputs, UT): Gregorian calendar in use 1583-01-01 0h → JD 2.29924e+06 (MJD -100762); MJD day 0 1858-11-17 0h → JD 2.4e+06 (MJD 0); 1900 January 0.5 1900-01-01 12h → JD 2.41502e+06 (MJD 15020.5); Unix epoch 1970-01-01 0h → JD 2.44059e+06 (MJD 40587); J2000.0 2000-01-01 12h → JD 2.45154e+06 (MJD 51544.5); example 2000-01-01 12.0h → JD 2.45154e+06 (MJD 51544.5); 2024 eclipse 2024-04-08 18h → JD 2.46041e+06 (MJD 60408.8). The axis is JD minus 2 300 000 (an offset of the returned values).*
 
-![The Julian date and the modified Julian date for every hour of 1–2 January 2000 (48 runs, dates and hours as inputs), shown as offsets from 2 451 544 and 51 544 (differences of the returned values): a Julian day begins at noon UT, a modified Julian day at midnight — the two counts differ by exactly 2 400 000](https://www.ai999x.com/?ax_fig=astronomy-ai999x/julian-date-curve)
+![The Julian date and the modified Julian date for every hour of the two days from 2000-01-01 (the worked example's date; 48 runs), shown as offsets from 2451544 and 51544 (differences of the returned values): a Julian day begins at noon UT, a modified Julian day at midnight — the two counts differ by exactly 2 400 000](https://www.ai999x.com/?ax_fig=astronomy-ai999x/julian-date-curve)
 
-*The Julian date and the modified Julian date for every hour of 1–2 January 2000 (48 runs, dates and hours as inputs), shown as offsets from 2 451 544 and 51 544 (differences of the returned values): a Julian day begins at noon UT, a modified Julian day at midnight — the two counts differ by exactly 2 400 000.5. Marked: JD 2451545.0 at 12h on 1 January (J2000.0) and MJD 51545 at 0h on 2 January.*
+*The Julian date and the modified Julian date for every hour of the two days from 2000-01-01 (the worked example's date; 48 runs), shown as offsets from 2451544 and 51544 (differences of the returned values): a Julian day begins at noon UT, a modified Julian day at midnight — the two counts differ by exactly 2 400 000.5. Marked: the worked example's hour, 12h → JD 2.45154e+06 (MJD 51544.5).*
 
 ```python
 astronomy_ai999x.solve('julian_date', year=2000, month=1, day=1, hour=12)
@@ -2663,7 +2663,7 @@ $$
 
 ![Calendar dates the package returned for Julian dates every 6 hours from 20 February 0h UT (that JD itself returned by the Julian-date calculation; later JDs add quarter days) in 2024 and 2023, drawn as day of the month plus hours: February rolls over to 1 March after the 29th in the leap year and after the 28th otherwise (2024: last February day reached 29; 2023: last February day reached 28)](https://www.ai999x.com/?ax_fig=astronomy-ai999x/calendar-date-from-julian-date-curve)
 
-*Calendar dates the package returned for Julian dates every 6 hours from 20 February 0h UT (that JD itself returned by the Julian-date calculation; later JDs add quarter days) in 2024 and 2023, drawn as day of the month plus hours: February rolls over to 1 March after the 29th in the leap year and after the 28th otherwise (2024: last February day reached 29; 2023: last February day reached 28).*
+*Calendar dates the package returned for Julian dates every 6 hours from 20 February 0h UT (that JD itself returned by the Julian-date calculation; later JDs add quarter days) in 2024 and 2023, drawn as day of the month plus hours: February rolls over to 1 March after the 29th in the leap year and after the 28th otherwise (2024: last February day reached 29; 2023: last February day reached 28). Above: the worked example, JD 2.45154e+06, is 2000-01-01 at 12 h UT.*
 
 ```python
 astronomy_ai999x.solve('calendar_date_from_julian_date', jd=2451545.0)
@@ -2707,9 +2707,9 @@ $$
 - **Assumes:** $2299160.5  \leq  JD  \leq  5373484.5$; the date in UT1; east longitudes positive
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![Greenwich and local mean sidereal time at 0h UT on every second day of 2024 (184 runs; the JD of 1 January returned by the Julian-date calculation, later days added): the sidereal clock gains about 3 min 56 s a day and laps the solar clock once a year](https://www.ai999x.com/?ax_fig=astronomy-ai999x/sidereal-time-curve)
+![Greenwich and local mean sidereal time at 0h UT on every second day of 2000 (184 runs; the JD of 1 January returned by the Julian-date calculation, later days added): the sidereal clock gains about 3 min 56 s a day and laps the solar clock once a year](https://www.ai999x.com/?ax_fig=astronomy-ai999x/sidereal-time-curve)
 
-*Greenwich and local mean sidereal time at 0h UT on every second day of 2024 (184 runs; the JD of 1 January returned by the Julian-date calculation, later days added): the sidereal clock gains about 3 min 56 s a day and laps the solar clock once a year. Local time for longitude 74° W (input) runs 4.93 hours behind. Marked: GMST on 1 January = 6.67684 h.*
+*Greenwich and local mean sidereal time at 0h UT on every second day of 2000 (184 runs; the JD of 1 January returned by the Julian-date calculation, later days added): the sidereal clock gains about 3 min 56 s a day and laps the solar clock once a year. Local time for longitude 74° W runs 4.93333 hours behind. Marked: the worked example, JD 2.45154e+06: GMST = 18.6974 h.*
 
 ```python
 astronomy_ai999x.solve('sidereal_time', jd=2451545.0)
@@ -2755,7 +2755,7 @@ $$
 
 ![Electron and ion plasma frequencies (Hz) from the density — radio waves below the electron value are reflected — for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0](https://www.ai999x.com/?ax_fig=astronomy-ai999x/plasma-frequency-bars)
 
-*Electron and ion plasma frequencies (Hz) from the density — radio waves below the electron value are reflected — for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0.5 nT; a tokamak 1e20 m⁻³, 1e8 K, 5 T), on a logarithmic axis. Marked: electron: solar wind 20076.9, corona 2.8393e+08, ionosphere 8.97866e+06, magnetotail 4917.82, warm ISM 2839.3, tokamak 8.9787e+10; proton: solar wind 468.535, corona 6.62609e+06, ionosphere 209535, magnetotail 114.767, warm ISM 66.2609, tokamak 2.0954e+09.*
+*Electron and ion plasma frequencies (Hz) from the density — radio waves below the electron value are reflected — for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0.5 nT; a tokamak 1e20 m⁻³, 1e8 K, 5 T), on a logarithmic axis. The seventh bar is the worked example (n = 0.000314208). Marked: electron: solar wind 20076.9, corona 2.8393e+08, ionosphere 8.97866e+06, magnetotail 4917.82, warm ISM 2839.3, tokamak 8.9787e+10, example 0.159155; proton: solar wind 468.535, corona 6.62609e+06, ionosphere 209535, magnetotail 114.767, warm ISM 66.2609, tokamak 2.0954e+09, example 0.0037142.*
 
 ```python
 astronomy_ai999x.solve('plasma_frequency', n=0.0003142077833705378)
@@ -2801,7 +2801,7 @@ $$
 
 ![Debye lengths (m) from electron temperature and density for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0](https://www.ai999x.com/?ax_fig=astronomy-ai999x/debye-length-bars)
 
-*Debye lengths (m) from electron temperature and density for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0.5 nT; a tokamak 1e20 m⁻³, 1e8 K, 5 T), on a logarithmic axis. Marked: solar wind 9.75934, corona 0.00218226, ionosphere 0.00218226, magnetotail 890.902, warm ISM 19.5187, tokamak 6.9009e-05.*
+*Debye lengths (m) from electron temperature and density for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0.5 nT; a tokamak 1e20 m⁻³, 1e8 K, 5 T), on a logarithmic axis. The seventh bar is the worked example (T = 0.000209985, n = 1). Marked: solar wind 9.75934, corona 0.00218226, ionosphere 0.00218226, magnetotail 890.902, warm ISM 19.5187, tokamak 6.9009e-05, example 1.*
 
 ```python
 astronomy_ai999x.solve('debye_length', T=0.00020998524273112756, n=1.0)
@@ -2847,7 +2847,7 @@ $$
 
 ![The number of electrons in a Debye sphere — all far above 1, the condition for collective plasma behaviour — for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0](https://www.ai999x.com/?ax_fig=astronomy-ai999x/debye-number-bars)
 
-*The number of electrons in a Debye sphere — all far above 1, the condition for collective plasma behaviour — for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0.5 nT; a tokamak 1e20 m⁻³, 1e8 K, 5 T), on a logarithmic axis. Marked: solar wind 1.9468e+10, corona 4.3532e+07, ionosphere 43531.7, magnetotail 8.8859e+14, warm ISM 3.1149e+09, tokamak 1.3766e+08.*
+*The number of electrons in a Debye sphere — all far above 1, the condition for collective plasma behaviour — for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0.5 nT; a tokamak 1e20 m⁻³, 1e8 K, 5 T), on a logarithmic axis. The seventh bar is the worked example (T = 0.000209985, n = 1). Marked: solar wind 1.9468e+10, corona 4.3532e+07, ionosphere 43531.7, magnetotail 8.8859e+14, warm ISM 3.1149e+09, tokamak 1.3766e+08, example 4.18879.*
 
 ```python
 astronomy_ai999x.solve('debye_number', T=0.00020998524273112756, n=1.0)
@@ -2888,7 +2888,7 @@ $$
 
 ![Alfvén speeds (km/s) from field and proton density for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0](https://www.ai999x.com/?ax_fig=astronomy-ai999x/alfven-speed-bars)
 
-*Alfvén speeds (km/s) from field and proton density for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0.5 nT; a tokamak 1e20 m⁻³, 1e8 K, 5 T), on a logarithmic axis. Marked: solar wind 48.7599, corona 689.569, ionosphere 1090.3, magnetotail 398.123, warm ISM 34.4785, tokamak 10903.*
+*Alfvén speeds (km/s) from field and proton density for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0.5 nT; a tokamak 1e20 m⁻³, 1e8 K, 5 T), on a logarithmic axis. The seventh bar is the worked example (B = 4.5859e-17, n = 1). Marked: solar wind 48.7599, corona 689.569, ionosphere 1090.3, magnetotail 398.123, warm ISM 34.4785, tokamak 10903, example 0.001.*
 
 ```python
 astronomy_ai999x.solve('alfven_speed', B=4.5858733307403914e-17, n=1.0)
@@ -2930,7 +2930,7 @@ $$
 
 ![Electron and proton gyrofrequencies (Hz) from the field strength for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0](https://www.ai999x.com/?ax_fig=astronomy-ai999x/gyrofrequency-bars)
 
-*Electron and proton gyrofrequencies (Hz) from the field strength for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0.5 nT; a tokamak 1e20 m⁻³, 1e8 K, 5 T), on a logarithmic axis. Marked: electron: solar wind 139.962, corona 2.7992e+07, ionosphere 1.39962e+06, magnetotail 279.925, warm ISM 13.9962, tokamak 1.3996e+11; proton: solar wind 0.0762259, corona 15245.2, ionosphere 762.259, magnetotail 0.152452, warm ISM 0.00762259, tokamak 7.6226e+07.*
+*Electron and proton gyrofrequencies (Hz) from the field strength for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0.5 nT; a tokamak 1e20 m⁻³, 1e8 K, 5 T), on a logarithmic axis. The seventh bar is the worked example (B = 5.6856e-12). Marked: electron: solar wind 139.962, corona 2.7992e+07, ionosphere 1.39962e+06, magnetotail 279.925, warm ISM 13.9962, tokamak 1.3996e+11, example 0.159155; proton: solar wind 0.0762259, corona 15245.2, ionosphere 762.259, magnetotail 0.152452, warm ISM 0.00762259, tokamak 7.6226e+07, example 8.6678e-05.*
 
 ```python
 astronomy_ai999x.solve('gyrofrequency', B=5.685630111305193e-12)
@@ -2978,7 +2978,7 @@ $$
 
 ![Gyroradii of thermal protons in six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0](https://www.ai999x.com/?ax_fig=astronomy-ai999x/gyroradius-bars)
 
-*Gyroradii of thermal protons in six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0.5 nT; a tokamak 1e20 m⁻³, 1e8 K, 5 T); the speed across the field is the proton's most probable thermal speed, returned by the package's thermal-speed calculation (electrons are left out: in the magnetotail and the tokamak they move faster than a tenth of light speed, beyond the non-relativistic formula). Marked: solar wind 84835 m, corona 1.34136 m, ionosphere 0.84835 m, magnetotail 948484 m, warm ISM 239950 m, tokamak 0.00268272 m.*
+*Gyroradii of thermal protons in six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0.5 nT; a tokamak 1e20 m⁻³, 1e8 K, 5 T); the speed across the field is the proton's most probable thermal speed, returned by the package's thermal-speed calculation (electrons are left out: in the magnetotail and the tokamak they move faster than a tenth of light speed, beyond the non-relativistic formula); the last bar is the worked example, a proton at 3 m/s across B = 1.0440e-08 T. Marked: solar wind 84835 m, corona 1.34136 m, ionosphere 0.84835 m, magnetotail 948484 m, warm ISM 239950 m, tokamak 0.00268272 m, example 3 m.*
 
 ```python
 astronomy_ai999x.solve('gyroradius', B=1.0439684928958963e-08, v_perp=3.0, particle='proton')
@@ -3019,7 +3019,7 @@ $$
 
 ![Thermal speeds of electrons and protons against temperature from 100 K to 1e9 K (57 runs per line), root-mean-square (solid) and most probable (dashed): electrons are √(m_p/m_e) ≈ 43 times faster](https://www.ai999x.com/?ax_fig=astronomy-ai999x/thermal-speed-curve)
 
-*Thermal speeds of electrons and protons against temperature from 100 K to 1e9 K (57 runs per line), root-mean-square (solid) and most probable (dashed): electrons are √(m_p/m_e) ≈ 43 times faster. Marked: the rms proton speed at the temperatures of the corona (1e6 K) and the solar wind (1e5 K).*
+*Thermal speeds of electrons and protons against temperature from 100 K to 1e9 K (57 runs per line), root-mean-square (solid) and most probable (dashed): electrons are √(m_p/m_e) ≈ 43 times faster. Dots: the rms proton speed at the temperatures of the corona (1e6 K) and the solar wind (1e5 K). Marked: the worked example, a proton at 6.5979e-08 K (rms): 1.73205 m/s.*
 
 ```python
 astronomy_ai999x.solve('thermal_speed', T=6.597899765907193e-08, convention='rms')
@@ -3067,7 +3067,7 @@ $$
 
 ![Plasma beta of one species (thermal over magnetic pressure) for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0](https://www.ai999x.com/?ax_fig=astronomy-ai999x/plasma-beta-bars)
 
-*Plasma beta of one species (thermal over magnetic pressure) for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0.5 nT; a tokamak 1e20 m⁻³, 1e8 K, 5 T), on a logarithmic axis. Marked: solar wind 0.69399, corona 0.0346995, ionosphere 1.3880e-05, magnetotail 5.20492, warm ISM 0.111038, tokamak 0.0138798. Above the line thermal pressure dominates the magnetic field; below it the field dominates.*
+*Plasma beta of one species (thermal over magnetic pressure) for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0.5 nT; a tokamak 1e20 m⁻³, 1e8 K, 5 T), on a logarithmic axis. The seventh bar is the worked example (T = 7.2430e+22, n = 1, B = 0.00158533). Marked: solar wind 0.69399, corona 0.0346995, ionosphere 1.3880e-05, magnetotail 5.20492, warm ISM 0.111038, tokamak 0.0138798, example 1. Above the line thermal pressure dominates the magnetic field; below it the field dominates.*
 
 ```python
 astronomy_ai999x.solve('plasma_beta', T=7.24297051603992e+22, n=1.0, B=0.0015853309189377467)
@@ -3108,7 +3108,7 @@ $$
 
 ![Magnetic pressures (Pa) from the field for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0](https://www.ai999x.com/?ax_fig=astronomy-ai999x/magnetic-pressure-bars)
 
-*Magnetic pressures (Pa) from the field for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0.5 nT; a tokamak 1e20 m⁻³, 1e8 K, 5 T), on a logarithmic axis. Marked: solar wind 9.9472e-12, corona 0.397887, ionosphere 0.000994718, magnetotail 3.9789e-11, warm ISM 9.9472e-14, tokamak 9.94718e+06.*
+*Magnetic pressures (Pa) from the field for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0.5 nT; a tokamak 1e20 m⁻³, 1e8 K, 5 T), on a logarithmic axis. The seventh bar is the worked example (B = 0.00158533). Marked: solar wind 9.9472e-12, corona 0.397887, ionosphere 0.000994718, magnetotail 3.9789e-11, warm ISM 9.9472e-14, tokamak 9.94718e+06, example 1.*
 
 ```python
 astronomy_ai999x.solve('magnetic_pressure', B=0.0015853309189377467)
@@ -3149,7 +3149,7 @@ $$
 
 ![Upper hybrid frequencies (Hz) from field and electron density for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0](https://www.ai999x.com/?ax_fig=astronomy-ai999x/upper-hybrid-frequency-bars)
 
-*Upper hybrid frequencies (Hz) from field and electron density for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0.5 nT; a tokamak 1e20 m⁻³, 1e8 K, 5 T), on a logarithmic axis. Marked: solar wind 20077.4, corona 2.8531e+08, ionosphere 9.0871e+06, magnetotail 4925.78, warm ISM 2839.34, tokamak 1.6629e+11.*
+*Upper hybrid frequencies (Hz) from field and electron density for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0.5 nT; a tokamak 1e20 m⁻³, 1e8 K, 5 T), on a logarithmic axis. The seventh bar is the worked example (B = 1.7057e-11, n = 0.00502732). Marked: solar wind 20077.4, corona 2.8531e+08, ionosphere 9.0871e+06, magnetotail 4925.78, warm ISM 2839.34, tokamak 1.6629e+11, example 0.795775.*
 
 ```python
 astronomy_ai999x.solve('upper_hybrid_frequency', B=1.7056890333915583e-11, n=0.005027324533928605)
@@ -3190,7 +3190,7 @@ $$
 
 ![Lower hybrid frequencies (Hz) from field and density for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0](https://www.ai999x.com/?ax_fig=astronomy-ai999x/lower-hybrid-frequency-bars)
 
-*Lower hybrid frequencies (Hz) from field and density for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0.5 nT; a tokamak 1e20 m⁻³, 1e8 K, 5 T), on a logarithmic axis. Marked: solar wind 3.26623, corona 650110, ionosphere 32273.3, magnetotail 6.52206, warm ISM 0.326627, tokamak 1.7636e+09.*
+*Lower hybrid frequencies (Hz) from field and density for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0.5 nT; a tokamak 1e20 m⁻³, 1e8 K, 5 T), on a logarithmic axis. The seventh bar is the worked example (B = 1, n = 9.7199e+18). Marked: solar wind 3.26623, corona 650110, ionosphere 32273.3, magnetotail 6.52206, warm ISM 0.326627, tokamak 1.7636e+09, example 4.6193e+08.*
 
 ```python
 astronomy_ai999x.solve('lower_hybrid_frequency', B=1.0, n=9.719853830824368e+18)
@@ -3231,7 +3231,7 @@ $$
 
 ![Electron and ion inertial lengths (m) from the density for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0](https://www.ai999x.com/?ax_fig=astronomy-ai999x/inertial-length-bars)
 
-*Electron and ion inertial lengths (m) from the density for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0.5 nT; a tokamak 1e20 m⁻³, 1e8 K, 5 T), on a logarithmic axis. Marked: electron: solar wind 2376.53, corona 0.168046, ionosphere 5.31409, magnetotail 9702.16, warm ISM 16804.6, tokamak 0.000531409; proton: solar wind 101835, corona 7.20085, ionosphere 227.711, magnetotail 415741, warm ISM 720085, tokamak 0.0227711.*
+*Electron and ion inertial lengths (m) from the density for six plasmas (inputs: density n, temperature T, field B — solar wind at 1 au 5e6 m⁻³, 1e5 K, 5 nT; solar corona 1e15 m⁻³, 1e6 K, 1e-3 T; ionosphere F layer 1e12 m⁻³, 1000 K, 5e-5 T; Earth's magnetotail plasma sheet 3e5 m⁻³, 5e7 K, 10 nT; warm interstellar medium 1e5 m⁻³, 8000 K, 0.5 nT; a tokamak 1e20 m⁻³, 1e8 K, 5 T), on a logarithmic axis. The seventh bar is the worked example (n = 2.8240e+13). Marked: electron: solar wind 2376.53, corona 0.168046, ionosphere 5.31409, magnetotail 9702.16, warm ISM 16804.6, tokamak 0.000531409, example 1; proton: solar wind 101835, corona 7.20085, ionosphere 227.711, magnetotail 415741, warm ISM 720085, tokamak 0.0227711, example 42.8504.*
 
 ```python
 astronomy_ai999x.solve('inertial_length', n=28239587250368.695)
@@ -3275,7 +3275,7 @@ $$
 
 ![Angular Einstein radius against lens mass for two geometries (distances as inputs): a star in the Galactic bulge lensing a more distant bulge star (microlensing, milliarcseconds) and a galaxy lensing a quasar twice as far (arcseconds), 31 masses each](https://www.ai999x.com/?ax_fig=astronomy-ai999x/einstein-radius-curve)
 
-*Angular Einstein radius against lens mass for two geometries (distances as inputs): a star in the Galactic bulge lensing a more distant bulge star (microlensing, milliarcseconds) and a galaxy lensing a quasar twice as far (arcseconds), 31 masses each. Marked: 1 M☉ gives θ_E = 0.00100897″ (R_E = 4.03586 au); 1e12 M☉ gives 2.01793″.*
+*Angular Einstein radius against lens mass for two geometries (distances as inputs): a star in the Galactic bulge lensing a more distant bulge star (microlensing, milliarcseconds) and a galaxy lensing a quasar twice as far (arcseconds), 31 masses each. Marked: 1 M☉ gives θ_E = 0.00100897″ (R_E = 4.03586 au); 1e12 M☉ gives 2.01793″; the worked example (M = 3.3665e+26 kg, D_l = 1 m, D_s = 2 m) gives 145851″.*
 
 ```python
 astronomy_ai999x.solve('einstein_radius', M=3.3664773037502725e+26, D_l=1.0, D_s=2.0)
@@ -3317,7 +3317,7 @@ $$
 
 ![The inverse-square law read backwards: the distance from a star of one solar luminosity (L = 3](https://www.ai999x.com/?ax_fig=astronomy-ai999x/distance-from-flux-curve)
 
-*The inverse-square law read backwards: the distance from a star of one solar luminosity (L = 3.828e26 W, input) at which a flux F is received, 41 fluxes from 0.001 to 1e5 W/m². Marked: the fluxes measured at Earth (1361 W/m²), Mars (586 W/m²) and Neptune (1.51 W/m²) as inputs, with the distances returned.*
+*The inverse-square law read backwards: the distance from a star of one solar luminosity (L = 3.828e26 W, input) at which a flux F is received, 41 fluxes from 0.001 to 1e5 W/m². Marked: the fluxes measured at Earth (1361 W/m²), Mars (586 W/m²) and Neptune (1.51 W/m²) as inputs, with the distances returned; and the worked example, L = 12.5664 W, F = 1 W/m² → d = 1 m.*
 
 ```python
 astronomy_ai999x.solve('distance_from_flux', L=12.566370614359172, F=1.0)
@@ -3363,9 +3363,9 @@ $$
 - **Assumes:** $1  \leq  H_{0}  \leq  1000$; $0.01  \leq  Omega_m  \leq  1$; $0  \leq  z  \leq  1100$; flat, no radiation
 - **Evidence:** certified procedure (gates: conditions, control, examples, fast_enough, questions, reference, sensitivity, templates)
 
-![The critical density and the expansion rate H(z) against redshift from 0 to 5 (51 runs) for a flat universe with H₀ = 70 km/s/Mpc and Ωm = 0](https://www.ai999x.com/?ax_fig=astronomy-ai999x/critical-density-curve)
+![The critical density and the expansion rate H(z) against redshift from 0 to 5 (51 runs) for the worked example's flat universe, H₀ = 70 km/s/Mpc and Ωm = 0](https://www.ai999x.com/?ax_fig=astronomy-ai999x/critical-density-curve)
 
-*The critical density and the expansion rate H(z) against redshift from 0 to 5 (51 runs) for a flat universe with H₀ = 70 km/s/Mpc and Ωm = 0.3 (inputs). Marked: today ρ_c = 9.2039e-27 kg/m³, about 5.50266 hydrogen atoms per cubic metre; at z = 2, H = 207.654 km/s/Mpc.*
+*The critical density and the expansion rate H(z) against redshift from 0 to 5 (51 runs) for the worked example's flat universe, H₀ = 70 km/s/Mpc and Ωm = 0.3. Marked at z = 0: ρ_c = 9.2039e-27 kg/m³, about 5.50266 hydrogen atoms per cubic metre, and H = 70 km/s/Mpc.*
 
 ```python
 astronomy_ai999x.solve('critical_density', H0=70.0, Om=0.3)

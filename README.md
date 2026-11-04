@@ -2,7 +2,7 @@
 
 [![tests](https://github.com/AI999X/astronomy-ai999x/actions/workflows/ci.yml/badge.svg)](https://github.com/AI999X/astronomy-ai999x/actions/workflows/ci.yml) [![PyPI](https://img.shields.io/pypi/v/astronomy-ai999x)](https://pypi.org/project/astronomy-ai999x/) [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97-Hugging%20Face-yellow)](https://huggingface.co/AI999X/astronomy-ai999x)
 
-**[Install](https://pypi.org/project/astronomy-ai999x/)** · **[Capability guide](https://huggingface.co/AI999X/astronomy-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/astronomy-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
+**[Desktop app & command line](https://www.ai999x.com/desktop-cli/)** · **[Compute in your browser](https://www.ai999x.com/models/astronomy-ai999x/#try)** · **[Install (Python)](https://pypi.org/project/astronomy-ai999x/)** · **[Guides](https://huggingface.co/AI999X/astronomy-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/astronomy-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
 
 License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.3
 
@@ -12,7 +12,298 @@ astronomy-ai999x is an offline, deterministic Python solver that answers astrono
 
 **astronomy-ai999x** is a compact, deterministic astronomy engine for Python. It reads a question in plain English (or a typed call), picks a certified astronomy capability, computes the answer exactly, checks it, and returns the result with its steps, units, LaTeX and assumptions — or an honest refusal that says what is missing. It runs fully offline on any CPU, needs no GPU, no API key and no internet, and is built to give **zero wrong answers**: when it is not sure, it refuses instead of guessing.
 
-[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-support%20development-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/ibnuljaiffarabi) ![License](https://img.shields.io/badge/license-Apache--2.0-blue) ![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13%20%7C%203.14-blue) ![Offline](https://img.shields.io/badge/runs-offline%20on%20CPU-green)
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-support%20development-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/ibnuljaiffarabi) ![License](https://img.shields.io/badge/license-Apache--2.0-blue) ![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13%20%7C%203.14-blue) ![Offline](https://img.shields.io/badge/runs-offline%20on%20CPU-green) ![Rust](https://img.shields.io/badge/Rust-Windows%20%7C%20Linux%20%7C%20WebAssembly-orange)
+
+**Run it your way.** astronomy-ai999x comes as the AI999X desktop app and as the command-line program `astronomy` for Windows and Linux, runs in your browser as WebAssembly, and installs as a Python package. The desktop app, the command line and the browser run the same compiled Rust program on your own device: offline, no Python needed.
+
+## Get it
+
+| Way to run it | For | Get it |
+|---|---|---|
+| **AI999X Astronomy desktop app** 1.2.0 | Windows, Linux — this model in its own app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-astronomy-1.2.0-windows-x86_64.zip) · [Linux (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-astronomy-1.2.0-linux-x86_64.tar.gz) |
+| **AI999X desktop app** 1.2.0 | Windows, Linux — every AI999X model in one app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-1.2.0-windows-x86_64.zip) · [Linux (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-1.2.0-linux-x86_64.tar.gz) |
+| **Command line** (`astronomy`) | Windows, Linux — one program per model, offline, no Python | [Windows (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-windows-x86_64.zip) · [Linux (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-linux-x86_64.tar.gz) |
+| **In your browser** | any device — nothing to install | [Compute on the model page](https://www.ai999x.com/models/astronomy-ai999x/#try) |
+| **Python** | Python 3.10+ | `pip install astronomy-ai999x` |
+
+Checksums: [SHA256SUMS](https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS) · every version: [https://www.ai999x.com/downloads/desktop/latest/](https://www.ai999x.com/downloads/desktop/latest/) · install guide: [desktop & command line](https://www.ai999x.com/desktop-cli/)
+
+## Rust versions
+
+Astronomy also comes as native programs compiled from Rust, version 1.2.0 of the AI999X desktop app and command line: they run offline on your computer and need no Python. Each file is in this repository's `rust/` folder, on the [GitHub release v1.0.3](https://github.com/AI999X/astronomy-ai999x/releases/tag/v1.0.3) and on the website.
+
+| Program | System | File | Size | Download | Use |
+|---|---|---|---|---|---|
+| Desktop app (Astronomy) | Windows x86-64 | `ai999x-astronomy-1.2.0-windows-x86_64.zip` | 7.1 MB | [Hub](https://huggingface.co/AI999X/astronomy-ai999x/resolve/main/rust/ai999x-astronomy-1.2.0-windows-x86_64.zip) · [GitHub](https://github.com/AI999X/astronomy-ai999x/releases/download/v1.0.3/ai999x-astronomy-1.2.0-windows-x86_64.zip) · [website](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-astronomy-1.2.0-windows-x86_64.zip) | unzip, then double-click `ai999x-astronomy.exe` (no installer) |
+| Desktop app (Astronomy) | Linux x86-64 | `ai999x-astronomy-1.2.0-linux-x86_64.tar.gz` | 8.0 MB | [Hub](https://huggingface.co/AI999X/astronomy-ai999x/resolve/main/rust/ai999x-astronomy-1.2.0-linux-x86_64.tar.gz) · [GitHub](https://github.com/AI999X/astronomy-ai999x/releases/download/v1.0.3/ai999x-astronomy-1.2.0-linux-x86_64.tar.gz) · [website](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-astronomy-1.2.0-linux-x86_64.tar.gz) | extract, then run `./ai999x-astronomy` (X11 or Wayland desktop) |
+| Command line (`astronomy`) | Windows x86-64 | `ai999x-astronomy-cli-1.2.0-windows-x86_64.zip` | 2.7 MB | [Hub](https://huggingface.co/AI999X/astronomy-ai999x/resolve/main/rust/ai999x-astronomy-cli-1.2.0-windows-x86_64.zip) · [GitHub](https://github.com/AI999X/astronomy-ai999x/releases/download/v1.0.3/ai999x-astronomy-cli-1.2.0-windows-x86_64.zip) · [website (all models)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-windows-x86_64.zip) | unzip, then `astronomy.exe ask "<question>"` or `astronomy.exe solve <capability> name=value` |
+| Command line (`astronomy`) | Linux x86-64 | `ai999x-astronomy-cli-1.2.0-linux-x86_64.tar.gz` | 2.7 MB | [Hub](https://huggingface.co/AI999X/astronomy-ai999x/resolve/main/rust/ai999x-astronomy-cli-1.2.0-linux-x86_64.tar.gz) · [GitHub](https://github.com/AI999X/astronomy-ai999x/releases/download/v1.0.3/ai999x-astronomy-cli-1.2.0-linux-x86_64.tar.gz) · [website (all models)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-linux-x86_64.tar.gz) | extract, then `./astronomy ask "<question>"` or `./astronomy solve <capability> name=value` |
+
+The command-line archive holds `astronomy` with a README of its commands and examples, the licence and the notice. Checksums: [`rust/SHA256SUMS`](https://huggingface.co/AI999X/astronomy-ai999x/resolve/main/rust/SHA256SUMS) (`sha256sum -c SHA256SUMS`).
+
+## Quick start
+
+### Desktop app
+
+Download **AI999X Astronomy** for your system (above), unpack it and start it; type a question in words or pick a capability, fill in the form and press Compute. Figures and an explanation of the answer appear beside it. The AI999X desktop app has the same, with Astronomy among all AI999X models.
+
+Linux, from a terminal:
+
+```bash
+curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-astronomy-1.2.0-linux-x86_64.tar.gz
+curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS
+sha256sum -c --ignore-missing SHA256SUMS
+tar xzf ai999x-astronomy-1.2.0-linux-x86_64.tar.gz
+./ai999x-astronomy-1.2.0-linux-x86_64/ai999x-astronomy
+```
+
+### Command line
+
+Linux:
+
+```bash
+curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-linux-x86_64.tar.gz
+curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS
+sha256sum -c --ignore-missing SHA256SUMS
+mkdir -p ~/.local/share && tar xzf ai999x-cli-1.2.0-linux-x86_64.tar.gz -C ~/.local/share
+echo 'export PATH="$HOME/.local/share/ai999x-cli-1.2.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
+astronomy --version
+```
+
+Windows (PowerShell):
+
+```powershell
+$F = "ai999x-cli-1.2.0-windows-x86_64.zip"
+Invoke-WebRequest "https://www.ai999x.com/downloads/desktop/1.2.0/$F" -OutFile $F
+Invoke-WebRequest "https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS" -OutFile SHA256SUMS
+(Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
+Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
+$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.2.0-windows-x86_64"; $env:Path += ";$D"
+[Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$D", "User")
+astronomy --version
+```
+
+Every command below was run as shown; the text under it is what the program printed.
+
+**Ask in words** — Write the question as you would say it: the program reads the quantities and their units, picks the capability and answers.
+
+```console
+$ astronomy ask "Parallax distance: p = 0.768 arcsec"
+Read as: Distance from parallax
+d = 4.017809351e+16 m
+d_pc = 1.302083333
+d_ly = 4.246827835
+p_arcsec = 0.768
+  by: Distance from parallax  (d = 1/p with p in arcseconds gives parsecs)
+  p = 3.723369071e-06 rad
+  assumes: p > 0 (small-angle definition of the parsec)
+```
+
+**What a capability needs** — The equation or method, every input and output with its SI unit. Read this before solve: it tells you the input names.
+
+```console
+$ astronomy info lookback_time
+Lookback time to a redshift
+  t_L = (1/H0) integral_0^z dz' / ((1 + z') E(z')) by mpmath quadrature
+  in   z        redshift []
+  in   H0       Hubble constant in km/s/Mpc []
+  in   Om       matter density parameter Omega_m (flat: Omega_Lambda = 1 - Omega_m) []
+  out  t_L      lookback time [s]
+  out  t_L_Gyr  lookback time in Gyr []
+```
+
+**Solve** — Inputs as name=value, each with any unit of the right kind. The answer lists every output, the method used, each input converted to SI, and the conditions the answer assumes.
+
+```console
+$ astronomy solve lookback_time z=1.0 H0=70.0 Om=0.3
+t_L = 2.43477519e+17 s
+t_L_Gyr = 7.715337004
+  by: Lookback time to a redshift  (t_L = (1/H0) integral_0^z dz' / ((1 + z') E(z')) by mpmath quadrature)
+  z = 1
+  H0 = 70
+  Om = 0.3
+  assumes: 0 < z <= 1100; flat Lambda-CDM, no radiation
+```
+
+**Draw the figures** — The live figures for your own inputs, written as SVG files into the folder given with --out (here the current folder); open them in any browser. Without --out the SVG text comes back as JSON.
+
+```console
+$ astronomy figures parallax_distance "p=3.723369071e-06 rad" --out .
+[
+  {
+    "slug": "parallax-distance-live-1",
+    "title": "Distance in parsecs as annual parallax (arcsec, mas, rad, deg) varies",
+    "caption": "Distance in parsecs as p runs from 9.308e-07 to 6.516e-06 rad, every other input as you entered it (41 solutions). Marked: your p = 3.723e-06 rad gives d_pc = 1.302. Your inputs: p = 3.723369071e-06 rad.",
+    "file": "./parallax-distance-live-1.svg"
+  },
+  {
+    "slug": "parallax-distance-live-2",
+    "title": "The computed values side by side",
+    "caption": "Every answer of one unit for your inputs: d_pc (distance in parsecs) = 1.302; d_ly (distance in light-years) = 4.247; p_arcsec (parallax in arcseconds) = 0.768. Your inputs: p = 3.723369071e-06 rad.",
+    "file": "./parallax-distance-live-2.svg"
+  }
+]
+```
+
+**Many questions at once** — One JSON request per line in, one JSON answer per line out, in order: for scripts, notebooks and agents (the program starts once). In PowerShell: Get-Content cases.jsonl | astronomy batch
+
+`cases.jsonl`:
+
+```json
+{"key": "lookback_time", "inputs": {"z": 1.0, "H0": 70.0, "Om": 0.3}}
+{"key": "parallax_distance", "inputs": {"p": "3.723369071e-06 rad"}}
+```
+
+```console
+$ astronomy batch < cases.jsonl
+{"outcome":"SOLVED","message":"","value":7.71533700361,"unit":"","solved_for":"t_L_Gyr","si":[["z",1.0],["H0",70.0],["Om",0.3]],"values":[["t_L",2.43477519025e+17,"s"],["t_L_Gyr",7.71533700361,""]],"target":"t_L_Gyr","phrase":"lookback time","assumptions":["0 < z <= 1100","flat Lambda-CDM, no radiation"],"name":"Lookback time to a redshift","equation":"t_L = (1/H0) integral_0^z dz' / ((1 + z') E(z')) by mpmath quadrature"}
+{"outcome":"SOLVED","message":"","value":1.30208333331,"unit":"","solved_for":"d_pc","si":[["p",3.723369071e-6]],"values":[["d",4.01780935082e+16,"m"],["d_pc",1.30208333331,""],["d_ly",4.24682783476,""],["p_arcsec",0.768000000016,""]],"target":"d_pc","phrase":"distance","assumptions":["p > 0 (small-angle definition of the parsec)"],"name":"Distance from parallax","equation":"d = 1/p with p in arcseconds gives parsecs"}
+```
+
+### In your browser
+
+Open [Astronomy on ai999x.com](https://www.ai999x.com/models/astronomy-ai999x/#try), choose a capability and press **Compute**: the model runs on your own device as WebAssembly; nothing is sent anywhere. Change any input (any unit of the right kind) and the answer, its explanation and the figures follow.
+
+In your own page: `astronomy_ai999x.wasm` and the loader `ax-wasm.js` (https://www.ai999x.com/compute/rust/ax-wasm.js).
+
+### Python
+
+```bash
+pip install astronomy-ai999x
+```
+
+## Worked examples in every form
+
+The same worked example from the command line, from Python and in the browser. Each command-line output is what the program printed.
+
+### Schwarzschild radius
+
+The Schwarzschild radius (event horizon of a non-rotating black hole) of a mass M: r_s = 2 G M / c^2.
+
+Command line:
+
+```console
+$ astronomy solve schwarzschild_radius "M=1.988409871e+30 kg"
+rs = 2953.250077 m
+rs_km = 2.953250077
+M_Msun = 1
+  by: Schwarzschild radius  (r_s = 2 G M / c^2)
+  M = 1.988409871e+30 kg
+  assumes: M > 0; non-rotating, uncharged mass
+```
+
+Python:
+
+```python
+import astronomy_ai999x as m
+
+a = m.solve("schwarzschild_radius", M="1.988409871e+30 kg")
+print(a.values or (a.value, a.unit))
+```
+
+Browser: [open this capability on the model page](https://www.ai999x.com/models/astronomy-ai999x/#cap-schwarzschild_radius) and press **Compute in your browser**.
+
+_What this means:_ This calculation determines the event horizon radius for a non-rotating, uncharged black hole based on its total mass. Using the formula relating gravity and light speed, the resulting Schwarzschild radius is 2953.25 m. This distance represents the boundary from within which no information or light can escape the gravitational pull of the object with mass 1.98841e+30 kg.
+
+### Age of the universe at a redshift
+
+The age of a flat Lambda-CDM universe when the light from redshift z was emitted, and its present age.
+
+Command line:
+
+```console
+$ astronomy solve age_at_redshift z=3 H0=70 Om=1
+age = 3.673425692e+16 s
+age_Gyr = 1.164038359
+age_now_Gyr = 9.312306873
+  by: Age of the universe at a redshift  (t(z) = (1/H0) integral_z^inf dz' / ((1 + z') E(z')) by mpmath quadrature)
+  z = 3
+  H0 = 70
+  Om = 1
+  assumes: 0 <= z <= 1100; flat Lambda-CDM, no radiation (not accurate in the radiation era)
+```
+
+Python:
+
+```python
+import astronomy_ai999x as m
+
+a = m.solve("age_at_redshift", z="3", H0="70", Om="1")
+print(a.values or (a.value, a.unit))
+```
+
+Browser: [open this capability on the model page](https://www.ai999x.com/models/astronomy-ai999x/#cap-age_at_redshift) and press **Compute in your browser**.
+
+_What this means:_ This calculation determines the age of a flat Lambda-CDM universe at the time light was emitted from an object at redshift 3. Using the Hubble constant 70 and matter density parameter 1, it computes that the universe was 1.16404 billion years old then. The present total age of this model universe is calculated to be 9.31231 billion years.
+
+### Angular size of an object at a redshift
+
+The angle subtended by an object of proper size D at redshift z, and the proper length per arcsecond, in a flat Lambda-CDM universe.
+
+Command line:
+
+```console
+$ astronomy solve angular_size_at_redshift z=3 H0=70 Om=1 "D=3.085677581e+22 m"
+theta_arcsec = 192.6470937
+scale_kpc_per_arcsec = 5.190838755
+D_A_Mpc = 1070.68735
+  by: Angular size of an object at a redshift  (theta = D / D_A with D_A = D_C / (1 + z))
+  z = 3
+  H0 = 70
+  Om = 1
+  D = 3.085677581e+22 m
+  assumes: 0 < z <= 1100; D > 0; small angles; flat Lambda-CDM, no radiation
+```
+
+Python:
+
+```python
+import astronomy_ai999x as m
+
+a = m.solve("angular_size_at_redshift", z="3", H0="70", Om="1", D="3.085677581e+22 m")
+print(a.values or (a.value, a.unit))
+```
+
+Browser: [open this capability on the model page](https://www.ai999x.com/models/astronomy-ai999x/#cap-angular_size_at_redshift) and press **Compute in your browser**.
+
+_What this means:_ This calculation determines the apparent angular size on the sky for a physical object of proper size 3.08568e+22 m located at redshift 3. It uses the angular-diameter distance 1070.69, derived from the cosmological parameters 70 and 1, to compute that the object subtends 192.647 arcseconds. Additionally, it provides the scale factor of 5.19084 kiloparsecs per arcsecond, which helps translate observed separations into physical distances in this flat Lambda-CDM universe.
+
+### Comoving volume out to a redshift
+
+The all-sky comoving volume enclosed within redshift z in a flat Lambda-CDM universe.
+
+Command line:
+
+```console
+$ astronomy solve comoving_volume z=3 H0=70 Om=1
+V = 9.667367618e+78 m^3
+V_Gpc3 = 329.0459866
+  by: Comoving volume out to a redshift  (V = (4 pi / 3) D_C^3 (flat space))
+  z = 3
+  H0 = 70
+  Om = 1
+  assumes: 0 < z <= 1100; flat Lambda-CDM, no radiation
+```
+
+Python:
+
+```python
+import astronomy_ai999x as m
+
+a = m.solve("comoving_volume", z="3", H0="70", Om="1")
+print(a.values or (a.value, a.unit))
+```
+
+Browser: [open this capability on the model page](https://www.ai999x.com/models/astronomy-ai999x/#cap-comoving_volume) and press **Compute in your browser**.
+
+_What this means:_ This calculation determines the total all-sky comoving volume enclosed within the specified redshift limit for a flat Lambda-CDM universe. Using the provided Hubble constant and matter density parameter, the result is 9.66737e+78 m^3 cubic meters, which corresponds to 329.046 cubic gigaparsecs. This metric represents the physical space available for counting galaxies and analyzing large-scale structure statistics at that cosmological distance.
+
+## Documentation
+
+- **Rust user guide** — the command line, every capability with a command and what it printed: [PDF](https://huggingface.co/AI999X/astronomy-ai999x/blob/main/docs/astronomy_ai999x_rust_guide.pdf) · [Markdown](https://huggingface.co/AI999X/astronomy-ai999x/blob/main/docs/astronomy_ai999x_rust_guide.md)
+- **Python guide** — every capability with a Python example: [PDF](https://huggingface.co/AI999X/astronomy-ai999x/blob/main/docs/astronomy_ai999x_capabilities.pdf) · [Markdown](https://huggingface.co/AI999X/astronomy-ai999x/blob/main/docs/astronomy_ai999x_capabilities.md)
+- **Desktop app & command line** — downloads, install, ask and search, figures, offline use, checksums: https://www.ai999x.com/desktop-cli/
+- **Model page** — compute in your browser, every capability explained: https://www.ai999x.com/models/astronomy-ai999x/
 
 ## Highlights
 
@@ -20,6 +311,7 @@ astronomy-ai999x is an offline, deterministic Python solver that answers astrono
 - **Zero wrong answers by design.** Seven explicit outcomes — SOLVED, NEEDS_INPUT, AMBIGUOUS, INVALID_INPUT, OUT_OF_SCOPE, UNRECOGNIZED_FORMAT, INTERNAL_ERROR — never a silent guess. Every one of its 350 documented answers is reproduced exactly on every tested platform.
 - **Plain-English questions and a guaranteed typed interface.** `ask()` reads documented question forms; `solve(capability_id, **inputs)` always solves a supported task with valid inputs.
 - **Explains itself.** Steps, formulas in LaTeX, units, assumptions and the model used, ready for notebooks, tutoring apps and homework checkers.
+- **Native and in the browser.** Every capability also computes natively in Rust: the desktop app and the `astronomy` command line for Windows and Linux, and WebAssembly on the model page — no Python, no network.
 - **Small and portable.** Pure Python (sympy, mpmath); identical answers on Windows and Linux (Python 3.10, 3.11, 3.12, 3.13, 3.14).
 - **Coverage:** distances and magnitudes, stars and blackbody radiation, orbits and exoplanets, cosmology, telescopes and observing, positional astronomy and time, plasma and space physics.
 
@@ -38,7 +330,7 @@ astronomy-ai999x is an offline, deterministic Python solver that answers astrono
 | Creator / engineer | Ibnul Jaif Farabi |
 | Organization | AI999X |
 
-## Quickstart
+## Python quick start
 
 ```bash
 pip install astronomy-ai999x
@@ -61,7 +353,7 @@ astronomy.ask("Who created you?").message
 # -> astronomy-ai999x was created and engineered by Ibnul Jaif Farabi at AI999X.
 ```
 
-Command line: `astronomy-ai999x "<question>"`, `astronomy-ai999x --capabilities`. The outputs above were produced by running this exact code on astronomy-ai999x 1.0.3.
+The Python package also installs a Python command, `astronomy-ai999x "<question>"`; for the native program use `astronomy` (above). The outputs above were produced by running this exact code on astronomy-ai999x 1.0.3.
 
 ## Find the right capability, and draw it
 
@@ -83,7 +375,7 @@ astronomy.search("Solve x^2 - 5x + 6 = 0", k=2)
 
 Capabilities are certified before they ship: each must reproduce hand-worked reference cases, reject a deliberately wrong variant (a control), and leave every benchmark answer unchanged.
 
-## Worked examples
+## Python worked examples, with their steps
 
 Each question was put to `astronomy-ai999x`; the answer is the one it returned, with the steps it took.
 

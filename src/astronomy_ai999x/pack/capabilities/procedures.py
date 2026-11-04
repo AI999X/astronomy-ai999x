@@ -1761,7 +1761,7 @@ def lookback_time(z, H0, Om):
 
 _add("lookback_time",
      name="Lookback time to a redshift", topic="cosmology / time",
-     purpose="How long ago the light we receive from redshift z was emitted, in a flat Lambda-CDM universe.",
+     purpose="How long ago the light received from redshift z was emitted, in a flat Lambda-CDM universe.",
      inputs=_COSMO_IN,
      outputs=[_o("t_L", "time", "lookback time"), _o("t_L_Gyr", "number", "lookback time in Gyr")],
      primary="t_L_Gyr", conditions=["0 < z <= 1100", "flat Lambda-CDM, no radiation"],

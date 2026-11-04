@@ -1,0 +1,1167 @@
+<!doctype html><html><head><meta charset="utf-8"><title>astronomy — user guide (Rust build)</title>
+<script>window.MathJax={tex:{inlineMath:[['$','$']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+<style>
+@page{size:A4;margin:16mm 15mm}
+body{font-family:"Segoe UI",Arial,sans-serif;font-size:10.5pt;line-height:1.45;color:#1b1f24;max-width:880px;margin:auto}
+h1{font-size:22pt;border-bottom:2px solid #2b5c8a;padding-bottom:4px;margin-top:28px;page-break-before:always}
+h1:first-of-type{page-break-before:avoid}
+h2{font-size:15pt;color:#2b5c8a;margin-top:22px;page-break-after:avoid}
+h3{font-size:12pt;margin-top:16px;page-break-after:avoid}
+pre{background:#f4f6f8;border:1px solid #dde3e8;border-radius:4px;padding:8px 10px;font-size:8.8pt;white-space:pre-wrap;page-break-inside:avoid}
+code{font-family:Consolas,monospace;font-size:9pt;background:#f4f6f8;padding:0 2px}
+pre code{background:none;padding:0}
+table{border-collapse:collapse;margin:8px 0;font-size:9pt;width:100%;page-break-inside:auto}
+th,td{border:1px solid #cfd6dd;padding:3px 6px;vertical-align:top;text-align:left}
+th{background:#eaf0f5}
+.math{margin:6px 0;overflow-x:auto}
+.badge{display:inline-block;color:#fff;border-radius:3px;padding:0 5px;font-size:8.5pt;white-space:nowrap}
+figure{margin:10px 0;text-align:center;page-break-inside:avoid}figure img{max-width:88%}.svgfig svg{max-width:88%;height:auto}
+figcaption{font-size:9pt;color:#555}
+.pb{page-break-after:always}
+</style></head><body>
+<h1>astronomy: the Astronomy program — user guide</h1>
+<p><strong>astronomy-ai999x 1.0.3</strong>, Rust build: command line, desktop app and browser. <strong>Creator / engineer:</strong> Ibnul Jaif Farabi · <strong>Company:</strong> AI999X · support@ai999x.com</p>
+<p>Astronomy covers celestial mechanics and orbits, stellar properties, blackbody radiation, magnitudes and distances, cosmology basics, the Sun and space environment and plasma parameters. This guide is about <code>astronomy</code>, the model as a self-contained program for Windows and Linux: 67 capabilities in 13 topics, answered on your own computer with no network, no Python and nothing else to install. The same compiled model runs in the AI999X desktop app and in the browser on the model&#x27;s page (https://www.ai999x.com/models/astronomy-ai999x/); the Python package (<code>pip install astronomy-ai999x</code>) has its own guide. Every command output printed here is what the program printed.</p>
+<h2>Contents</h2>
+<ul><li>1. Get it: desktop app, command line, browser, Python</li><li>2. Quick start</li><li>3. Writing inputs</li><li>4. Outcomes and exit codes</li><li>5. Scripts and agents: batch and JSON</li><li>6. Figures</li><li>7. In a web page or Node.js: WebAssembly</li><li>8. Every capability</li></ul>
+<h2>1. Get it</h2>
+<p>Version 1.4.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://www.ai999x.com/downloads/desktop/1.4.0/SHA256SUMS; the newest version is always under https://www.ai999x.com/downloads/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/</p>
+<table><thead><tr><th>what</th><th>system</th><th>download</th></tr></thead><tbody><tr><td>Desktop app: Astronomy</td><td>Windows x86-64</td><td>https://www.ai999x.com/downloads/desktop/1.4.0/ai999x-astronomy-1.4.0-windows-x86_64.zip</td></tr><tr><td>Desktop app: Astronomy</td><td>Linux x86-64</td><td>https://www.ai999x.com/downloads/desktop/1.4.0/ai999x-astronomy-1.4.0-linux-x86_64.tar.gz</td></tr><tr><td>Desktop app: all models</td><td>Windows x86-64</td><td>https://www.ai999x.com/downloads/desktop/1.4.0/ai999x-1.4.0-windows-x86_64.zip</td></tr><tr><td>Desktop app: all models</td><td>Linux x86-64</td><td>https://www.ai999x.com/downloads/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz</td></tr><tr><td>Command line</td><td>Windows x86-64</td><td>https://www.ai999x.com/downloads/desktop/1.4.0/ai999x-cli-1.4.0-windows-x86_64.zip</td></tr><tr><td>Command line</td><td>Linux x86-64</td><td>https://www.ai999x.com/downloads/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz</td></tr></tbody></table>
+<h3>Desktop app</h3>
+<p>Astronomy in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-astronomy-1.4.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-astronomy.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:</p>
+<pre><code class="shell">curl -LO https://www.ai999x.com/downloads/desktop/1.4.0/ai999x-astronomy-1.4.0-linux-x86_64.tar.gz
+curl -LO https://www.ai999x.com/downloads/desktop/1.4.0/SHA256SUMS
+sha256sum -c --ignore-missing SHA256SUMS
+tar xzf ai999x-astronomy-1.4.0-linux-x86_64.tar.gz
+./ai999x-astronomy-1.4.0-linux-x86_64/ai999x-astronomy</code></pre>
+<p>It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.4.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:</p>
+<pre><code class="shell">curl -LO https://www.ai999x.com/downloads/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz
+curl -LO https://www.ai999x.com/downloads/desktop/1.4.0/SHA256SUMS
+sha256sum -c --ignore-missing SHA256SUMS
+tar xzf ai999x-1.4.0-linux-x86_64.tar.gz
+./ai999x-1.4.0-linux-x86_64/ai999x</code></pre>
+<h3>Command line — Linux</h3>
+<p>The bundle holds one program per model; <code>astronomy</code> is this one. The checksum line should print OK.</p>
+<pre><code class="shell">curl -LO https://www.ai999x.com/downloads/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz
+curl -LO https://www.ai999x.com/downloads/desktop/1.4.0/SHA256SUMS
+sha256sum -c --ignore-missing SHA256SUMS
+mkdir -p ~/.local/share &amp;&amp; tar xzf ai999x-cli-1.4.0-linux-x86_64.tar.gz -C ~/.local/share
+echo &#x27;export PATH=&quot;$HOME/.local/share/ai999x-cli-1.4.0-linux-x86_64:$PATH&quot;&#x27; &gt;&gt; ~/.bashrc &amp;&amp; source ~/.bashrc
+astronomy --version</code></pre>
+<h3>Command line — Windows (PowerShell)</h3>
+<p>The fourth line should print True.</p>
+<pre><code class="powershell">$F = &quot;ai999x-cli-1.4.0-windows-x86_64.zip&quot;
+Invoke-WebRequest &quot;https://www.ai999x.com/downloads/desktop/1.4.0/$F&quot; -OutFile $F
+Invoke-WebRequest &quot;https://www.ai999x.com/downloads/desktop/1.4.0/SHA256SUMS&quot; -OutFile SHA256SUMS
+(Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split &#x27; &#x27;)[0]
+Expand-Archive $F -DestinationPath &quot;$env:LOCALAPPDATA\AI999X&quot; -Force
+$D = &quot;$env:LOCALAPPDATA\AI999X\ai999x-cli-1.4.0-windows-x86_64&quot;; $env:Path += &quot;;$D&quot;
+[Environment]::SetEnvironmentVariable(&quot;Path&quot;, [Environment]::GetEnvironmentVariable(&quot;Path&quot;, &quot;User&quot;) + &quot;;$D&quot;, &quot;User&quot;)
+astronomy --version</code></pre>
+<h3>In your browser</h3>
+<p>Open https://www.ai999x.com/models/astronomy-ai999x/, choose a capability and press Compute in your browser: the same program runs on your device as WebAssembly; nothing is sent anywhere.</p>
+<h3>Python</h3>
+<pre><code class="shell">pip install astronomy-ai999x</code></pre>
+<h2>2. Quick start</h2>
+<h3>2.1 Check the install</h3>
+<p>Prints the model, its version and that this is the Rust build.</p>
+<pre><code class="shell">$ astronomy --version
+astronomy-ai999x 1.0.3 (Rust build, ax-engine 0.1.0)</code></pre>
+<h3>2.2 Ask in words</h3>
+<p>Write the question as you would say it: the program reads the quantities and their units, picks the capability and answers.</p>
+<pre><code class="shell">$ astronomy ask &quot;Parallax distance: p = 0.768 arcsec&quot;
+Read as: Distance from parallax
+d = 4.017809351e+16 m
+d_pc = 1.302083333
+d_ly = 4.246827835
+p_arcsec = 0.768
+  by: Distance from parallax  (d = 1/p with p in arcseconds gives parsecs)
+  p = 3.723369071e-06 rad
+  assumes: p &gt; 0 (small-angle definition of the parsec)</code></pre>
+<h3>2.3 Find a capability</h3>
+<p>Search the capabilities by what you want to know; the first column is the id to pass to info and solve.</p>
+<pre><code class="shell">$ astronomy search &quot;lookback time to a redshift&quot;
+lookback_time                        Lookback time to a redshift  (cosmology / time)
+redshift_at_lookback_time            Redshift at a given lookback time  (cosmology / time)
+age_at_redshift                      Age of the universe at a redshift  (cosmology / time)
+cosmological_distances               Cosmological distances at a redshift  (cosmology / distances)
+comoving_volume                      Comoving volume out to a redshift  (cosmology / volumes)
+angular_size_at_redshift             Angular size of an object at a redshift  (cosmology / angular scale)
+recession_velocity_from_redshift     Radial velocity from a Doppler redshift  (cosmology / redshift)
+redshift_from_wavelengths            Redshift and radial velocity from a spectral line  (cosmology / redshift)
+… 9 more</code></pre>
+<h3>2.4 List the capabilities</h3>
+<p>Every capability the program answers: its id (what you pass to solve) and its name.</p>
+<pre><code class="shell">$ astronomy list
+absolute_magnitude                       Absolute magnitude
+age_at_redshift                          Age of the universe at a redshift
+airmass_extinction                       Airmass and atmospheric extinction
+alfven_speed                             Alfven speed
+altaz_from_hadec                         Altitude and azimuth from hour angle and declination
+angular_separation                       Angular separation of two sky positions
+angular_size                             Angular size
+angular_size_at_redshift                 Angular size of an object at a redshift
+… 59 more</code></pre>
+<h3>2.5 What a capability needs</h3>
+<p>The equation or method, every input and output with its SI unit. Read this before solve: it tells you the input names.</p>
+<pre><code class="shell">$ astronomy info lookback_time
+Lookback time to a redshift
+  t_L = (1/H0) integral_0^z dz&#x27; / ((1 + z&#x27;) E(z&#x27;)) by mpmath quadrature
+  in   z        redshift []
+  in   H0       Hubble constant in km/s/Mpc []
+  in   Om       matter density parameter Omega_m (flat: Omega_Lambda = 1 - Omega_m) []
+  out  t_L      lookback time [s]
+  out  t_L_Gyr  lookback time in Gyr []</code></pre>
+<h3>2.6 Solve</h3>
+<p>Inputs as name=value, each with any unit of the right kind. The answer lists every output, the method used, each input converted to SI, and the conditions the answer assumes.</p>
+<pre><code class="shell">$ astronomy solve lookback_time z=1.0 H0=70.0 Om=0.3
+t_L = 2.43477519e+17 s
+t_L_Gyr = 7.715337004
+  by: Lookback time to a redshift  (t_L = (1/H0) integral_0^z dz&#x27; / ((1 + z&#x27;) E(z&#x27;)) by mpmath quadrature)
+  z = 1
+  H0 = 70
+  Om = 0.3
+  assumes: 0 &lt; z &lt;= 1100; flat Lambda-CDM, no radiation</code></pre>
+<h3>2.7 Machine-readable answer</h3>
+<p>--json prints the same answer as one line of JSON (values in SI): for scripts and other programs.</p>
+<pre><code class="shell">$ astronomy solve lookback_time z=1.0 H0=70.0 Om=0.3 --json
+{&quot;outcome&quot;:&quot;SOLVED&quot;,&quot;message&quot;:&quot;&quot;,&quot;value&quot;:7.71533700361,&quot;unit&quot;:&quot;&quot;,&quot;solved_for&quot;:&quot;t_L_Gyr&quot;,&quot;si&quot;:[[&quot;z&quot;,1.0],[&quot;H0&quot;,70.0],[&quot;Om&quot;,0.3]],&quot;values&quot;:[[&quot;t_L&quot;,2.43477519025e+17,&quot;s&quot;],[&quot;t_L_Gyr&quot;,7.71533700361,&quot;&quot;]],&quot;target&quot;:&quot;t_L_Gyr&quot;,&quot;phrase&quot;:&quot;lookback time&quot;,&quot;assumptions&quot;:[&quot;0 &lt; z &lt;= 1100&quot;,&quot;flat Lambda-CDM, no radiation&quot;],&quot;name&quot;:&quot;Lookback time to a redshift&quot;,&quot;equation&quot;:&quot;t_L = (1/H0) integral_0^z dz&#x27; / ((1 + z&#x27;) E(z&#x27;)) by mpmath quadrature&quot;}</code></pre>
+<h3>2.8 When an input is missing</h3>
+<p>No number is guessed: the answer names what is missing, shows a complete call, and the program exits with status 1.</p>
+<pre><code class="shell">$ astronomy solve lookback_time z=1.0 H0=70.0
+NEEDS_INPUT: lookback_time needs Om (matter density parameter Omega_m (flat: Omega_Lambda = 1 - Omega_m)). Example: solve(&#x27;lookback_time&#x27;, z=3, H0=70, Om=1).</code></pre>
+<h3>2.9 Draw the figures</h3>
+<p>The live figures for your own inputs, written as SVG files into the folder given with --out (here the current folder); open them in any browser. Without --out the SVG text comes back as JSON.</p>
+<pre><code class="shell">$ astronomy figures parallax_distance &quot;p=3.723369071e-06 rad&quot; --out .
+[
+  {
+    &quot;slug&quot;: &quot;parallax-distance-live-1&quot;,
+    &quot;title&quot;: &quot;Distance in parsecs as annual parallax (arcsec, mas, rad, deg) varies&quot;,
+    &quot;caption&quot;: &quot;Distance in parsecs as p runs from 9.308e-07 to 6.516e-06 rad, every other input as you entered it (41 solutions). Marked: your p = 3.723e-06 rad gives d_pc = 1.302. Your inputs: p = 3.723369071e-06 rad.&quot;,
+    &quot;file&quot;: &quot;.\\parallax-distance-live-1.svg&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;parallax-distance-live-2&quot;,
+    &quot;title&quot;: &quot;The computed values side by side&quot;,
+    &quot;caption&quot;: &quot;Every answer of one unit for your inputs: d_pc (distance in parsecs) = 1.302; d_ly (distance in light-years) = 4.247; p_arcsec (parallax in arcseconds) = 0.768. Your inputs: p = 3.723369071e-06 rad.&quot;,
+    &quot;file&quot;: &quot;.\\parallax-distance-live-2.svg&quot;
+  }
+]</code></pre>
+<h3>2.10 Many questions at once</h3>
+<p>One JSON request per line in, one JSON answer per line out, in order: for scripts, notebooks and agents (the program starts once). In PowerShell: Get-Content cases.jsonl | astronomy batch</p>
+<p><code>cases.jsonl</code>:</p>
+<pre><code class="json">{&quot;key&quot;: &quot;lookback_time&quot;, &quot;inputs&quot;: {&quot;z&quot;: 1.0, &quot;H0&quot;: 70.0, &quot;Om&quot;: 0.3}}
+{&quot;key&quot;: &quot;parallax_distance&quot;, &quot;inputs&quot;: {&quot;p&quot;: &quot;3.723369071e-06 rad&quot;}}</code></pre>
+<pre><code class="shell">$ astronomy batch &lt; cases.jsonl
+{&quot;outcome&quot;:&quot;SOLVED&quot;,&quot;message&quot;:&quot;&quot;,&quot;value&quot;:7.71533700361,&quot;unit&quot;:&quot;&quot;,&quot;solved_for&quot;:&quot;t_L_Gyr&quot;,&quot;si&quot;:[[&quot;z&quot;,1.0],[&quot;H0&quot;,70.0],[&quot;Om&quot;,0.3]],&quot;values&quot;:[[&quot;t_L&quot;,2.43477519025e+17,&quot;s&quot;],[&quot;t_L_Gyr&quot;,7.71533700361,&quot;&quot;]],&quot;target&quot;:&quot;t_L_Gyr&quot;,&quot;phrase&quot;:&quot;lookback time&quot;,&quot;assumptions&quot;:[&quot;0 &lt; z &lt;= 1100&quot;,&quot;flat Lambda-CDM, no radiation&quot;],&quot;name&quot;:&quot;Lookback time to a redshift&quot;,&quot;equation&quot;:&quot;t_L = (1/H0) integral_0^z dz&#x27; / ((1 + z&#x27;) E(z&#x27;)) by mpmath quadrature&quot;}
+{&quot;outcome&quot;:&quot;SOLVED&quot;,&quot;message&quot;:&quot;&quot;,&quot;value&quot;:1.30208333331,&quot;unit&quot;:&quot;&quot;,&quot;solved_for&quot;:&quot;d_pc&quot;,&quot;si&quot;:[[&quot;p&quot;,3.723369071e-6]],&quot;values&quot;:[[&quot;d&quot;,4.01780935082e+16,&quot;m&quot;],[&quot;d_pc&quot;,1.30208333331,&quot;&quot;],[&quot;d_ly&quot;,4.24682783476,&quot;&quot;],[&quot;p_arcsec&quot;,0.768000000016,&quot;&quot;]],&quot;target&quot;:&quot;d_pc&quot;,&quot;phrase&quot;:&quot;distance&quot;,&quot;assumptions&quot;:[&quot;p &gt; 0 (small-angle definition of the parsec)&quot;],&quot;name&quot;:&quot;Distance from parallax&quot;,&quot;equation&quot;:&quot;d = 1/p with p in arcseconds gives parsecs&quot;}</code></pre>
+<h2>3. Writing inputs</h2>
+<p>Inputs are written <code>name=value</code>, one per argument; <code>astronomy info &lt;capability&gt;</code> lists the names. Quote an argument that holds a space or brackets (bash, zsh and PowerShell all accept double quotes). The answer always states each input as it was read, converted to SI, so a misread unit is visible at once.</p>
+<table><thead><tr><th>kind</th><th>example</th><th>how it is read</th></tr></thead><tbody><tr><td>a number with a unit</td><td><code>&quot;R=0.128 nm&quot;</code></td><td>any unit of the same kind; converted to SI</td></tr><tr><td>a number in SI</td><td><code>R=1.28e-10</code></td><td>no unit means the SI unit shown by info</td></tr><tr><td>a choice</td><td><code>structure=FCC</code></td><td>one of the values info lists</td></tr><tr><td>a list or vector</td><td><code>&quot;v=[1, 2, 3]&quot; or &quot;v=1, 2, 3&quot;</code></td><td>brackets keep it a list</td></tr><tr><td>a matrix</td><td><code>&quot;A=[[1, 2], [3, 4]]&quot;</code></td><td>one list per row</td></tr><tr><td>true / false</td><td><code>inclusive=true</code></td><td>for yes/no options</td></tr></tbody></table>
+<p>An equation can be solved for any of its quantities: give the others and add <code>--target &lt;symbol&gt;</code>. Without <code>--target</code>, the program solves for the quantity the capability is named after.</p>
+<h2>4. Outcomes and exit codes</h2>
+<p>The program never guesses a number: when it cannot answer, it says why and exits with status 1, so a script can tell an answer from a refusal without reading the text.</p>
+<table><thead><tr><th>outcome</th><th>meaning</th><th>exit status</th></tr></thead><tbody><tr><td>SOLVED</td><td>the answer: every output with its unit, the method, the inputs in SI, the conditions assumed</td><td>0</td></tr><tr><td>NEEDS_INPUT</td><td>an input is missing; the message names it and shows a complete call</td><td>1</td></tr><tr><td>INVALID_INPUT</td><td>a value or unit of the wrong kind, an unknown input name, or a value outside the conditions</td><td>1</td></tr><tr><td>AMBIGUOUS</td><td>the inputs allow two different answers; say which one is meant</td><td>1</td></tr><tr><td>OUT_OF_SCOPE</td><td>the model has no capability for this, or the result would not be meaningful</td><td>1</td></tr><tr><td>(usage)</td><td>a command the program does not know: it prints its usage</td><td>2</td></tr></tbody></table>
+<h2>5. Scripts and agents: batch and JSON</h2>
+<p><code>astronomy solve ... --json</code> prints one answer as one line of JSON. <code>astronomy batch</code> reads one request per line on standard input and writes one JSON answer per line, in order, starting the program once for any number of requests. A request is <code>{&quot;key&quot;: &quot;&lt;capability&gt;&quot;, &quot;inputs&quot;: {&quot;name&quot;: &quot;value&quot;, ...}, &quot;target&quot;: null}</code>. In PowerShell, pipe the file in: <code>Get-Content cases.jsonl | astronomy batch</code>. <code>astronomy catalog</code> prints every capability with its inputs as JSON, to build forms or tool definitions.</p>
+<table><thead><tr><th>answer field</th><th>meaning</th></tr></thead><tbody><tr><td>outcome</td><td>one of the outcomes above</td></tr><tr><td>message</td><td>why there is no answer (empty when SOLVED)</td></tr><tr><td>value, unit</td><td>the main result in SI units</td></tr><tr><td>values</td><td>every output: [symbol, value, unit] (procedures)</td></tr><tr><td>target</td><td>the quantity solved for</td></tr><tr><td>si</td><td>each numeric input converted to SI: [symbol, value]</td></tr><tr><td>assumptions</td><td>the conditions the answer relies on</td></tr><tr><td>name, equation</td><td>the capability and its equation or method</td></tr></tbody></table>
+<pre><code class="python">import json, subprocess
+
+reqs = [{&quot;key&quot;: &quot;&lt;capability&gt;&quot;, &quot;inputs&quot;: {&quot;name&quot;: &quot;value&quot;}}]
+out = subprocess.run([&quot;astronomy&quot;, &quot;batch&quot;], input=&quot;\n&quot;.join(map(json.dumps, reqs)),
+                     capture_output=True, text=True, check=True).stdout
+answers = [json.loads(line) for line in out.splitlines()]</code></pre>
+<h2>6. Figures</h2>
+<p><code>astronomy figures &lt;capability&gt; name=value ... --out DIR</code> draws the live figures for those inputs and writes each as an SVG file into DIR (an existing folder); without <code>--out</code> the SVG text comes back as JSON. The desktop app and the model page draw the same figures as soon as you press Compute.</p>
+<pre><code class="shell">$ astronomy figures parallax_distance &quot;p=3.723369071e-06 rad&quot; --out .
+[
+  {
+    &quot;slug&quot;: &quot;parallax-distance-live-1&quot;,
+    &quot;title&quot;: &quot;Distance in parsecs as annual parallax (arcsec, mas, rad, deg) varies&quot;,
+    &quot;caption&quot;: &quot;Distance in parsecs as p runs from 9.308e-07 to 6.516e-06 rad, every other input as you entered it (41 solutions). Marked: your p = 3.723e-06 rad gives d_pc = 1.302. Your inputs: p = 3.723369071e-06 rad.&quot;,
+    &quot;file&quot;: &quot;.\\parallax-distance-live-1.svg&quot;
+  },
+  {
+    &quot;slug&quot;: &quot;parallax-distance-live-2&quot;,
+    &quot;title&quot;: &quot;The computed values side by side&quot;,
+    &quot;caption&quot;: &quot;Every answer of one unit for your inputs: d_pc (distance in parsecs) = 1.302; d_ly (distance in light-years) = 4.247; p_arcsec (parallax in arcseconds) = 0.768. Your inputs: p = 3.723369071e-06 rad.&quot;,
+    &quot;file&quot;: &quot;.\\parallax-distance-live-2.svg&quot;
+  }
+]</code></pre>
+<h2>7. In a web page or Node.js: WebAssembly</h2>
+<p>The same model is a WebAssembly module, <code>astronomy_ai999x.wasm</code> (https://www.ai999x.com/compute/rust/astronomy_ai999x.wasm), with a small loader, <code>ax-wasm.js</code> (https://www.ai999x.com/compute/rust/ax-wasm.js). It runs in a browser, a Web Worker or Node.js, with no server.</p>
+<pre><code class="html">&lt;script src=&quot;ax-wasm.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  AXWasm.load(&quot;astronomy_ai999x.wasm&quot;).then(function (m) {
+    var a = m.solve({key: &quot;&lt;capability&gt;&quot;, inputs: {name: &quot;value&quot;}});
+    console.log(a.outcome, a.values || a.value);
+    console.log(m.catalog().capabilities.length + &quot; capabilities&quot;);
+  });
+&lt;/script&gt;</code></pre>
+<h2>8. Every capability</h2>
+<p>By topic. For each: what it does, what it needs and gives, when it applies, and a command with what the program printed for it. <code>astronomy info &lt;id&gt;</code> shows the same inputs and outputs in the terminal.</p>
+<h3>Compact objects (1)</h3>
+<h4 id="schwarzschild_radius">Schwarzschild radius — <code>schwarzschild_radius</code></h4>
+<p>The Schwarzschild radius (event horizon of a non-rotating black hole) of a mass M: r_s = 2 G M / c^2.</p>
+<div class="math">\[r_s = \frac{2GM}{c^2}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>M</code></td><td>in</td><td>mass (kg, Msun, Mearth)</td><td>kg</td></tr><tr><td><code>rs</code></td><td>out</td><td>Schwarzschild radius</td><td>m</td></tr><tr><td><code>rs_km</code></td><td>out</td><td>Schwarzschild radius in kilometres</td><td>—</td></tr><tr><td><code>M_Msun</code></td><td>out</td><td>mass in solar masses</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> M &gt; 0; non-rotating, uncharged mass.</p>
+<pre><code class="shell">$ astronomy solve schwarzschild_radius &quot;M=1.988409871e+30 kg&quot;
+rs = 2953.250077 m
+rs_km = 2.953250077
+M_Msun = 1
+  by: Schwarzschild radius  (r_s = 2 G M / c^2)
+  M = 1.988409871e+30 kg
+  assumes: M &gt; 0; non-rotating, uncharged mass</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the event horizon radius for a non-rotating, uncharged black hole based on its total mass. Using the formula relating gravity and light speed, the resulting Schwarzschild radius is 2953.25 m. This distance represents the boundary from within which no information or light can escape the gravitational pull of the object with mass 1.98841e+30 kg.</p>
+<h3>Cosmology (9)</h3>
+<h4 id="age_at_redshift">Age of the universe at a redshift — <code>age_at_redshift</code></h4>
+<p>The age of a flat Lambda-CDM universe when the light from redshift z was emitted, and its present age.</p>
+<div class="math">\[t(z) = \frac{1}{H_0}\int_z^\infty \frac{dz&#x27;}{(1+z&#x27;)\sqrt{\Omega_m(1+z&#x27;)^3 + \Omega_\Lambda}}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>z</code></td><td>in</td><td>redshift</td><td>—</td></tr><tr><td><code>H0</code></td><td>in</td><td>Hubble constant in km/s/Mpc</td><td>—</td></tr><tr><td><code>Om</code></td><td>in</td><td>matter density parameter Omega_m (flat: Omega_Lambda = 1 - Omega_m)</td><td>—</td></tr><tr><td><code>age</code></td><td>out</td><td>age at redshift z</td><td>s</td></tr><tr><td><code>age_Gyr</code></td><td>out</td><td>age at redshift z in Gyr</td><td>—</td></tr><tr><td><code>age_now_Gyr</code></td><td>out</td><td>present age in Gyr</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> 0 &lt;= z &lt;= 1100; flat Lambda-CDM, no radiation (not accurate in the radiation era).</p>
+<pre><code class="shell">$ astronomy solve age_at_redshift z=3 H0=70 Om=1
+age = 3.673425692e+16 s
+age_Gyr = 1.164038359
+age_now_Gyr = 9.312306873
+  by: Age of the universe at a redshift  (t(z) = (1/H0) integral_z^inf dz&#x27; / ((1 + z&#x27;) E(z&#x27;)) by mpmath quadrature)
+  z = 3
+  H0 = 70
+  Om = 1
+  assumes: 0 &lt;= z &lt;= 1100; flat Lambda-CDM, no radiation (not accurate in the radiation era)</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the age of a flat Lambda-CDM universe at the time light was emitted from an object at redshift 3. Using the Hubble constant 70 and matter density parameter 1, it computes that the universe was 1.16404 billion years old then. The present total age of this model universe is calculated to be 9.31231 billion years.</p>
+<h4 id="angular_size_at_redshift">Angular size of an object at a redshift — <code>angular_size_at_redshift</code></h4>
+<p>The angle subtended by an object of proper size D at redshift z, and the proper length per arcsecond, in a flat Lambda-CDM universe.</p>
+<div class="math">\[\theta = \frac{D}{D_A},\quad D_A = \frac{1}{1+z}\frac{c}{H_0}\int_0^z\frac{dz&#x27;}{E(z&#x27;)}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>z</code></td><td>in</td><td>redshift</td><td>—</td></tr><tr><td><code>H0</code></td><td>in</td><td>Hubble constant in km/s/Mpc</td><td>—</td></tr><tr><td><code>Om</code></td><td>in</td><td>matter density parameter Omega_m (flat: Omega_Lambda = 1 - Omega_m)</td><td>—</td></tr><tr><td><code>D</code></td><td>in</td><td>proper size of the object (kpc, Mpc, m)</td><td>m</td></tr><tr><td><code>theta_arcsec</code></td><td>out</td><td>angular size in arcseconds</td><td>—</td></tr><tr><td><code>scale_kpc_per_arcsec</code></td><td>out</td><td>proper kiloparsecs per arcsecond</td><td>—</td></tr><tr><td><code>D_A_Mpc</code></td><td>out</td><td>angular-diameter distance in Mpc</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> 0 &lt; z &lt;= 1100; D &gt; 0; small angles; flat Lambda-CDM, no radiation.</p>
+<pre><code class="shell">$ astronomy solve angular_size_at_redshift z=3 H0=70 Om=1 &quot;D=3.085677581e+22 m&quot;
+theta_arcsec = 192.6470937
+scale_kpc_per_arcsec = 5.190838755
+D_A_Mpc = 1070.68735
+  by: Angular size of an object at a redshift  (theta = D / D_A with D_A = D_C / (1 + z))
+  z = 3
+  H0 = 70
+  Om = 1
+  D = 3.085677581e+22 m
+  assumes: 0 &lt; z &lt;= 1100; D &gt; 0; small angles; flat Lambda-CDM, no radiation</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the apparent angular size on the sky for a physical object of proper size 3.08568e+22 m located at redshift 3. It uses the angular-diameter distance 1070.69, derived from the cosmological parameters 70 and 1, to compute that the object subtends 192.647 arcseconds. Additionally, it provides the scale factor of 5.19084 kiloparsecs per arcsecond, which helps translate observed separations into physical distances in this flat Lambda-CDM universe.</p>
+<h4 id="comoving_volume">Comoving volume out to a redshift — <code>comoving_volume</code></h4>
+<p>The all-sky comoving volume enclosed within redshift z in a flat Lambda-CDM universe.</p>
+<div class="math">\[V_C = \frac{4\pi}{3}D_C^3\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>z</code></td><td>in</td><td>redshift</td><td>—</td></tr><tr><td><code>H0</code></td><td>in</td><td>Hubble constant in km/s/Mpc</td><td>—</td></tr><tr><td><code>Om</code></td><td>in</td><td>matter density parameter Omega_m (flat: Omega_Lambda = 1 - Omega_m)</td><td>—</td></tr><tr><td><code>V</code></td><td>out</td><td>comoving volume</td><td>m^3</td></tr><tr><td><code>V_Gpc3</code></td><td>out</td><td>comoving volume in cubic gigaparsecs</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> 0 &lt; z &lt;= 1100; flat Lambda-CDM, no radiation.</p>
+<pre><code class="shell">$ astronomy solve comoving_volume z=3 H0=70 Om=1
+V = 9.667367618e+78 m^3
+V_Gpc3 = 329.0459866
+  by: Comoving volume out to a redshift  (V = (4 pi / 3) D_C^3 (flat space))
+  z = 3
+  H0 = 70
+  Om = 1
+  assumes: 0 &lt; z &lt;= 1100; flat Lambda-CDM, no radiation</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the total all-sky comoving volume enclosed within the specified redshift limit for a flat Lambda-CDM universe. Using the provided Hubble constant and matter density parameter, the result is 9.66737e+78 m^3 cubic meters, which corresponds to 329.046 cubic gigaparsecs. This metric represents the physical space available for counting galaxies and analyzing large-scale structure statistics at that cosmological distance.</p>
+<h4 id="cosmological_distances">Cosmological distances at a redshift — <code>cosmological_distances</code></h4>
+<p>The comoving, luminosity and angular-diameter distances and the distance modulus of an object at redshift z in a flat Lambda-CDM universe.</p>
+<div class="math">\[D_C = \frac{c}{H_0}\int_0^z \frac{dz&#x27;}{\sqrt{\Omega_m(1+z&#x27;)^3 + \Omega_\Lambda}},\quad D_L = (1+z)D_C,\quad D_A = \frac{D_C}{1+z}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>z</code></td><td>in</td><td>redshift</td><td>—</td></tr><tr><td><code>H0</code></td><td>in</td><td>Hubble constant in km/s/Mpc</td><td>—</td></tr><tr><td><code>Om</code></td><td>in</td><td>matter density parameter Omega_m (flat: Omega_Lambda = 1 - Omega_m)</td><td>—</td></tr><tr><td><code>D_C</code></td><td>out</td><td>comoving distance</td><td>m</td></tr><tr><td><code>D_C_Mpc</code></td><td>out</td><td>comoving distance in Mpc</td><td>—</td></tr><tr><td><code>D_L_Mpc</code></td><td>out</td><td>luminosity distance in Mpc</td><td>—</td></tr><tr><td><code>D_A_Mpc</code></td><td>out</td><td>angular-diameter distance in Mpc</td><td>—</td></tr><tr><td><code>mu</code></td><td>out</td><td>distance modulus</td><td>—</td></tr><tr><td><code>D_L</code></td><td>out</td><td>luminosity distance</td><td>m</td></tr></tbody></table>
+<p><strong>Applies when:</strong> 0 &lt; z &lt;= 1100; 1 &lt;= H0 &lt;= 1000 km/s/Mpc; 0.01 &lt;= Omega_m &lt;= 1; flat, no radiation.</p>
+<pre><code class="shell">$ astronomy solve cosmological_distances z=3 H0=70 Om=1
+D_C = 1.321518381e+26 m
+D_C_Mpc = 4282.7494
+D_L_Mpc = 17130.9976
+D_A_Mpc = 1070.68735
+mu = 46.16891327
+D_L = 5.286073524e+26 m
+  by: Cosmological distances at a redshift  (D_C = (c/H0) integral_0^z dz&#x27;/E(z&#x27;), E = sqrt(Om (1+z)^3 + 1 - Om) (mpmath quadrature); D_L = (1+z) D_C; D_A = D_C/(1+z))
+  z = 3
+  H0 = 70
+  Om = 1
+  assumes: 0 &lt; z &lt;= 1100; 1 &lt;= H0 &lt;= 1000 km/s/Mpc; 0.01 &lt;= Omega_m &lt;= 1; flat, no radiation</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines three key distance measures for an object at redshift 3 in a flat universe with Hubble constant 70 km/s per megaparsec and matter density parameter 1. The comoving distance of 4282.75 megaparsecs represents the current proper separation between the observer and the object, accounting for the expansion of space. The luminosity distance of 17131 megaparsecs is used to relate observed brightness to intrinsic luminosity, while the angular-diameter distance of 1070.69 megaparsecs relates physical size to apparent angular size on the sky.</p>
+<h4 id="critical_density">Hubble parameter and critical density — <code>critical_density</code></h4>
+<p>The Hubble parameter H(z) and the critical density 3H^2/(8 pi G) of a flat Lambda-CDM universe at redshift z (z = 0 gives today&#x27;s values), with the equivalent number of hydrogen atoms per cubic metre.</p>
+<div class="math">\[H(z) = H_0\sqrt{\Omega_m(1+z)^3 + \Omega_\Lambda},\quad \rho_c = \frac{3H^2}{8\pi G}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>H0</code></td><td>in</td><td>Hubble constant in km/s/Mpc</td><td>—</td></tr><tr><td><code>Om</code></td><td>in</td><td>matter density parameter Omega_m</td><td>—</td></tr><tr><td><code>z</code></td><td>in</td><td>redshift (default 0) (optional)</td><td>—</td></tr><tr><td><code>H_z</code></td><td>out</td><td>Hubble parameter H(z) in km/s/Mpc</td><td>—</td></tr><tr><td><code>rho_c</code></td><td>out</td><td>critical density</td><td>kg/m^3</td></tr><tr><td><code>n_H</code></td><td>out</td><td>critical density in hydrogen-atom (proton) masses per cubic metre</td><td>1/m^3</td></tr></tbody></table>
+<p><strong>Applies when:</strong> 1 &lt;= H0 &lt;= 1000; 0.01 &lt;= Omega_m &lt;= 1; 0 &lt;= z &lt;= 1100; flat, no radiation.</p>
+<pre><code class="shell">$ astronomy solve critical_density H0=70 Om=0.3
+H_z = 70
+rho_c = 9.203873923e-27 kg/m^3
+n_H = 5.502662485 1/m^3
+  by: Hubble parameter and critical density  (H(z) = H0 sqrt(Om (1+z)^3 + 1 - Om); rho_c = 3 H^2 / (8 pi G))
+  H0 = 70
+  Om = 0.3
+  assumes: 1 &lt;= H0 &lt;= 1000; 0.01 &lt;= Omega_m &lt;= 1; 0 &lt;= z &lt;= 1100; flat, no radiation</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the expansion rate and the density required for a flat universe at a specific cosmic epoch. Using the provided Hubble constant 70 and matter density parameter 0.3, it computes the Hubble parameter 70 and the corresponding critical density 9.20387e-27 kg/m^3. The result also expresses this density as 5.50266 1/m^3 hydrogen atoms per cubic metre, offering a tangible measure of the universe&#x27;s mass content at that time.</p>
+<h4 id="lookback_time">Lookback time to a redshift — <code>lookback_time</code></h4>
+<p>How long ago the light received from redshift z was emitted, in a flat Lambda-CDM universe.</p>
+<div class="math">\[t_L = \frac{1}{H_0}\int_0^z \frac{dz&#x27;}{(1+z&#x27;)\sqrt{\Omega_m(1+z&#x27;)^3 + \Omega_\Lambda}}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>z</code></td><td>in</td><td>redshift</td><td>—</td></tr><tr><td><code>H0</code></td><td>in</td><td>Hubble constant in km/s/Mpc</td><td>—</td></tr><tr><td><code>Om</code></td><td>in</td><td>matter density parameter Omega_m (flat: Omega_Lambda = 1 - Omega_m)</td><td>—</td></tr><tr><td><code>t_L</code></td><td>out</td><td>lookback time</td><td>s</td></tr><tr><td><code>t_L_Gyr</code></td><td>out</td><td>lookback time in Gyr</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> 0 &lt; z &lt;= 1100; flat Lambda-CDM, no radiation.</p>
+<pre><code class="shell">$ astronomy solve lookback_time z=3 H0=70 Om=1
+t_L = 2.571397985e+17 s
+t_L_Gyr = 8.148268514
+  by: Lookback time to a redshift  (t_L = (1/H0) integral_0^z dz&#x27; / ((1 + z&#x27;) E(z&#x27;)) by mpmath quadrature)
+  z = 3
+  H0 = 70
+  Om = 1
+  assumes: 0 &lt; z &lt;= 1100; flat Lambda-CDM, no radiation</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the lookback time, which is how long the light observed now has been traveling through space. By integrating the expansion history of a flat Lambda-CDM universe from the present day back to redshift 3, using a Hubble constant of 70 and matter density of 1, the model computes that this journey took 2.5714e+17 s seconds, or roughly 8.14827 billion years.</p>
+<h4 id="recession_velocity_from_redshift">Radial velocity from a Doppler redshift — <code>recession_velocity_from_redshift</code></h4>
+<p>The radial velocity of a source from its redshift interpreted as a special-relativistic Doppler shift (negative for a blueshift), with the low-velocity value cz for comparison.</p>
+<div class="math">\[\frac{v}{c} = \frac{(1+z)^2 - 1}{(1+z)^2 + 1}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>z</code></td><td>in</td><td>redshift (negative for a blueshift)</td><td>—</td></tr><tr><td><code>v</code></td><td>out</td><td>radial velocity (positive receding)</td><td>m/s</td></tr><tr><td><code>beta</code></td><td>out</td><td>v/c</td><td>—</td></tr><tr><td><code>v_cz</code></td><td>out</td><td>non-relativistic estimate cz</td><td>m/s</td></tr></tbody></table>
+<p><strong>Applies when:</strong> -1 &lt; z; a purely kinematic (special-relativistic, radial) Doppler shift; not a cosmological recession.</p>
+<pre><code class="shell">$ astronomy solve recession_velocity_from_redshift z=1
+v = 179875474.8 m/s
+beta = 0.6
+v_cz = 299792458 m/s
+  by: Radial velocity from a Doppler redshift  (v/c = ((1+z)^2 - 1) / ((1+z)^2 + 1))
+  z = 1
+  assumes: -1 &lt; z; a purely kinematic (special-relativistic, radial) Doppler shift; not a cosmological recession</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the radial velocity from a given redshift using the special-relativistic Doppler formula. By substituting the input redshift 1 into the equation, the resulting ratio of velocity to light speed is found to be 0.6. Multiplying this ratio by the speed of light yields the actual radial velocity of 1.79875e+08 m/s. For comparison, the non-relativistic estimate based on the simple product of the speed of light and the redshift is 2.99792e+08 m/s. A positive value indicates the source is moving away, while a negative value signifies it is approaching.</p>
+<h4 id="redshift_from_wavelengths">Redshift and radial velocity from a spectral line — <code>redshift_from_wavelengths</code></h4>
+<p>The redshift z = lambda_obs/lambda_rest - 1 of a spectral line and the corresponding relativistic Doppler radial velocity.</p>
+<div class="math">\[z = \frac{\lambda_\mathrm{obs}}{\lambda_\mathrm{rest}} - 1,\quad \frac{v}{c} = \frac{(1+z)^2 - 1}{(1+z)^2 + 1}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>lam_obs</code></td><td>in</td><td>observed wavelength (nm, Angstrom, m)</td><td>m</td></tr><tr><td><code>lam_rest</code></td><td>in</td><td>rest (laboratory) wavelength</td><td>m</td></tr><tr><td><code>z</code></td><td>out</td><td>redshift</td><td>—</td></tr><tr><td><code>v</code></td><td>out</td><td>radial velocity (positive receding)</td><td>m/s</td></tr><tr><td><code>beta</code></td><td>out</td><td>v/c</td><td>—</td></tr><tr><td><code>d_lambda</code></td><td>out</td><td>wavelength shift</td><td>m</td></tr></tbody></table>
+<p><strong>Applies when:</strong> both wavelengths &gt; 0; a purely kinematic radial Doppler shift.</p>
+<pre><code class="shell">$ astronomy solve redshift_from_wavelengths &quot;lam_obs=1312.56 nm&quot; &quot;lam_rest=656.28 nm&quot;
+z = 1
+v = 179875474.8 m/s
+beta = 0.6
+d_lambda = 6.5628e-07 m
+  by: Redshift and radial velocity from a spectral line  (z = lambda_obs/lambda_rest - 1; v/c = ((1+z)^2 - 1)/((1+z)^2 + 1))
+  lam_obs = 1.31256e-06 m
+  lam_rest = 6.5628e-07 m
+  assumes: both wavelengths &gt; 0; a purely kinematic radial Doppler shift</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the redshift and relativistic Doppler radial velocity by comparing the observed wavelength 1312.56 nm with the known rest wavelength 656.28 nm. The resulting redshift value is 1, which corresponds to a dimensionless velocity beta of 0.6. Multiplying this ratio by the speed of light gives the physical radial velocity of 1.79875e+08 m/s. A positive velocity indicates that the source is moving away from the observer, while a negative value would indicate motion toward the observer.</p>
+<h4 id="redshift_at_lookback_time">Redshift at a given lookback time — <code>redshift_at_lookback_time</code></h4>
+<p>The redshift of light emitted a lookback time t ago in a flat Lambda-CDM universe (exact inverse of the age-redshift relation).</p>
+<div class="math">\[1 + z = \left[\frac{\sqrt{\Omega_\Lambda/\Omega_m}}{\sinh\left(\tfrac{3}{2}H_0\sqrt{\Omega_\Lambda}\,(t_0 - t_L)\right)}\right]^{2/3}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>t</code></td><td>in</td><td>lookback time (Gyr, Myr, yr)</td><td>s</td></tr><tr><td><code>H0</code></td><td>in</td><td>Hubble constant in km/s/Mpc</td><td>—</td></tr><tr><td><code>Om</code></td><td>in</td><td>matter density parameter Omega_m (flat: Omega_Lambda = 1 - Omega_m)</td><td>—</td></tr><tr><td><code>z</code></td><td>out</td><td>redshift</td><td>—</td></tr><tr><td><code>age_now_Gyr</code></td><td>out</td><td>present age of the universe in Gyr</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> 0 &lt; t &lt; present age; flat Lambda-CDM, no radiation.</p>
+<pre><code class="shell">$ astronomy solve redshift_at_lookback_time &quot;t=2.524608e+17 s&quot; H0=70 Om=0.3
+z = 1.074672875
+age_now_Gyr = 13.46698395
+  by: Redshift at a given lookback time  (t(z) = 2/(3 H0 sqrt(OL)) asinh( sqrt(OL/Om) (1+z)^(-3/2) ), inverted in closed form (Om = 1: t = 2/(3 H0) (1+z)^(-3/2)))
+  t = 2.524608e+17 s
+  H0 = 70
+  Om = 0.3
+  assumes: 0 &lt; t &lt; present age; flat Lambda-CDM, no radiation</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the cosmological redshift corresponding to a specific lookback time in a flat Lambda-CDM universe. Given an input lookback time of 2.52461e+17 s and Hubble constant of 70, the method analytically inverts the age-redshift relation to yield a redshift of 1.07467. The result also provides the current age of the universe, calculated as 13.467, which serves as the reference point for measuring how far back in cosmic history the light was emitted.</p>
+<h3>Distances and magnitudes (8)</h3>
+<h4 id="absolute_magnitude">Absolute magnitude — <code>absolute_magnitude</code></h4>
+<p>The absolute magnitude of a star from its apparent magnitude and distance (and an optional extinction A).</p>
+<div class="math">\[M = m - 5\log_{10}\frac{d}{10\,\mathrm{pc}} - A\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>m</code></td><td>in</td><td>apparent magnitude</td><td>—</td></tr><tr><td><code>d</code></td><td>in</td><td>distance (pc, ly, m ...)</td><td>m</td></tr><tr><td><code>A</code></td><td>in</td><td>interstellar extinction in magnitudes (default 0) (optional)</td><td>—</td></tr><tr><td><code>M</code></td><td>out</td><td>absolute magnitude</td><td>—</td></tr><tr><td><code>mu</code></td><td>out</td><td>distance modulus 5 log10(d/10 pc)</td><td>—</td></tr><tr><td><code>d_pc</code></td><td>out</td><td>distance in parsecs</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> d &gt; 0; A &gt;= 0.</p>
+<pre><code class="shell">$ astronomy solve absolute_magnitude m=8 &quot;d=3.085677581e+18 m&quot; A=1
+M = 2
+mu = 5
+d_pc = 99.99999998
+  by: Absolute magnitude  (M = m - 5 log10(d / 10 pc) - A)
+  m = 8
+  d = 3.085677581e+18 m
+  A = 1
+  assumes: d &gt; 0; A &gt;= 0</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the intrinsic brightness of a star, known as its absolute magnitude. It uses the observed apparent magnitude 8 and the distance 3.08568e+18 m to compute the value at a standard reference distance of ten parsecs. The resulting absolute magnitude 2 allows for direct comparison with other stars regardless of their actual location in space. If interstellar extinction is present, it is accounted for by the term A, ensuring the brightness reflects the star&#x27;s true output rather than just what reaches the observer.</p>
+<h4 id="distance_unit_conversion">Astronomical distance units — <code>distance_unit_conversion</code></h4>
+<p>A distance expressed in metres, kilometres, astronomical units, light-years and parsecs.</p>
+<div class="math">\[1\,\mathrm{pc} = \frac{648000}{\pi}\,\mathrm{au},\quad 1\,\mathrm{ly} = c \times 365.25\,\mathrm{d}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>d</code></td><td>in</td><td>distance (m, km, au, ly, pc, kpc, Mpc ...)</td><td>m</td></tr><tr><td><code>d_m</code></td><td>out</td><td>distance in metres</td><td>m</td></tr><tr><td><code>d_km</code></td><td>out</td><td>distance in kilometres</td><td>—</td></tr><tr><td><code>d_au</code></td><td>out</td><td>distance in astronomical units</td><td>—</td></tr><tr><td><code>d_ly</code></td><td>out</td><td>distance in light-years</td><td>—</td></tr><tr><td><code>d_pc</code></td><td>out</td><td>distance in parsecs</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> d &gt; 0.</p>
+<pre><code class="shell">$ astronomy solve distance_unit_conversion &quot;d=3.085677581e+16 m&quot;
+d_m = 3.085677581e+16 m
+d_km = 3.085677581e+13
+d_au = 206264.8062
+d_ly = 3.261563777
+d_pc = 0.9999999998
+  by: Astronomical distance units  (1 au = 149597870700 m; 1 pc = au * 648000/pi; 1 ly = c * 365.25 days)
+  d = 3.085677581e+16 m
+  assumes: d &gt; 0</code></pre>
+<p><strong>What the worked example means:</strong> This calculation takes the input distance 3.08568e+16 m and expresses it in five standard astronomical units. The result shows the same physical length as 3.08568e+16 m in metres, 3.08568e+13 in kilometres, 206265 in astronomical units, 3.26156 in light-years, and 1 in parsecs. These conversions allow astronomers to compare distances across vastly different scales using consistent definitions based on the speed of light and the Earth-Sun distance.</p>
+<h4 id="combined_magnitude">Combined magnitude of two stars — <code>combined_magnitude</code></h4>
+<p>The magnitude of two unresolved stars seen together (their fluxes add).</p>
+<div class="math">\[m = -2.5\log_{10}\left(10^{-0.4 m_1} + 10^{-0.4 m_2}\right)\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>m1</code></td><td>in</td><td>magnitude of the first star</td><td>—</td></tr><tr><td><code>m2</code></td><td>in</td><td>magnitude of the second star</td><td>—</td></tr><tr><td><code>m</code></td><td>out</td><td>combined magnitude</td><td>—</td></tr><tr><td><code>brightening</code></td><td>out</td><td>how much brighter than the brighter star alone (mag)</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> |m1 - m2| &lt;= 100.</p>
+<pre><code class="shell">$ astronomy solve combined_magnitude m1=5 m2=5
+m = 4.247425011
+brightening = 0.7525749892
+  by: Combined magnitude of two stars  (fluxes add: m = -2.5 log10(10^(-0.4 m1) + 10^(-0.4 m2)))
+  m1 = 5
+  m2 = 5
+  assumes: |m1 - m2| &lt;= 100</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the total brightness of two unresolved stars by adding their light fluxes together. Given the individual magnitudes 5 and 5, the resulting combined magnitude is 4.24743. This value represents how bright the system appears as a single point source, while the metric 0.752575 quantifies the increase in brightness compared to the brighter component alone.</p>
+<h4 id="distance_from_flux">Distance from luminosity and flux (inverse-square law) — <code>distance_from_flux</code></h4>
+<p>The distance of a source of known luminosity L (a standard candle) from the bolometric flux F measured at the observer.</p>
+<div class="math">\[d = \sqrt{\frac{L}{4\pi F}}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>L</code></td><td>in</td><td>luminosity (W or Lsun)</td><td>W</td></tr><tr><td><code>F</code></td><td>in</td><td>measured flux (W/m^2)</td><td>W/m^2</td></tr><tr><td><code>d</code></td><td>out</td><td>distance</td><td>m</td></tr><tr><td><code>d_pc</code></td><td>out</td><td>distance in parsecs</td><td>—</td></tr><tr><td><code>d_ly</code></td><td>out</td><td>distance in light-years</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> L, F &gt; 0; isotropic emission, no extinction.</p>
+<pre><code class="shell">$ astronomy solve distance_from_flux &quot;L=3.828e+26 W&quot; &quot;F=1361 W/m^2&quot;
+d = 1.496070192e+11 m
+d_pc = 4.848433293e-06
+d_ly = 1.58134744e-05
+  by: Distance from luminosity and flux (inverse-square law)  (F = L / (4 pi d^2): d = sqrt(L / (4 pi F)))
+  L = 3.828e+26 W
+  F = 1361 W/m^2
+  assumes: L, F &gt; 0; isotropic emission, no extinction</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the distance of a celestial object using its known luminosity and measured flux. Applying the inverse-square law shows that for a source with luminosity 3.828e+26 W and observed flux 1361 W/m^2, the resulting distance is 1.49607e+11 m. This value can also be expressed as 4.84843e-06 in parsecs or 1.58135e-05 in light-years, providing a standard candle measurement for astronomical mapping.</p>
+<h4 id="parallax_distance">Distance from parallax — <code>parallax_distance</code></h4>
+<p>The distance of a star from its annual trigonometric parallax: d [pc] = 1 / p [arcsec].</p>
+<div class="math">\[d\,[\mathrm{pc}] = \frac{1}{p\,[\mathrm{arcsec}]}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>p</code></td><td>in</td><td>annual parallax (arcsec, mas, rad, deg)</td><td>rad</td></tr><tr><td><code>d</code></td><td>out</td><td>distance</td><td>m</td></tr><tr><td><code>d_pc</code></td><td>out</td><td>distance in parsecs</td><td>—</td></tr><tr><td><code>d_ly</code></td><td>out</td><td>distance in light-years</td><td>—</td></tr><tr><td><code>p_arcsec</code></td><td>out</td><td>parallax in arcseconds</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> p &gt; 0 (small-angle definition of the parsec).</p>
+<pre><code class="shell">$ astronomy solve parallax_distance &quot;p=4.848136811e-07 rad&quot;
+d = 3.085677582e+17 m
+d_pc = 10
+d_ly = 32.61563777
+p_arcsec = 0.1
+  by: Distance from parallax  (d = 1/p with p in arcseconds gives parsecs)
+  p = 4.848136811e-07 rad
+  assumes: p &gt; 0 (small-angle definition of the parsec)</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the stellar distance using the inverse relationship between parallax and distance. Given an annual parallax angle of 4.84814e-07 rad, the resulting distance is computed as 10 parsecs, which corresponds to 32.6156 light-years or 3.08568e+17 m meters. The method relies on the definition that one parsec is the distance at which one astronomical subtends an angle of one arcsecond.</p>
+<h4 id="distance_from_distance_modulus">Distance from the distance modulus — <code>distance_from_distance_modulus</code></h4>
+<p>The distance of a star from its apparent and absolute magnitudes (and an optional extinction A): m - M - A = 5 log10(d / 10 pc).</p>
+<div class="math">\[d = 10^{(m - M - A)/5 + 1}\ \mathrm{pc}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>m</code></td><td>in</td><td>apparent magnitude</td><td>—</td></tr><tr><td><code>M</code></td><td>in</td><td>absolute magnitude</td><td>—</td></tr><tr><td><code>A</code></td><td>in</td><td>interstellar extinction in magnitudes (default 0) (optional)</td><td>—</td></tr><tr><td><code>d</code></td><td>out</td><td>distance</td><td>m</td></tr><tr><td><code>d_pc</code></td><td>out</td><td>distance in parsecs</td><td>—</td></tr><tr><td><code>d_ly</code></td><td>out</td><td>distance in light-years</td><td>—</td></tr><tr><td><code>mu</code></td><td>out</td><td>distance modulus m - M - A</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> A &gt;= 0; -10 &lt; m - M - A &lt; 60.</p>
+<pre><code class="shell">$ astronomy solve distance_from_distance_modulus m=10 M=0
+d = 3.085677581e+19 m
+d_pc = 1000
+d_ly = 3261.563777
+mu = 10
+  by: Distance from the distance modulus  (d = 10^((m - M - A)/5 + 1) pc)
+  m = 10
+  M = 0
+  assumes: A &gt;= 0; -10 &lt; m - M - A &lt; 60</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the distance to a celestial object by comparing its apparent brightness with its intrinsic luminosity. Using the input values for apparent magnitude, absolute magnitude, and interstellar extinction, the model computes the distance modulus. The resulting distance is 1000 parsecs, which corresponds to 3261.56 light-years or 3.08568e+19 m meters. This method relies on the logarithmic relationship between magnitude differences and physical distance, providing an estimate of how far away the object is based on how much fainter it appears than it would at a standard reference distance.</p>
+<h4 id="flux_ratio_from_magnitudes">Flux ratio from a magnitude difference — <code>flux_ratio_from_magnitudes</code></h4>
+<p>How many times brighter star 1 is than star 2: F1/F2 = 10^(-0.4 (m1 - m2)).</p>
+<div class="math">\[\frac{F_1}{F_2} = 10^{-0.4\,(m_1 - m_2)}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>m1</code></td><td>in</td><td>magnitude of the first object</td><td>—</td></tr><tr><td><code>m2</code></td><td>in</td><td>magnitude of the second object</td><td>—</td></tr><tr><td><code>ratio</code></td><td>out</td><td>flux ratio F1/F2</td><td>—</td></tr><tr><td><code>dm</code></td><td>out</td><td>magnitude difference m1 - m2</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> |m1 - m2| &lt;= 100.</p>
+<pre><code class="shell">$ astronomy solve flux_ratio_from_magnitudes m1=1 m2=6
+ratio = 100
+dm = -5
+  by: Flux ratio from a magnitude difference  (Pogson&#x27;s scale: F1/F2 = 10^(-0.4 (m1 - m2)))
+  m1 = 1
+  m2 = 6
+  assumes: |m1 - m2| &lt;= 100</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the linear flux ratio between two astronomical objects using their magnitudes. By applying Pogson&#x27;s scale, the system converts the logarithmic magnitude difference into a direct comparison of brightness. The result shows that for a magnitude difference of -5, the first object emits 100 times more flux than the second object.</p>
+<h4 id="magnitude_difference_from_flux_ratio">Magnitude difference from a flux ratio — <code>magnitude_difference_from_flux_ratio</code></h4>
+<p>The magnitude difference m1 - m2 of two objects whose fluxes are in the ratio F1/F2.</p>
+<div class="math">\[m_1 - m_2 = -2.5\log_{10}\frac{F_1}{F_2}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>ratio</code></td><td>in</td><td>flux ratio F1/F2</td><td>—</td></tr><tr><td><code>dm</code></td><td>out</td><td>magnitude difference m1 - m2</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> F1/F2 &gt; 0.</p>
+<pre><code class="shell">$ astronomy solve magnitude_difference_from_flux_ratio ratio=100
+dm = -5
+  by: Magnitude difference from a flux ratio  (m1 - m2 = -2.5 log10(F1/F2))
+  ratio = 100
+  assumes: F1/F2 &gt; 0</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the difference in magnitudes between two astronomical objects based on the ratio of their observed fluxes. By applying the logarithmic relationship defined by the magnitude system, an input flux ratio of 100 yields a magnitude difference of -5. This result quantifies how much fainter or brighter one object appears compared to the other, translating linear brightness measurements into the standard astronomical scale.</p>
+<h3>Exoplanets (3)</h3>
+<h4 id="radial_velocity_semi_amplitude">Radial-velocity semi-amplitude of a star — <code>radial_velocity_semi_amplitude</code></h4>
+<p>The semi-amplitude K of the star&#x27;s line-of-sight velocity wobble caused by an orbiting planet (or companion) of mass m.</p>
+<div class="math">\[K = \left(\frac{2\pi G}{P}\right)^{1/3}\frac{m\sin i}{(M_\star + m)^{2/3}\sqrt{1 - e^2}}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>M_star</code></td><td>in</td><td>mass of the star (Msun, kg)</td><td>kg</td></tr><tr><td><code>m_p</code></td><td>in</td><td>mass of the planet (Mjup, Mearth, kg)</td><td>kg</td></tr><tr><td><code>P</code></td><td>in</td><td>orbital period</td><td>s</td></tr><tr><td><code>e</code></td><td>in</td><td>eccentricity (default 0) (optional)</td><td>—</td></tr><tr><td><code>i</code></td><td>in</td><td>orbital inclination (default 90 degrees, edge-on) (optional)</td><td>rad</td></tr><tr><td><code>K</code></td><td>out</td><td>radial-velocity semi-amplitude of the star</td><td>m/s</td></tr><tr><td><code>a</code></td><td>out</td><td>relative semi-major axis</td><td>m</td></tr><tr><td><code>a_au</code></td><td>out</td><td>relative semi-major axis in au</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> 0 &lt;= e &lt; 0.99; 0 &lt; i &lt;= 180 degrees; two-body Keplerian orbit.</p>
+<pre><code class="shell">$ astronomy solve radial_velocity_semi_amplitude &quot;M_star=1.988409871e+30 kg&quot; &quot;m_p=1.898124597e+27 kg&quot; &quot;P=11.86 yr&quot;
+K = 12.45977416 m/s
+a = 7.782417562e+11 m
+a_au = 5.202224821
+  by: Radial-velocity semi-amplitude of a star  (K = (2 pi G / P)^(1/3) m sin i / ((M + m)^(2/3) sqrt(1 - e^2)))
+  M_star = 1.988409871e+30 kg
+  m_p = 1.898124597e+27 kg
+  P = 374273136 s
+  assumes: 0 &lt;= e &lt; 0.99; 0 &lt; i &lt;= 180 degrees; two-body Keplerian orbit</code></pre>
+<p><strong>What the worked example means:</strong> The radial-velocity semi-amplitude is 12.4598 m/s, derived from a star of mass 1.98841e+30 kg and planet of mass 1.89812e+27 kg.</p>
+<h4 id="transit_depth">Transit depth — <code>transit_depth</code></h4>
+<p>The fractional dimming of a uniformly bright star when a planet of radius Rp crosses it at impact parameter b (b = 0 central; grazing transits included).</p>
+<div class="math">\[\delta = \frac{A_\mathrm{overlap}}{\pi R_\star^2} = \left(\frac{R_p}{R_\star}\right)^2\ \text{(full transit)}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>Rp</code></td><td>in</td><td>planet radius (Rjup, Rearth, km)</td><td>m</td></tr><tr><td><code>Rs</code></td><td>in</td><td>stellar radius (Rsun, km)</td><td>m</td></tr><tr><td><code>b</code></td><td>in</td><td>impact parameter in stellar radii (default 0) (optional)</td><td>—</td></tr><tr><td><code>depth</code></td><td>out</td><td>fractional flux drop</td><td>—</td></tr><tr><td><code>depth_ppm</code></td><td>out</td><td>depth in parts per million</td><td>—</td></tr><tr><td><code>k</code></td><td>out</td><td>radius ratio Rp/Rs</td><td>—</td></tr><tr><td><code>grazing</code></td><td>out</td><td>whether the planet&#x27;s disk crosses the stellar limb</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> Rp &lt; Rs; 0 &lt;= b &lt; 1 + Rp/Rs; uniform stellar disk (no limb darkening).</p>
+<pre><code class="shell">$ astronomy solve transit_depth &quot;Rp=71492000 m&quot; &quot;Rs=695700000 m&quot;
+depth = 0.01056016944
+depth_ppm = 10560.16944
+k = 0.1027626851
+grazing = false
+  by: Transit depth  (overlapping area of the two disks divided by the stellar disk area; (Rp/Rs)^2 for a full transit)
+  Rp = 71492000 m
+  Rs = 695700000 m
+  assumes: Rp &lt; Rs; 0 &lt;= b &lt; 1 + Rp/Rs; uniform stellar disk (no limb darkening)</code></pre>
+<p><strong>What the worked example means:</strong> The transit depth is 0.0105602, corresponding to a radius ratio of 0.102763.</p>
+<h4 id="transit_duration">Transit duration — <code>transit_duration</code></h4>
+<p>The total (first to fourth contact) and full (second to third contact) durations of a transit of a planet on a circular orbit, and its impact parameter.</p>
+<div class="math">\[T_{14} = \frac{P}{\pi}\arcsin\left(\frac{\sqrt{(R_\star + R_p)^2 - (bR_\star)^2}}{a\sin i}\right),\quad b = \frac{a\cos i}{R_\star}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>P</code></td><td>in</td><td>orbital period</td><td>s</td></tr><tr><td><code>a</code></td><td>in</td><td>orbit radius (au, m)</td><td>m</td></tr><tr><td><code>Rs</code></td><td>in</td><td>stellar radius</td><td>m</td></tr><tr><td><code>Rp</code></td><td>in</td><td>planet radius</td><td>m</td></tr><tr><td><code>i</code></td><td>in</td><td>orbital inclination (90 degrees = edge-on)</td><td>rad</td></tr><tr><td><code>T14</code></td><td>out</td><td>total transit duration</td><td>s</td></tr><tr><td><code>T14_h</code></td><td>out</td><td>total duration in hours</td><td>—</td></tr><tr><td><code>T23</code></td><td>out</td><td>full-transit duration (absent for a grazing transit)</td><td>s</td></tr><tr><td><code>b</code></td><td>out</td><td>impact parameter a cos i / Rs</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> circular orbit; Rp &lt; Rs; a &gt; Rs + Rp; 0 &lt; i &lt;= 90 degrees; b &lt; 1 + Rp/Rs (the planet transits).</p>
+<pre><code class="shell">$ astronomy solve transit_duration &quot;P=6.283185307 s&quot; &quot;a=2 m&quot; &quot;Rs=0.9 m&quot; &quot;Rp=0.1 m&quot; &quot;i=90 deg&quot;
+T14 = 1.047197551 s
+T23 = 0.8230336921 s
+T14_h = 0.0002908882087
+b = 0
+  by: Transit duration  (T14 = (P/pi) asin( sqrt((Rs + Rp)^2 - (b Rs)^2) / (a sin i) ), T23 with Rs - Rp)
+  P = 6.283185307 s
+  a = 2 m
+  Rs = 0.9 m
+  Rp = 0.1 m
+  i = 1.570796327 rad
+  assumes: circular orbit; Rp &lt; Rs; a &gt; Rs + Rp; 0 &lt; i &lt;= 90 degrees; b &lt; 1 + Rp/Rs (the planet transits)</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines how long a planet takes to cross the face of its star. Using an orbital period of 6.28319 s, a semi-major axis of 2 m, a stellar radius of 0.9 m, and a planet radius of 0.1 m, it computes the total time from first to fourth contact as 1.0472 s seconds, or 0.000290888 hours. It also finds the duration of the full transit phase between second and third contacts as 0.823034 s seconds. The impact parameter, which measures how centrally the planet crosses the star relative to the stellar radius, is calculated as 0. These values help constrain the geometry of the planetary system.</p>
+<h3>Gravitational lensing (1)</h3>
+<h4 id="einstein_radius">Einstein radius of a point-mass lens — <code>einstein_radius</code></h4>
+<p>The angular Einstein radius of a point mass M at distance D_l lensing a source at distance D_s (static space: D_ls = D_s - D_l), and the corresponding radius in the lens plane.</p>
+<div class="math">\[\theta_E = \sqrt{\frac{4GM}{c^2}\frac{D_{ls}}{D_l D_s}}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>M</code></td><td>in</td><td>lens mass (Msun, kg)</td><td>kg</td></tr><tr><td><code>D_l</code></td><td>in</td><td>distance to the lens (pc, kpc)</td><td>m</td></tr><tr><td><code>D_s</code></td><td>in</td><td>distance to the source</td><td>m</td></tr><tr><td><code>theta_E</code></td><td>out</td><td>Einstein angle</td><td>rad</td></tr><tr><td><code>theta_E_arcsec</code></td><td>out</td><td>Einstein angle in arcseconds</td><td>—</td></tr><tr><td><code>R_E</code></td><td>out</td><td>Einstein radius in the lens plane</td><td>m</td></tr><tr><td><code>R_E_au</code></td><td>out</td><td>Einstein radius in au</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> D_s &gt; D_l &gt; 0; point mass, weak field; non-cosmological distances (D_ls = D_s - D_l).</p>
+<pre><code class="shell">$ astronomy solve einstein_radius &quot;M=9.942049353e+29 kg&quot; &quot;D_l=1.234271033e+20 m&quot; &quot;D_s=2.468542065e+20 m&quot;
+theta_E = 3.458835005e-09 rad
+theta_E_arcsec = 0.0007134359322
+R_E = 4.269139855e+11 m
+R_E_au = 2.85374373
+  by: Einstein radius of a point-mass lens  (theta_E = sqrt( (4 G M / c^2) (D_s - D_l) / (D_l D_s) ))
+  M = 9.942049353e+29 kg
+  D_l = 1.234271033e+20 m
+  D_s = 2.468542065e+20 m
+  assumes: D_s &gt; D_l &gt; 0; point mass, weak field; non-cosmological distances (D_ls = D_s - D_l)</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the angular Einstein radius for a point-mass lens. Given a mass of 9.94205e+29 kg, a lens distance of 1.23427e+20 m, and a source distance of 2.46854e+20 m, the resulting Einstein angle is 3.45884e-09 rad. This value represents the characteristic scale at which gravitational lensing effects become significant, producing multiple images or an Einstein ring if the alignment is perfect. The physical size of this region in the lens plane is calculated as 4.26914e+11 m.</p>
+<h3>Observing (3)</h3>
+<h4 id="airmass_extinction">Airmass and atmospheric extinction — <code>airmass_extinction</code></h4>
+<p>The airmass X = sec z of a star at zenith angle z (plane-parallel atmosphere) and, with an extinction coefficient k, the extinction k X and the magnitude corrected to outside the atmosphere.</p>
+<div class="math">\[X = \sec z,\quad m_0 = m - kX\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>zen</code></td><td>in</td><td>zenith angle (90 degrees minus the altitude)</td><td>rad</td></tr><tr><td><code>k</code></td><td>in</td><td>extinction coefficient in magnitudes per airmass (optional) (optional)</td><td>—</td></tr><tr><td><code>m</code></td><td>in</td><td>observed magnitude (optional; needs k) (optional)</td><td>—</td></tr><tr><td><code>X</code></td><td>out</td><td>airmass</td><td>—</td></tr><tr><td><code>alt_deg</code></td><td>out</td><td>altitude in degrees</td><td>—</td></tr><tr><td><code>extinction</code></td><td>out</td><td>extinction k X in magnitudes</td><td>—</td></tr><tr><td><code>m0</code></td><td>out</td><td>magnitude above the atmosphere m - k X</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> 0 &lt;= z &lt;= 85 degrees; plane-parallel atmosphere; k &gt;= 0.</p>
+<pre><code class="shell">$ astronomy solve airmass_extinction &quot;zen=60 deg&quot;
+X = 2
+alt_deg = 30
+  by: Airmass and atmospheric extinction  (X = 1/cos z; m0 = m - k X)
+  zen = 1.047197551 rad
+  assumes: 0 &lt;= z &lt;= 85 degrees; plane-parallel atmosphere; k &gt;= 0</code></pre>
+<p>In the worked example, zen = 60 deg go through the equation above and give X = 2, alt_deg = 30. It applies only when 0 &lt;= z &lt;= 85 degrees; plane-parallel atmosphere; k &gt;= 0: outside that it says what is wrong instead of returning a number.</p>
+<h4 id="angular_size">Angular size — <code>angular_size</code></h4>
+<p>The angle subtended by an object of diameter D at distance d (exact: 2 atan(D / 2d)).</p>
+<div class="math">\[\theta = 2\arctan\frac{D}{2d} \approx \frac{D}{d}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>D</code></td><td>in</td><td>diameter of the object</td><td>m</td></tr><tr><td><code>d</code></td><td>in</td><td>distance to the object</td><td>m</td></tr><tr><td><code>theta</code></td><td>out</td><td>angular diameter</td><td>rad</td></tr><tr><td><code>theta_arcsec</code></td><td>out</td><td>angular diameter in arcseconds</td><td>—</td></tr><tr><td><code>theta_deg</code></td><td>out</td><td>angular diameter in degrees</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> D &gt; 0; d &gt; 0 (distance to the object&#x27;s centre plane).</p>
+<pre><code class="shell">$ astronomy solve angular_size &quot;D=2 m&quot; &quot;d=1 m&quot;
+theta = 1.570796327 rad
+theta_arcsec = 324000
+theta_deg = 90
+  by: Angular size  (theta = 2 atan(D / (2 d)); for D &lt;&lt; d this is D/d radians)
+  D = 2 m
+  d = 1 m
+  assumes: D &gt; 0; d &gt; 0 (distance to the object&#x27;s centre plane)</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the angle an object occupies in the sky based on its physical size and distance from the observer. Using a diameter of 2 m at a distance of 1 m, the exact geometric formula yields an angular diameter of 1.5708 rad. This result is also presented as 324000 arcseconds and 90 degrees to facilitate comparison with telescope resolution limits. The small-angle approximation, where the angle is roughly the ratio of diameter to distance, holds well when the distance is significantly larger than the object&#x27;s size.</p>
+<h4 id="linear_size_from_angle">Linear size from angular size — <code>linear_size_from_angle</code></h4>
+<p>The true diameter of an object of angular size theta at distance d (exact: 2 d tan(theta/2)).</p>
+<div class="math">\[D = 2d\tan\frac{\theta}{2} \approx \theta d\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>theta</code></td><td>in</td><td>angular diameter (arcsec, arcmin, deg, rad)</td><td>rad</td></tr><tr><td><code>d</code></td><td>in</td><td>distance to the object</td><td>m</td></tr><tr><td><code>D</code></td><td>out</td><td>diameter</td><td>m</td></tr><tr><td><code>D_km</code></td><td>out</td><td>diameter in kilometres</td><td>—</td></tr><tr><td><code>D_au</code></td><td>out</td><td>diameter in astronomical units</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> 0 &lt; theta &lt; 180 degrees; d &gt; 0.</p>
+<pre><code class="shell">$ astronomy solve linear_size_from_angle &quot;theta=90 deg&quot; &quot;d=1 m&quot;
+D = 2 m
+D_km = 0.002
+D_au = 1.336917424e-11
+  by: Linear size from angular size  (D = 2 d tan(theta/2); for small angles D = theta d)
+  theta = 1.570796327 rad
+  d = 1 m
+  assumes: 0 &lt; theta &lt; 180 degrees; d &gt; 0</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the true linear size of an astronomical object using its angular diameter and distance. By applying the small angle approximation, the result shows that an object with an angular size of 90 deg located at a distance of 1 m has a physical diameter of 2 m. This value corresponds to 0.002 in kilometres and 1.33692e-11 in astronomical units, providing a direct link between observational geometry and physical scale.</p>
+<h3>Orbits (8)</h3>
+<h4 id="plane_change_delta_v">Delta-v of a combined plane change — <code>plane_change_delta_v</code></h4>
+<p>The velocity change needed to turn a velocity v1 into a velocity v2 at an angle di to it (a plane change, possibly combined with a speed change).</p>
+<div class="math">\[\Delta v = \sqrt{v_1^2 + v_2^2 - 2 v_1 v_2\cos\Delta i}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>v1</code></td><td>in</td><td>speed before the burn</td><td>m/s</td></tr><tr><td><code>v2</code></td><td>in</td><td>speed after the burn</td><td>m/s</td></tr><tr><td><code>di</code></td><td>in</td><td>angle between the two velocities (plane-change angle)</td><td>rad</td></tr><tr><td><code>dv</code></td><td>out</td><td>delta-v of the burn</td><td>m/s</td></tr></tbody></table>
+<p><strong>Applies when:</strong> v1, v2 &gt; 0; 0 &lt;= di &lt;= 180 degrees; an impulsive burn.</p>
+<pre><code class="shell">$ astronomy solve plane_change_delta_v &quot;v1=3 km/s&quot; &quot;v2=4 km/s&quot; &quot;di=90 deg&quot;
+dv = 5000 m/s
+  by: Delta-v of a combined plane change  (law of cosines: dv^2 = v1^2 + v2^2 - 2 v1 v2 cos(di), written as (v1 - v2)^2 + 4 v1 v2 sin^2(di/2))
+  v1 = 3000 m/s
+  v2 = 4000 m/s
+  di = 1.570796327 rad
+  assumes: v1, v2 &gt; 0; 0 &lt;= di &lt;= 180 degrees; an impulsive burn</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the delta-v needed to transform a spacecraft&#x27;s initial speed of 3 km/s into a final speed of 4 km/s while changing its flight path by an angle of 90 deg. The result, 5000 m/s, represents the total magnitude of the impulsive burn required to achieve this combined plane and speed change.</p>
+<h4 id="escape_delta_v">Departure burn from a circular orbit — <code>escape_delta_v</code></h4>
+<p>The velocity change that takes a spacecraft from a circular orbit of radius r onto an escape (or hyperbolic) trajectory with excess speed v_inf.</p>
+<div class="math">\[\Delta v = \sqrt{v_\infty^2 + \frac{2\mu}{r}} - \sqrt{\frac{\mu}{r}}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>M</code></td><td>in</td><td>mass of the central body</td><td>kg</td></tr><tr><td><code>r</code></td><td>in</td><td>radius of the circular orbit</td><td>m</td></tr><tr><td><code>v_inf</code></td><td>in</td><td>hyperbolic excess speed (default 0: just escape) (optional)</td><td>m/s</td></tr><tr><td><code>dv</code></td><td>out</td><td>departure delta-v</td><td>m/s</td></tr><tr><td><code>v_circ</code></td><td>out</td><td>circular orbital speed</td><td>m/s</td></tr><tr><td><code>v_depart</code></td><td>out</td><td>speed needed after the burn</td><td>m/s</td></tr></tbody></table>
+<p><strong>Applies when:</strong> M, r &gt; 0; v_inf &gt;= 0; a single impulsive burn.</p>
+<pre><code class="shell">$ astronomy solve escape_delta_v &quot;M=5.972e+24 kg&quot; &quot;r=6678 km&quot;
+dv = 3200.102349 m/s
+v_circ = 7725.730493 m/s
+v_depart = 10925.83284 m/s
+  by: Departure burn from a circular orbit  (dv = sqrt(v_inf^2 + 2 mu / r) - sqrt(mu / r))
+  M = 5.972e+24 kg
+  r = 6678000 m
+  assumes: M, r &gt; 0; v_inf &gt;= 0; a single impulsive burn</code></pre>
+<p><strong>What the worked example means:</strong> The departure burn requires 3200.1 m/s to achieve the target excess speed from an orbit of radius 6678 km.</p>
+<h4 id="hohmann_transfer">Hohmann transfer between circular orbits — <code>hohmann_transfer</code></h4>
+<p>The two velocity changes, their sum and the transfer time of a Hohmann transfer between coplanar circular orbits of radii r1 and r2 around a body of mass M.</p>
+<div class="math">\[\Delta v_1 = \sqrt{\frac{\mu}{r_1}}\left(\sqrt{\frac{2r_2}{r_1 + r_2}} - 1\right),\ \Delta v_2 = \sqrt{\frac{\mu}{r_2}}\left(1 - \sqrt{\frac{2r_1}{r_1 + r_2}}\right),\ t = \pi\sqrt{\frac{a^3}{\mu}}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>r1</code></td><td>in</td><td>radius of the initial circular orbit (km, au)</td><td>m</td></tr><tr><td><code>r2</code></td><td>in</td><td>radius of the final circular orbit</td><td>m</td></tr><tr><td><code>M</code></td><td>in</td><td>mass of the central body (kg, Mearth, Msun)</td><td>kg</td></tr><tr><td><code>dv1</code></td><td>out</td><td>first burn (departure)</td><td>m/s</td></tr><tr><td><code>dv2</code></td><td>out</td><td>second burn (arrival)</td><td>m/s</td></tr><tr><td><code>dv</code></td><td>out</td><td>total delta-v</td><td>m/s</td></tr><tr><td><code>t_transfer</code></td><td>out</td><td>transfer time (half the transfer ellipse)</td><td>s</td></tr><tr><td><code>t_days</code></td><td>out</td><td>transfer time in days</td><td>—</td></tr><tr><td><code>a_transfer</code></td><td>out</td><td>semi-major axis of the transfer ellipse</td><td>m</td></tr></tbody></table>
+<p><strong>Applies when:</strong> r1, r2, M &gt; 0; r1 != r2; impulsive burns, coplanar circular orbits.</p>
+<pre><code class="shell">$ astronomy solve hohmann_transfer &quot;r1=6678 km&quot; &quot;r2=42164 km&quot; &quot;M=5.972e+24 kg&quot;
+dv1 = 2425.734809 m/s
+dv2 = 1466.818023 m/s
+dv = 3892.552832 m/s
+t_transfer = 18990.31973 s
+t_days = 0.2197953672
+a_transfer = 24421000 m
+  by: Hohmann transfer between circular orbits  (vp = sqrt(2 mu r2 / (r1 (r1 + r2))), va = sqrt(2 mu r1 / (r2 (r1 + r2))); t = pi sqrt(a^3/mu))
+  r1 = 6678000 m
+  r2 = 42164000 m
+  M = 5.972e+24 kg
+  assumes: r1, r2, M &gt; 0; r1 != r2; impulsive burns, coplanar circular orbits</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the fuel cost and duration for moving a spacecraft between two circular orbits. Using an initial radius of 6678 km and a final radius of 42164 km around a central mass of 5.972e+24 kg, the method computes the departure burn at 2425.73 m/s, the arrival burn at 1466.82 m/s, and their sum as the total requirement of 3892.55 m/s. The semi-major axis of the elliptical path is found to be 2.4421e+07 m, leading to a transfer time of 18990.3 s, which equals 0.219795. These values represent the minimum energy trajectory under idealized conditions.</p>
+<h4 id="binary_star_masses">Masses of a visual binary star — <code>binary_star_masses</code></h4>
+<p>The total and individual masses of a binary star from its orbital period and each star&#x27;s semi-major axis about the centre of mass (Kepler&#x27;s third law and the centre-of-mass condition).</p>
+<div class="math">\[M_1 + M_2 = \frac{4\pi^2 (a_1 + a_2)^3}{G P^2},\quad M_1 a_1 = M_2 a_2\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>P</code></td><td>in</td><td>orbital period (s, day, yr)</td><td>s</td></tr><tr><td><code>a1</code></td><td>in</td><td>semi-major axis of star 1 about the centre of mass (au, m)</td><td>m</td></tr><tr><td><code>a2</code></td><td>in</td><td>semi-major axis of star 2 about the centre of mass (au, m)</td><td>m</td></tr><tr><td><code>M_total</code></td><td>out</td><td>total mass</td><td>kg</td></tr><tr><td><code>M_total_Msun</code></td><td>out</td><td>total mass in solar masses</td><td>—</td></tr><tr><td><code>M1_Msun</code></td><td>out</td><td>mass of star 1 in solar masses</td><td>—</td></tr><tr><td><code>M2_Msun</code></td><td>out</td><td>mass of star 2 in solar masses</td><td>—</td></tr><tr><td><code>a_au</code></td><td>out</td><td>relative semi-major axis a1 + a2 in au</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> P, a1, a2 &gt; 0; true (de-projected) semi-major axes.</p>
+<pre><code class="shell">$ astronomy solve binary_star_masses &quot;P=1 yr&quot; &quot;a1=3.739946768e+10 m&quot; &quot;a2=1.12198403e+11 m&quot;
+M_total = 1.98848498e+30 kg
+M_total_Msun = 1.000037773
+M1_Msun = 0.75002833
+M2_Msun = 0.2500094434
+a_au = 0.9999999999
+  by: Masses of a visual binary star  (M1 + M2 = 4 pi^2 (a1 + a2)^3 / (G P^2); M1 a1 = M2 a2)
+  P = 31557600 s
+  a1 = 3.739946768e+10 m
+  a2 = 1.12198403e+11 m
+  assumes: P, a1, a2 &gt; 0; true (de-projected) semi-major axes</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the total and individual masses of a visual binary star using its orbital period and the semi-major axes of each component about the center of mass. By applying Kepler&#x27;s third law, the sum of the masses is found to be 1.98848e+30 kg. The relative semi-major axis is 1. Using the center-of-mass condition, the individual masses are derived as 0.750028 for the first star and 0.250009 for the second star in solar units.</p>
+<h4 id="orbit_from_state">Orbital elements from position and velocity — <code>orbit_from_state</code></h4>
+<p>The semi-major axis, eccentricity, periapsis and apoapsis distances, period and specific energy of a bound orbit from the distance, speed and flight-path angle at one point.</p>
+<div class="math">\[a = \frac{r}{2 - r v^2/\mu},\quad e = \sqrt{1 - \frac{(r v\cos\gamma)^2}{\mu a}}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>M</code></td><td>in</td><td>mass of the central body</td><td>kg</td></tr><tr><td><code>r</code></td><td>in</td><td>distance from the centre of the central body</td><td>m</td></tr><tr><td><code>v</code></td><td>in</td><td>orbital speed at that point</td><td>m/s</td></tr><tr><td><code>gamma</code></td><td>in</td><td>flight-path angle above the local horizontal (default 0) (optional)</td><td>rad</td></tr><tr><td><code>a</code></td><td>out</td><td>semi-major axis</td><td>m</td></tr><tr><td><code>e</code></td><td>out</td><td>eccentricity</td><td>—</td></tr><tr><td><code>rp</code></td><td>out</td><td>periapsis distance</td><td>m</td></tr><tr><td><code>ra</code></td><td>out</td><td>apoapsis distance</td><td>m</td></tr><tr><td><code>P</code></td><td>out</td><td>orbital period</td><td>s</td></tr><tr><td><code>energy</code></td><td>out</td><td>specific orbital energy (J/kg)</td><td>J/kg</td></tr></tbody></table>
+<p><strong>Applies when:</strong> v^2 &lt; 2 G M / r (bound orbit); |gamma| &lt; 90 degrees; two-body motion.</p>
+<pre><code class="shell">$ astronomy solve orbit_from_state &quot;M=1.4982e+10 kg&quot; &quot;r=1 m&quot; &quot;v=1.2 m/s&quot;
+a = 1.785973198 m
+e = 0.4400811831
+rp = 1 m
+ra = 2.571946396 m
+P = 14.9970043 s
+energy = -0.279943626 J/kg
+  by: Orbital elements from position and velocity  (vis-viva a = r / (2 - r v^2/mu); e^2 = (s cos^2 g - 1)^2 + (s cos g sin g)^2 with s = r v^2/mu)
+  M = 1.4982e+10 kg
+  r = 1 m
+  v = 1.2 m/s
+  assumes: v^2 &lt; 2 G M / r (bound orbit); |gamma| &lt; 90 degrees; two-body motion</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the shape and size of a bound orbit using the central body&#x27;s mass, current distance, speed, and flight-path angle. The resulting semi-major axis is 1.78597 m, which defines the orbit&#x27;s scale, while the eccentricity of 0.440081 describes how elongated the path is. These values allow practitioners to understand the satellite&#x27;s trajectory without needing continuous tracking data.</p>
+<h4 id="kepler_position_at_time">Position on an elliptical orbit at a given time (Kepler&#x27;s equation) — <code>kepler_position_at_time</code></h4>
+<p>The mean, eccentric and true anomalies, the distance and the speed of a body on an elliptical orbit a time t after periapsis passage.</p>
+<div class="math">\[M = E - e\sin E,\quad \tan\frac{\nu}{2} = \sqrt{\frac{1+e}{1-e}}\tan\frac{E}{2},\quad r = a(1 - e\cos E)\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>M</code></td><td>in</td><td>mass of the central body</td><td>kg</td></tr><tr><td><code>a</code></td><td>in</td><td>semi-major axis</td><td>m</td></tr><tr><td><code>e</code></td><td>in</td><td>eccentricity (0 &lt;= e &lt; 0.99)</td><td>—</td></tr><tr><td><code>t</code></td><td>in</td><td>time since periapsis passage</td><td>s</td></tr><tr><td><code>mean_anomaly</code></td><td>out</td><td>mean anomaly (degrees)</td><td>—</td></tr><tr><td><code>E</code></td><td>out</td><td>eccentric anomaly (degrees)</td><td>—</td></tr><tr><td><code>nu</code></td><td>out</td><td>true anomaly (degrees, 0 to 360)</td><td>—</td></tr><tr><td><code>r</code></td><td>out</td><td>distance from the central body&#x27;s centre</td><td>m</td></tr><tr><td><code>v</code></td><td>out</td><td>orbital speed</td><td>m/s</td></tr><tr><td><code>P</code></td><td>out</td><td>orbital period</td><td>s</td></tr></tbody></table>
+<p><strong>Applies when:</strong> 0 &lt;= e &lt; 0.99; t &gt;= 0 (reduced modulo the period); two-body motion.</p>
+<pre><code class="shell">$ astronomy solve kepler_position_at_time &quot;M=1.4982e+10 kg&quot; &quot;a=1 m&quot; e=0.5 &quot;t=3.141592654 s&quot;
+mean_anomaly = 179.9949263
+E = 179.9966175
+nu = 179.9980471
+r = 1.499999999 m
+v = 0.5773339959 m/s
+P = 6.283362419 s
+  by: Position on an elliptical orbit at a given time (Kepler&#x27;s equation)  (Kepler&#x27;s equation M = E - e sin E solved by safeguarded Newton iteration; tan(nu/2) = sqrt((1+e)/(1-e)) tan(E/2); r = a(1 - e cos E))
+  M = 1.4982e+10 kg
+  a = 1 m
+  e = 0.5
+  t = 3.141592654 s
+  assumes: 0 &lt;= e &lt; 0.99; t &gt;= 0 (reduced modulo the period); two-body motion</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the position and velocity of an object on an elliptical orbit at a specific time. Using the semi-major axis, eccentricity, central mass, and elapsed time since closest approach, it solves Kepler&#x27;s equation to find the mean anomaly, eccentric anomaly, and true anomaly. The resulting distance from the center is 1.5 m meters, the orbital speed is 0.577334 m/s meters per second, and the period is 6.28336 s seconds.</p>
+<h4 id="apsis_speeds">Speeds at periapsis and apoapsis — <code>apsis_speeds</code></h4>
+<p>The orbital speeds at the closest and farthest points of an elliptical orbit, with its semi-major axis, eccentricity and period.</p>
+<div class="math">\[v_p = \sqrt{\frac{2\mu\,r_a}{r_p (r_p + r_a)}},\quad v_a = \sqrt{\frac{2\mu\,r_p}{r_a (r_p + r_a)}}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>rp</code></td><td>in</td><td>periapsis distance from the centre of the central body</td><td>m</td></tr><tr><td><code>ra</code></td><td>in</td><td>apoapsis distance</td><td>m</td></tr><tr><td><code>M</code></td><td>in</td><td>mass of the central body</td><td>kg</td></tr><tr><td><code>vp</code></td><td>out</td><td>speed at periapsis</td><td>m/s</td></tr><tr><td><code>va</code></td><td>out</td><td>speed at apoapsis</td><td>m/s</td></tr><tr><td><code>a</code></td><td>out</td><td>semi-major axis</td><td>m</td></tr><tr><td><code>e</code></td><td>out</td><td>eccentricity</td><td>—</td></tr><tr><td><code>P</code></td><td>out</td><td>orbital period</td><td>s</td></tr></tbody></table>
+<p><strong>Applies when:</strong> 0 &lt; rp &lt; ra; M &gt; 0; two-body orbit, the orbiting mass negligible.</p>
+<pre><code class="shell">$ astronomy solve apsis_speeds &quot;rp=1 m&quot; &quot;ra=3 m&quot; &quot;M=1.4982e+10 kg&quot;
+vp = 1.224710349 m/s
+va = 0.408236783 m/s
+a = 2 m
+e = 0.5
+P = 17.7720327 s
+  by: Speeds at periapsis and apoapsis  (energy and angular momentum: vp = sqrt(2 mu ra / (rp (rp + ra))), va = vp rp / ra)
+  rp = 1 m
+  ra = 3 m
+  M = 1.4982e+10 kg
+  assumes: 0 &lt; rp &lt; ra; M &gt; 0; two-body orbit, the orbiting mass negligible</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the instantaneous velocities of an object in an elliptical orbit at its closest approach, known as periapsis, and its farthest point, called apoapsis. Using the given distances from the central body&#x27;s center, specifically the periapsis distance of 1 m and the apoapsis distance of 3 m, along with the central mass of 1.4982e+10 kg, gives the speeds. The resulting velocity at periapsis is 1.22471 m/s, while the slower velocity at apoapsis is 0.408237 m/s. These values also define the orbit&#x27;s geometry, yielding a semi-major axis of 2 m and an eccentricity of 0.5.</p>
+<h4 id="time_of_flight">Time of flight between two points of an elliptical orbit — <code>time_of_flight</code></h4>
+<p>The time a body takes to move forward along an elliptical orbit from true anomaly nu1 to true anomaly nu2.</p>
+<div class="math">\[\Delta t = \frac{(E_2 - e\sin E_2) - (E_1 - e\sin E_1)}{n},\quad n = \sqrt{\mu/a^3}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>M</code></td><td>in</td><td>mass of the central body</td><td>kg</td></tr><tr><td><code>a</code></td><td>in</td><td>semi-major axis</td><td>m</td></tr><tr><td><code>e</code></td><td>in</td><td>eccentricity (0 &lt;= e &lt; 0.99)</td><td>—</td></tr><tr><td><code>nu1</code></td><td>in</td><td>starting true anomaly</td><td>rad</td></tr><tr><td><code>nu2</code></td><td>in</td><td>final true anomaly</td><td>rad</td></tr><tr><td><code>dt</code></td><td>out</td><td>time of flight</td><td>s</td></tr><tr><td><code>dt_days</code></td><td>out</td><td>time of flight in days</td><td>—</td></tr><tr><td><code>P</code></td><td>out</td><td>orbital period</td><td>s</td></tr></tbody></table>
+<p><strong>Applies when:</strong> 0 &lt;= e &lt; 0.99; nu1 != nu2; motion in the forward (prograde) direction.</p>
+<pre><code class="shell">$ astronomy solve time_of_flight &quot;M=1.4982e+10 kg&quot; &quot;a=1 m&quot; e=0.5 &quot;nu1=0 deg&quot; &quot;nu2=180 deg&quot;
+dt = 3.141681209 s
+dt_days = 3.636205103e-05
+P = 6.283362419 s
+  by: Time of flight between two points of an elliptical orbit  (eccentric anomalies from the true anomalies, mean anomalies M = E - e sin E, dt = (M2 - M1)/n)
+  M = 1.4982e+10 kg
+  a = 1 m
+  e = 0.5
+  nu1 = 0 rad
+  nu2 = 3.141592654 rad
+  assumes: 0 &lt;= e &lt; 0.99; nu1 != nu2; motion in the forward (prograde) direction</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the duration required for a body to travel along its elliptical orbit from the starting true anomaly of 0 deg to the final true anomaly of 180 deg. By converting these positions into mean anomalies and dividing by the mean motion derived from the central mass 1.4982e+10 kg and semi-major axis 1 m, the model computes a time of flight of 3.14168 s. This result indicates how long the journey takes in seconds, or equivalently 3.63621e-05 days, relative to the full orbital cycle of 6.28336 s.</p>
+<h3>Planets (2)</h3>
+<h4 id="planet_equilibrium_temperature">Equilibrium temperature of a planet — <code>planet_equilibrium_temperature</code></h4>
+<p>The equilibrium temperature of a rapidly rotating planet of Bond albedo A at distance a from a star of temperature T and radius R, and the stellar flux it receives.</p>
+<div class="math">\[T_\mathrm{eq} = T_\star\sqrt{\frac{R_\star}{2a}}\,(1 - A)^{1/4}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>T_star</code></td><td>in</td><td>effective temperature of the star</td><td>K</td></tr><tr><td><code>R_star</code></td><td>in</td><td>radius of the star (m, Rsun)</td><td>m</td></tr><tr><td><code>a</code></td><td>in</td><td>orbital distance (m, au)</td><td>m</td></tr><tr><td><code>A</code></td><td>in</td><td>Bond albedo (0 to 1, default 0) (optional)</td><td>—</td></tr><tr><td><code>T_eq</code></td><td>out</td><td>equilibrium temperature</td><td>K</td></tr><tr><td><code>S</code></td><td>out</td><td>stellar flux at the planet</td><td>W/m^2</td></tr></tbody></table>
+<p><strong>Applies when:</strong> 0 &lt;= A &lt; 1; a &gt; R_star; full heat redistribution, unit emissivity.</p>
+<pre><code class="shell">$ astronomy solve planet_equilibrium_temperature &quot;T_star=1000 K&quot; &quot;R_star=2 m&quot; &quot;a=4 m&quot;
+T_eq = 500 K
+S = 14175.93605 W/m^2
+  by: Equilibrium temperature of a planet  ((1 - A) S pi Rp^2 = 4 pi Rp^2 sigma T^4 with S = sigma T*^4 (R*/a)^2: T = T* sqrt(R*/(2a)) (1 - A)^(1/4))
+  T_star = 1000 K
+  R_star = 2 m
+  a = 4 m
+  assumes: 0 &lt;= A &lt; 1; a &gt; R_star; full heat redistribution, unit emissivity</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the equilibrium temperature of a planet, which represents its average surface temperature assuming it absorbs and re-radiates energy efficiently. The result depends on the star&#x27;s effective temperature, radius, the planet&#x27;s orbital distance, and its Bond albedo. A higher stellar output or closer orbit increases the received flux, while a higher albedo reflects more light, lowering the temperature. For this specific case, the computed equilibrium temperature is 500 K, corresponding to an incident stellar flux of 14175.9 W/m^2.</p>
+<h4 id="atmospheric_scale_height">Scale height of an isothermal atmosphere — <code>atmospheric_scale_height</code></h4>
+<p>The pressure scale height H = R T / (mu g) of an isothermal planetary atmosphere: pressure falls by a factor e every H.</p>
+<div class="math">\[H = \frac{RT}{\mu g}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>T</code></td><td>in</td><td>temperature of the atmosphere</td><td>K</td></tr><tr><td><code>mu</code></td><td>in</td><td>mean molar mass (kg/mol or g/mol)</td><td>kg/mol</td></tr><tr><td><code>g</code></td><td>in</td><td>surface gravity</td><td>m/s^2</td></tr><tr><td><code>H</code></td><td>out</td><td>scale height</td><td>m</td></tr><tr><td><code>H_km</code></td><td>out</td><td>scale height in kilometres</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> T, mu, g &gt; 0; isothermal ideal gas, constant gravity.</p>
+<pre><code class="shell">$ astronomy solve atmospheric_scale_height &quot;T=288 K&quot; &quot;mu=28.97 g/mol&quot; &quot;g=9.81 m/s^2&quot;
+H = 8425.761664 m
+H_km = 8.425761664
+  by: Scale height of an isothermal atmosphere  (H = R T / (mu g))
+  T = 288 K
+  mu = 0.02897 kg/mol
+  g = 9.81 m/s^2
+  assumes: T, mu, g &gt; 0; isothermal ideal gas, constant gravity</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the vertical distance over which atmospheric pressure decreases by a factor of e, known as the scale height. Using the temperature 288 K, mean molar mass 28.97 g/mol, and surface gravity 9.81 m/s^2, the result is 8425.76 m. This value indicates how thick the planetary atmosphere is and how rapidly density drops with altitude under the assumption of an isothermal ideal gas.</p>
+<h3>Plasma physics (12)</h3>
+<h4 id="alfven_speed">Alfven speed — <code>alfven_speed</code></h4>
+<p>The Alfven speed of a fully ionized hydrogen plasma (n protons and n electrons per unit volume) in a magnetic field B.</p>
+<div class="math">\[v_A = \frac{B}{\sqrt{\mu_0\,n\,(m_p + m_e)}}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>B</code></td><td>in</td><td>magnetic field strength (T, nT, gauss)</td><td>T</td></tr><tr><td><code>n</code></td><td>in</td><td>proton number density</td><td>1/m^3</td></tr><tr><td><code>v_A</code></td><td>out</td><td>Alfven speed</td><td>m/s</td></tr><tr><td><code>v_A_km_s</code></td><td>out</td><td>Alfven speed in km/s</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> B, n &gt; 0; mass density n (m_p + m_e); non-relativistic (v_A &lt;&lt; c).</p>
+<pre><code class="shell">$ astronomy solve alfven_speed &quot;B=5 nT&quot; &quot;n=5 cm^-3&quot;
+v_A = 48759.91586 m/s
+v_A_km_s = 48.75991586
+  by: Alfven speed  (v_A = B / sqrt(mu0 n (m_p + m_e)))
+  B = 5e-09 T
+  n = 5000000 1/m^3
+  assumes: B, n &gt; 0; mass density n (m_p + m_e); non-relativistic (v_A &lt;&lt; c)</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the characteristic propagation speed of magnetic disturbances through a fully ionized hydrogen plasma. By using the provided magnetic field strength 5 nT and proton number density 5 cm^-3, the model computes the Alfven speed as 48759.9 m/s. This value, also expressed as 48.7599, represents how quickly information travels along magnetic field lines in this specific environment.</p>
+<h4 id="debye_length">Debye length — <code>debye_length</code></h4>
+<p>The electron Debye screening length of a plasma of electron temperature T and electron density n.</p>
+<div class="math">\[\lambda_D = \sqrt{\frac{\varepsilon_0 k_B T_e}{n_e e^2}}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>T</code></td><td>in</td><td>electron temperature</td><td>K</td></tr><tr><td><code>n</code></td><td>in</td><td>electron density (m^-3, cm^-3)</td><td>1/m^3</td></tr><tr><td><code>lambda_D</code></td><td>out</td><td>Debye length</td><td>m</td></tr><tr><td><code>lambda_D_nm</code></td><td>out</td><td>Debye length in nanometres</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> T, n &gt; 0; electron screening only.</p>
+<pre><code class="shell">$ astronomy solve debye_length &quot;T=100000 K&quot; &quot;n=1e+18 m^-3&quot;
+lambda_D = 2.18225558e-05 m
+lambda_D_nm = 21822.5558
+  by: Debye length  (lambda_D = sqrt(eps0 k T / (n e^2)))
+  T = 100000 K
+  n = 1e+18 1/m^3
+  assumes: T, n &gt; 0; electron screening only</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the electron Debye screening length, which represents the distance over which electric fields are neutralized in a plasma. Using an electron temperature of 100000 K and an electron density of 1e+18 m^-3, the resulting screening scale is 2.18226e-05 m. This value defines the threshold for collective behavior, distinguishing a true plasma from a simple gas of charged particles where individual interactions dominate.</p>
+<h4 id="gyrofrequency">Gyrofrequency (cyclotron frequency) — <code>gyrofrequency</code></h4>
+<p>The angular and ordinary gyrofrequency and the gyration period of an electron or proton in a magnetic field B.</p>
+<div class="math">\[\omega_c = \frac{|q|B}{m}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>B</code></td><td>in</td><td>magnetic field strength (T, nT, gauss)</td><td>T</td></tr><tr><td><code>particle</code></td><td>in</td><td>particle species: electron or proton (default electron) (optional)</td><td>—</td></tr><tr><td><code>omega_c</code></td><td>out</td><td>angular gyrofrequency</td><td>rad/s</td></tr><tr><td><code>f_c</code></td><td>out</td><td>gyrofrequency</td><td>Hz</td></tr><tr><td><code>T_c</code></td><td>out</td><td>gyration period</td><td>s</td></tr></tbody></table>
+<p><strong>Applies when:</strong> B &gt; 0; non-relativistic particle.</p>
+<pre><code class="shell">$ astronomy solve gyrofrequency &quot;B=1 T&quot; particle=proton
+omega_c = 95788331.43 rad/s
+f_c = 15245186.44 Hz
+T_c = 6.559447496e-08 s
+  by: Gyrofrequency (cyclotron frequency)  (omega_c = |q| B / m)
+  B = 1 T
+  particle = proton
+  assumes: B &gt; 0; non-relativistic particle</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the rate at which a charged particle orbits magnetic field lines. Using the magnetic field strength 1 T and the properties of the selected particle gives the angular gyrofrequency 9.57883e+07 rad/s in radians per second, the standard frequency 1.52452e+07 Hz in hertz, and the gyration period 6.55945e-08 s in seconds. These values describe how tightly and quickly the particle spirals around the field.</p>
+<h4 id="gyroradius">Gyroradius (Larmor radius) — <code>gyroradius</code></h4>
+<p>The radius of the circular motion of an electron or proton moving with perpendicular speed v_perp in a magnetic field B.</p>
+<div class="math">\[r_L = \frac{m v_\perp}{|q|B}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>B</code></td><td>in</td><td>magnetic field strength</td><td>T</td></tr><tr><td><code>v_perp</code></td><td>in</td><td>speed perpendicular to the field</td><td>m/s</td></tr><tr><td><code>particle</code></td><td>in</td><td>particle species: electron or proton (default electron) (optional)</td><td>—</td></tr><tr><td><code>r_L</code></td><td>out</td><td>gyroradius</td><td>m</td></tr><tr><td><code>r_L_km</code></td><td>out</td><td>gyroradius in kilometres</td><td>—</td></tr><tr><td><code>r_L_nm</code></td><td>out</td><td>gyroradius in nanometres</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> B, v_perp &gt; 0; v_perp &lt; 0.1 c (non-relativistic).</p>
+<pre><code class="shell">$ astronomy solve gyroradius &quot;B=5 nT&quot; &quot;v_perp=400 km/s&quot; particle=proton
+r_L = 835174.7943 m
+r_L_km = 835.1747943
+r_L_nm = 8.351747943e+14
+  by: Gyroradius (Larmor radius)  (r_L = m v_perp / (|q| B))
+  B = 5e-09 T
+  v_perp = 400000 m/s
+  particle = proton
+  assumes: B, v_perp &gt; 0; v_perp &lt; 0.1 c (non-relativistic)</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the gyroradius, representing the radius of the circular path a charged particle follows when moving perpendicular to a magnetic field. Using the input values for magnetic field strength and speed perpendicular to the field, along with the specified particle species, the result shows how tightly the particle orbits. The computed gyroradius is 835175 m. This value indicates the spatial scale of the particle&#x27;s motion, which is essential for understanding plasma confinement and energy transfer mechanisms in astronomical environments.</p>
+<h4 id="inertial_length">Inertial length (skin depth) — <code>inertial_length</code></h4>
+<p>The electron (or proton) inertial length c / omega_p, the collisionless skin depth of a plasma.</p>
+<div class="math">\[d = \frac{c}{\omega_p}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>n</code></td><td>in</td><td>number density</td><td>1/m^3</td></tr><tr><td><code>particle</code></td><td>in</td><td>particle species: electron or proton (default electron) (optional)</td><td>—</td></tr><tr><td><code>d</code></td><td>out</td><td>inertial length</td><td>m</td></tr><tr><td><code>d_km</code></td><td>out</td><td>inertial length in kilometres</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> n &gt; 0.</p>
+<pre><code class="shell">$ astronomy solve inertial_length &quot;n=5 cm^-3&quot; particle=proton
+d = 101835.3511 m
+d_km = 101.8353511
+  by: Inertial length (skin depth)  (d = c / omega_p = c sqrt(eps0 m / (n e^2)))
+  n = 5000000 1/m^3
+  particle = proton
+  assumes: n &gt; 0</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the collisionless skin depth, or inertial length, of the specified particle species based on its number density. The result, 101835 m, represents the characteristic scale over which magnetic fields penetrate the plasma due to particle inertia rather than resistance. For the given density of 5 cm^-3, the calculated length is 101.835 when expressed in kilometres, providing a fundamental spatial scale for analyzing plasma dynamics and wave propagation.</p>
+<h4 id="lower_hybrid_frequency">Lower hybrid frequency — <code>lower_hybrid_frequency</code></h4>
+<p>The lower hybrid frequency of a magnetized electron-proton plasma.</p>
+<div class="math">\[\frac{1}{\omega_{lh}^2} = \frac{1}{\omega_{ci}\,\omega_{ce}} + \frac{1}{\omega_{pi}^2}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>B</code></td><td>in</td><td>magnetic field strength</td><td>T</td></tr><tr><td><code>n</code></td><td>in</td><td>density (electrons = protons)</td><td>1/m^3</td></tr><tr><td><code>omega_lh</code></td><td>out</td><td>lower hybrid angular frequency</td><td>rad/s</td></tr><tr><td><code>f_lh</code></td><td>out</td><td>lower hybrid frequency</td><td>Hz</td></tr></tbody></table>
+<p><strong>Applies when:</strong> B, n &gt; 0; cold quasi-neutral electron-proton plasma.</p>
+<pre><code class="shell">$ astronomy solve lower_hybrid_frequency &quot;B=1 T&quot; &quot;n=1e+18 m^-3&quot;
+omega_lh = 1253639221 rad/s
+f_lh = 199522878.9 Hz
+  by: Lower hybrid frequency  (1/omega_lh^2 = 1/(omega_ci omega_ce) + 1/omega_pi^2)
+  B = 1 T
+  n = 1e+18 1/m^3
+  assumes: B, n &gt; 0; cold quasi-neutral electron-proton plasma</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the lower hybrid frequency for a cold, quasi-neutral electron-proton plasma using the magnetic field strength 1 T and particle density 1e+18 m^-3. The result shows that the characteristic oscillation occurs at 1.99523e+08 Hz, corresponding to an angular frequency of 1.25364e+09 rad/s. This value represents a key resonance where both electrons and ions participate in wave motion, which is critical for understanding energy transfer in magnetized plasmas.</p>
+<h4 id="magnetic_pressure">Magnetic pressure — <code>magnetic_pressure</code></h4>
+<p>The magnetic pressure (equal to the magnetic energy density) of a field B in vacuum or a plasma.</p>
+<div class="math">\[p_B = \frac{B^2}{2\mu_0}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>B</code></td><td>in</td><td>magnetic field strength (T, nT, gauss)</td><td>T</td></tr><tr><td><code>p_B</code></td><td>out</td><td>magnetic pressure</td><td>Pa</td></tr><tr><td><code>energy_density</code></td><td>out</td><td>magnetic energy density (J/m^3)</td><td>Pa</td></tr><tr><td><code>p_B_nPa</code></td><td>out</td><td>magnetic pressure in nanopascals</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> B &gt; 0.</p>
+<pre><code class="shell">$ astronomy solve magnetic_pressure &quot;B=1 T&quot;
+p_B = 397887.3578 Pa
+energy_density = 397887.3578 Pa
+p_B_nPa = 3.978873578e+14
+  by: Magnetic pressure  (p_B = B^2 / (2 mu0))
+  B = 1 T
+  assumes: B &gt; 0</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the pressure exerted by a magnetic field, which is numerically equal to its energy density. Using a field strength of 1 T, the resulting magnetic pressure is 397887 Pa. This value represents how strongly the field pushes against surrounding plasma, expressed also as 397887 Pa in energy units and 3.97887e+14 in nanopascals for finer scale comparisons.</p>
+<h4 id="debye_number">Number of particles in a Debye sphere — <code>debye_number</code></h4>
+<p>The number of electrons in a sphere of one Debye length radius (N_D &gt;&gt; 1 means the gas behaves as a plasma).</p>
+<div class="math">\[N_D = \frac{4\pi}{3}n_e\lambda_D^3\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>T</code></td><td>in</td><td>electron temperature</td><td>K</td></tr><tr><td><code>n</code></td><td>in</td><td>electron density</td><td>1/m^3</td></tr><tr><td><code>N_D</code></td><td>out</td><td>particles per Debye sphere</td><td>—</td></tr><tr><td><code>lambda_D</code></td><td>out</td><td>Debye length</td><td>m</td></tr></tbody></table>
+<p><strong>Applies when:</strong> T, n &gt; 0.</p>
+<pre><code class="shell">$ astronomy solve debye_number &quot;T=1000000 K&quot; &quot;n=1e+15 m^-3&quot;
+N_D = 43531681.94
+lambda_D = 0.00218225558 m
+  by: Number of particles in a Debye sphere  (N_D = (4 pi / 3) n lambda_D^3)
+  T = 1000000 K
+  n = 1e+15 1/m^3
+  assumes: T, n &gt; 0</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the number of electrons within a sphere whose radius equals one Debye length. Using an electron temperature of 1e+06 K and an electron density of 1e+15 m^-3, the model computes a Debye length of 0.00218226 m meters and a resulting particle count of 4.35317e+07. A value significantly greater than one confirms that collective plasma effects dominate over binary collisions.</p>
+<h4 id="plasma_beta">Plasma beta — <code>plasma_beta</code></h4>
+<p>The ratio of the thermal pressure n k T of one particle species to the magnetic pressure B^2/(2 mu0).</p>
+<div class="math">\[\beta = \frac{n k_B T}{B^2/(2\mu_0)}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>T</code></td><td>in</td><td>temperature of the species</td><td>K</td></tr><tr><td><code>n</code></td><td>in</td><td>number density of the species</td><td>1/m^3</td></tr><tr><td><code>B</code></td><td>in</td><td>magnetic field strength</td><td>T</td></tr><tr><td><code>beta</code></td><td>out</td><td>plasma beta</td><td>—</td></tr><tr><td><code>p_thermal</code></td><td>out</td><td>thermal pressure n k T</td><td>Pa</td></tr><tr><td><code>p_magnetic</code></td><td>out</td><td>magnetic pressure</td><td>Pa</td></tr></tbody></table>
+<p><strong>Applies when:</strong> T, n, B &gt; 0; one species (add species&#x27; pressures for a total beta).</p>
+<pre><code class="shell">$ astronomy solve plasma_beta &quot;T=100000 K&quot; &quot;n=5 cm^-3&quot; &quot;B=5 nT&quot;
+beta = 0.6939898808
+p_thermal = 6.903245e-12 Pa
+p_magnetic = 9.947183945e-12 Pa
+  by: Plasma beta  (beta = n k T / (B^2 / (2 mu0)))
+  T = 100000 K
+  n = 5000000 1/m^3
+  B = 5e-09 T
+  assumes: T, n, B &gt; 0; one species (add species&#x27; pressures for a total beta)</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the plasma beta, which represents the ratio of the thermal pressure exerted by particles to the magnetic pressure exerted by the field. Using a temperature of 100000 K, a number density of 5 cm^-3, and a magnetic field strength of 5 nT, the resulting thermal pressure is 6.90325e-12 Pa and the magnetic pressure is 9.94718e-12 Pa. The final dimensionless value of 0.69399 indicates whether the plasma dynamics are dominated by particle motion or magnetic confinement.</p>
+<h4 id="plasma_frequency">Plasma frequency — <code>plasma_frequency</code></h4>
+<p>The plasma (Langmuir) oscillation frequency of electrons (or protons) of number density n.</p>
+<div class="math">\[\omega_p = \sqrt{\frac{n e^2}{\varepsilon_0 m}}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>n</code></td><td>in</td><td>number density (m^-3, cm^-3)</td><td>1/m^3</td></tr><tr><td><code>particle</code></td><td>in</td><td>particle species: electron or proton (default electron) (optional)</td><td>—</td></tr><tr><td><code>omega_p</code></td><td>out</td><td>plasma angular frequency</td><td>rad/s</td></tr><tr><td><code>f_p</code></td><td>out</td><td>plasma frequency</td><td>Hz</td></tr></tbody></table>
+<p><strong>Applies when:</strong> n &gt; 0; cold, unmagnetized plasma; singly charged particles.</p>
+<pre><code class="shell">$ astronomy solve plasma_frequency &quot;n=1e+12 m^-3&quot;
+omega_p = 56414602.25 rad/s
+f_p = 8978662.811 Hz
+  by: Plasma frequency  (omega_p = sqrt(n e^2 / (eps0 m)))
+  n = 1e+12 1/m^3
+  assumes: n &gt; 0; cold, unmagnetized plasma; singly charged particles</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the natural oscillation rate of charged particles in a plasma based on their number density. Given an input density of 1e+12 m^-3, the resulting plasma angular frequency is 5.64146e+07 rad/s and the standard frequency is 8.97866e+06 Hz. This value represents how quickly electrons or protons can collectively respond to electric disturbances, which is crucial for understanding wave propagation limits in space environments.</p>
+<h4 id="thermal_speed">Thermal speed of plasma particles — <code>thermal_speed</code></h4>
+<p>The thermal speed of electrons or protons of temperature T under a stated convention: most probable sqrt(2kT/m), root-mean-square sqrt(3kT/m) or mean sqrt(8kT/(pi m)).</p>
+<div class="math">\[v_\mathrm{mp} = \sqrt{\frac{2kT}{m}},\ v_\mathrm{rms} = \sqrt{\frac{3kT}{m}},\ \bar v = \sqrt{\frac{8kT}{\pi m}}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>T</code></td><td>in</td><td>temperature</td><td>K</td></tr><tr><td><code>convention</code></td><td>in</td><td>which thermal speed: most_probable, rms or mean</td><td>—</td></tr><tr><td><code>particle</code></td><td>in</td><td>particle species: electron or proton (default electron) (optional)</td><td>—</td></tr><tr><td><code>v_th</code></td><td>out</td><td>thermal speed</td><td>m/s</td></tr></tbody></table>
+<p><strong>Applies when:</strong> T &gt; 0; Maxwellian distribution in three dimensions; the convention must be stated.</p>
+<pre><code class="shell">$ astronomy solve thermal_speed &quot;T=1000000 K&quot; convention=rms particle=proton
+v_th = 157363.2716 m/s
+  by: Thermal speed of plasma particles  (v = sqrt(c k T / m) with c = 2 (most probable), 3 (rms), 8/pi (mean))
+  T = 1000000 K
+  particle = proton
+  convention = rms
+  assumes: T &gt; 0; Maxwellian distribution in three dimensions; the convention must be stated</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the characteristic velocity of plasma particles, specifically the proton, based on their temperature. By applying the rms definition to the Maxwellian distribution formula, the model computes a thermal speed of 157363 m/s. This value represents the typical kinetic energy scale of the particles in the gas, which is essential for understanding collision frequencies and pressure dynamics in astrophysical plasmas.</p>
+<h4 id="upper_hybrid_frequency">Upper hybrid frequency — <code>upper_hybrid_frequency</code></h4>
+<p>The upper hybrid frequency of a magnetized electron plasma: sqrt(omega_pe^2 + omega_ce^2).</p>
+<div class="math">\[\omega_{uh} = \sqrt{\omega_{pe}^2 + \omega_{ce}^2}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>B</code></td><td>in</td><td>magnetic field strength</td><td>T</td></tr><tr><td><code>n</code></td><td>in</td><td>electron density</td><td>1/m^3</td></tr><tr><td><code>omega_uh</code></td><td>out</td><td>upper hybrid angular frequency</td><td>rad/s</td></tr><tr><td><code>f_uh</code></td><td>out</td><td>upper hybrid frequency</td><td>Hz</td></tr></tbody></table>
+<p><strong>Applies when:</strong> B, n &gt; 0; cold plasma, waves perpendicular to B.</p>
+<pre><code class="shell">$ astronomy solve upper_hybrid_frequency &quot;B=1 T&quot; &quot;n=1e+18 m^-3&quot;
+omega_uh = 1.847081091e+11 rad/s
+f_uh = 2.939720859e+10 Hz
+  by: Upper hybrid frequency  (omega_uh = sqrt(omega_pe^2 + omega_ce^2))
+  B = 1 T
+  n = 1e+18 1/m^3
+  assumes: B, n &gt; 0; cold plasma, waves perpendicular to B</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the upper hybrid resonance frequency for a magnetized electron plasma using the magnetic field strength 1 T and electron density 1e+18 m^-3. The resulting upper hybrid angular frequency is 1.84708e+11 rad/s, which translates to a standard frequency of 2.93972e+10 Hz. This value represents the characteristic resonance where electromagnetic waves propagating perpendicular to the magnetic field are reflected or absorbed in a cold plasma environment.</p>
+<h3>Positional astronomy (5)</h3>
+<h4 id="altaz_from_hadec">Altitude and azimuth from hour angle and declination — <code>altaz_from_hadec</code></h4>
+<p>The altitude and azimuth of a star of declination dec at hour angle H seen from latitude lat (horizontal coordinates from equatorial ones).</p>
+<div class="math">\[\sin a = \sin\phi\sin\delta + \cos\phi\cos\delta\cos H,\quad \tan A = \frac{-\cos\delta\sin H}{\sin\delta\cos\phi - \cos\delta\sin\phi\cos H}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>H</code></td><td>in</td><td>hour angle (hours or degrees; positive west of the meridian)</td><td>rad</td></tr><tr><td><code>dec</code></td><td>in</td><td>declination</td><td>rad</td></tr><tr><td><code>lat</code></td><td>in</td><td>observer&#x27;s latitude</td><td>rad</td></tr><tr><td><code>alt_deg</code></td><td>out</td><td>altitude in degrees (geometric, no refraction)</td><td>—</td></tr><tr><td><code>az_deg</code></td><td>out</td><td>azimuth in degrees from north through east</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> |dec| &lt;= 90 degrees; |lat| &lt;= 90 degrees; not at the zenith or nadir; no refraction.</p>
+<pre><code class="shell">$ astronomy solve altaz_from_hadec &quot;H=0 deg&quot; &quot;dec=0 deg&quot; &quot;lat=45 deg&quot;
+alt_deg = 45
+az_deg = 180
+  by: Altitude and azimuth from hour angle and declination  (sin a = sin(lat) sin(dec) + cos(lat) cos(dec) cos H; tan A = -cos(dec) sin H / (sin(dec) cos(lat) - cos(dec) sin(lat) cos H))
+  H = 0 rad
+  dec = 0 rad
+  lat = 0.7853981634 rad
+  assumes: |dec| &lt;= 90 degrees; |lat| &lt;= 90 degrees; not at the zenith or nadir; no refraction</code></pre>
+<p><strong>What the worked example means:</strong> This calculation converts equatorial coordinates into horizontal coordinates for a specific observer location. Using the input hour angle 0 deg, declination 0 deg, and latitude 45 deg, the method determines the geometric position of the celestial object in the local sky. The resulting altitude of 45 indicates how high the object appears above the horizon, while the azimuth of 180 specifies its direction measured clockwise from north through east. These values allow practitioners to determine where to point instruments or predict rise and set times.</p>
+<h4 id="culmination_altitude">Altitude of a star at culmination — <code>culmination_altitude</code></h4>
+<p>The altitudes of a star when it crosses the meridian above the pole (upper culmination) and below it (lower culmination), and whether it is circumpolar or never rises.</p>
+<div class="math">\[a_\mathrm{upper} = 90^\circ - |\phi - \delta|,\quad a_\mathrm{lower} = |\phi + \delta| - 90^\circ\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>dec</code></td><td>in</td><td>declination</td><td>rad</td></tr><tr><td><code>lat</code></td><td>in</td><td>observer&#x27;s latitude</td><td>rad</td></tr><tr><td><code>alt_upper_deg</code></td><td>out</td><td>altitude at upper culmination (degrees)</td><td>—</td></tr><tr><td><code>alt_lower_deg</code></td><td>out</td><td>altitude at lower culmination (degrees)</td><td>—</td></tr><tr><td><code>circumpolar</code></td><td>out</td><td>never sets</td><td>—</td></tr><tr><td><code>never_rises</code></td><td>out</td><td>never rises</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> |dec|, |lat| &lt;= 90 degrees; geometric horizon, no refraction.</p>
+<pre><code class="shell">$ astronomy solve culmination_altitude &quot;dec=20 deg&quot; &quot;lat=50 deg&quot;
+alt_upper_deg = 60
+alt_lower_deg = -20
+circumpolar = false
+never_rises = false
+  by: Altitude of a star at culmination  (upper: a = 90 - |lat - dec|; lower: a = |lat + dec| - 90)
+  dec = 0.3490658504 rad
+  lat = 0.872664626 rad
+  assumes: |dec|, |lat| &lt;= 90 degrees; geometric horizon, no refraction</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the highest and lowest points a star reaches in the sky for an observer at latitude 50 deg viewing a star with declination 20 deg. The upper culmination altitude, which is the maximum height above the horizon when the star crosses the meridian, is computed as 60. The lower culmination altitude, representing the minimum height if the star remains visible below the pole, is -20. These values help identify whether the star is circumpolar, indicated by no, or if it never rises, indicated by no.</p>
+<h4 id="angular_separation">Angular separation of two sky positions — <code>angular_separation</code></h4>
+<p>The great-circle angle between two objects given by their right ascensions and declinations.</p>
+<div class="math">\[\cos\theta = \sin\delta_1\sin\delta_2 + \cos\delta_1\cos\delta_2\cos(\alpha_2 - \alpha_1)\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>ra1</code></td><td>in</td><td>right ascension of object 1 (hours or degrees)</td><td>rad</td></tr><tr><td><code>dec1</code></td><td>in</td><td>declination of object 1</td><td>rad</td></tr><tr><td><code>ra2</code></td><td>in</td><td>right ascension of object 2</td><td>rad</td></tr><tr><td><code>dec2</code></td><td>in</td><td>declination of object 2</td><td>rad</td></tr><tr><td><code>sep_deg</code></td><td>out</td><td>separation in degrees</td><td>—</td></tr><tr><td><code>sep_arcsec</code></td><td>out</td><td>separation in arcseconds</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> |dec| &lt;= 90 degrees.</p>
+<pre><code class="shell">$ astronomy solve angular_separation &quot;ra1=0 deg&quot; &quot;dec1=0 deg&quot; &quot;ra2=90 deg&quot; &quot;dec2=0 deg&quot;
+sep_deg = 90
+sep_arcsec = 324000
+  by: Angular separation of two sky positions  (Vincenty&#x27;s formula (accurate at all separations))
+  ra1 = 0 rad
+  dec1 = 0 rad
+  ra2 = 1.570796327 rad
+  dec2 = 0 rad
+  assumes: |dec| &lt;= 90 degrees</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the great-circle distance on the celestial sphere between two objects defined by their right ascensions and declinations. Using the provided coordinates for object one (0 deg, 0 deg) and object two (90 deg, 0 deg), the algorithm computes the angle subtended at the observer&#x27;s position. The resulting separation of 90 degrees indicates how far apart these objects appear in the sky, which is essential for identifying binary systems or measuring distances between stars and galaxies without accounting for physical depth.</p>
+<h4 id="position_angle">Position angle between two sky positions — <code>position_angle</code></h4>
+<p>The position angle of object 2 as seen from object 1, measured from north through east.</p>
+<div class="math">\[\tan\mathrm{PA} = \frac{\sin\Delta\alpha\cos\delta_2}{\cos\delta_1\sin\delta_2 - \sin\delta_1\cos\delta_2\cos\Delta\alpha}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>ra1</code></td><td>in</td><td>right ascension of object 1 (hours or degrees)</td><td>rad</td></tr><tr><td><code>dec1</code></td><td>in</td><td>declination of object 1</td><td>rad</td></tr><tr><td><code>ra2</code></td><td>in</td><td>right ascension of object 2</td><td>rad</td></tr><tr><td><code>dec2</code></td><td>in</td><td>declination of object 2</td><td>rad</td></tr><tr><td><code>pa_deg</code></td><td>out</td><td>position angle in degrees (0 = north, 90 = east)</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> |dec| &lt; 90 degrees; distinct, non-antipodal positions.</p>
+<pre><code class="shell">$ astronomy solve position_angle &quot;ra1=0 deg&quot; &quot;dec1=0 deg&quot; &quot;ra2=1 deg&quot; &quot;dec2=0 deg&quot;
+pa_deg = 90
+  by: Position angle between two sky positions  (tan PA = sin(dra) cos(dec2) / (cos(dec1) sin(dec2) - sin(dec1) cos(dec2) cos(dra)))
+  ra1 = 0 rad
+  dec1 = 0 rad
+  ra2 = 0.01745329252 rad
+  dec2 = 0 rad
+  assumes: |dec| &lt; 90 degrees; distinct, non-antipodal positions</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the orientation of one celestial object relative to another on the sky. It measures the angle starting from north and moving eastward, which is essential for describing binary star orbits or planetary positions. Practitioners use this to align instruments and interpret observational data accurately. The result is 90.</p>
+<h4 id="rise_set_hour_angle">Rising and setting of a star — <code>rise_set_hour_angle</code></h4>
+<p>The hour angle at which a star sets, how long it stays above the horizon (sidereal hours) and the azimuths at which it rises and sets (geometric horizon, no refraction).</p>
+<div class="math">\[\cos H_0 = -\tan\phi\tan\delta,\quad \cos A_\mathrm{rise} = \frac{\sin\delta}{\cos\phi}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>dec</code></td><td>in</td><td>declination</td><td>rad</td></tr><tr><td><code>lat</code></td><td>in</td><td>observer&#x27;s latitude</td><td>rad</td></tr><tr><td><code>H_set_h</code></td><td>out</td><td>hour angle at setting (hours)</td><td>—</td></tr><tr><td><code>time_up_sidereal_h</code></td><td>out</td><td>time above the horizon (sidereal hours)</td><td>—</td></tr><tr><td><code>az_rise_deg</code></td><td>out</td><td>azimuth of rising (degrees from north through east)</td><td>—</td></tr><tr><td><code>az_set_deg</code></td><td>out</td><td>azimuth of setting</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> the star rises and sets: |tan(lat) tan(dec)| &lt; 1; geometric horizon (no refraction, no star size).</p>
+<pre><code class="shell">$ astronomy solve rise_set_hour_angle &quot;dec=0 deg&quot; &quot;lat=45 deg&quot;
+H_set_h = 6
+time_up_sidereal_h = 12
+az_rise_deg = 90
+az_set_deg = 270
+  by: Rising and setting of a star  (cos H0 = -tan(lat) tan(dec); cos A_rise = sin(dec) / cos(lat))
+  dec = 0 rad
+  lat = 0.7853981634 rad
+  assumes: the star rises and sets: |tan(lat) tan(dec)| &lt; 1; geometric horizon (no refraction, no star size)</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the geometric rising and setting points of a celestial object based on its declination 0 deg and the observer&#x27;s latitude 45 deg. The resulting hour angle at setting is 6, which corresponds to a total duration above the horizon of 12. These values indicate where the object appears on the horizon and how long it is visible, assuming no atmospheric refraction or terrain obstruction.</p>
+<h3>Stars (8)</h3>
+<h4 id="bolometric_magnitude_from_luminosity">Absolute bolometric magnitude from luminosity — <code>bolometric_magnitude_from_luminosity</code></h4>
+<p>The absolute bolometric magnitude of a star of luminosity L on the IAU 2015 scale (zero point L0 = 3.0128e28 W).</p>
+<div class="math">\[M_\mathrm{bol} = -2.5\log_{10}\frac{L}{L_0}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>L</code></td><td>in</td><td>luminosity (W or Lsun)</td><td>W</td></tr><tr><td><code>M_bol</code></td><td>out</td><td>absolute bolometric magnitude</td><td>—</td></tr><tr><td><code>L_Lsun</code></td><td>out</td><td>luminosity in solar luminosities</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> L &gt; 0.</p>
+<pre><code class="shell">$ astronomy solve bolometric_magnitude_from_luminosity &quot;L=3.828e+26 W&quot;
+M_bol = 4.739995934
+L_Lsun = 1
+  by: Absolute bolometric magnitude from luminosity  (M_bol = -2.5 log10(L / L0), L0 = 3.0128e28 W (IAU 2015 B2))
+  L = 3.828e+26 W
+  assumes: L &gt; 0</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the absolute bolometric magnitude, which represents the intrinsic brightness of a star across all wavelengths. It uses the provided luminosity value of 3.828e+26 W and converts it to solar units as 1. The resulting magnitude is 4.74, indicating how bright the star would appear at a standard distance of ten parsecs. A lower numerical magnitude signifies a more luminous object.</p>
+<h4 id="apparent_bolometric_magnitude">Apparent bolometric magnitude and flux — <code>apparent_bolometric_magnitude</code></h4>
+<p>The bolometric flux at the observer and the apparent bolometric magnitude of a star of luminosity L at distance d.</p>
+<div class="math">\[F = \frac{L}{4\pi d^2},\quad m_\mathrm{bol} = -2.5\log_{10}\frac{F}{F_0}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>L</code></td><td>in</td><td>luminosity (W or Lsun)</td><td>W</td></tr><tr><td><code>d</code></td><td>in</td><td>distance (pc, ly, m ...)</td><td>m</td></tr><tr><td><code>m_bol</code></td><td>out</td><td>apparent bolometric magnitude</td><td>—</td></tr><tr><td><code>F</code></td><td>out</td><td>bolometric flux at the observer</td><td>W/m^2</td></tr><tr><td><code>M_bol</code></td><td>out</td><td>absolute bolometric magnitude</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> L &gt; 0; d &gt; 0; no extinction.</p>
+<pre><code class="shell">$ astronomy solve apparent_bolometric_magnitude &quot;L=3.0128e+28 W&quot; &quot;d=3.085677581e+18 m&quot;
+m_bol = 5
+F = 2.518021003e-10 W/m^2
+M_bol = 0
+  by: Apparent bolometric magnitude and flux  (F = L/(4 pi d^2), m_bol = -2.5 log10(F/F0), F0 = L0/(4 pi (10 pc)^2))
+  L = 3.0128e+28 W
+  d = 3.085677581e+18 m
+  assumes: L &gt; 0; d &gt; 0; no extinction</code></pre>
+<p>In the worked example, L = 3.0128e+28 W, d = 3.085677581e+18 m go through the equation above and give m_bol = 5, F = 2.518021003e-10 W/m^2, M_bol = 0. It applies only when L &gt; 0; d &gt; 0; no extinction: outside that it says what is wrong instead of returning a number.</p>
+<h4 id="effective_temperature">Effective temperature of a star — <code>effective_temperature</code></h4>
+<p>The effective temperature of a star from its luminosity and radius: T = (L / (4 pi R^2 sigma))^(1/4).</p>
+<div class="math">\[T_\mathrm{eff} = \left(\frac{L}{4\pi R^2\sigma}\right)^{1/4}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>L</code></td><td>in</td><td>luminosity (W or Lsun)</td><td>W</td></tr><tr><td><code>R</code></td><td>in</td><td>stellar radius (m, km, Rsun)</td><td>m</td></tr><tr><td><code>T</code></td><td>out</td><td>effective temperature</td><td>K</td></tr></tbody></table>
+<p><strong>Applies when:</strong> L &gt; 0; R &gt; 0; blackbody emission.</p>
+<pre><code class="shell">$ astronomy solve effective_temperature &quot;L=3.828e+26 W&quot; &quot;R=695700000 m&quot;
+T = 5772.003429 K
+  by: Effective temperature of a star  (T = (L / (4 pi R^2 sigma))^(1/4))
+  L = 3.828e+26 W
+  R = 695700000 m
+  assumes: L &gt; 0; R &gt; 0; blackbody emission</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the effective temperature of a star using its total energy output and physical size. By applying the Stefan-Boltzmann law, the model computes that for a star with a luminosity of 3.828e+26 W and a radius of 6.957e+08 m, the resulting surface temperature is 5772 K. This value represents the temperature of an ideal blackbody that would emit the same amount of radiation per unit area as the observed star.</p>
+<h4 id="free_fall_time">Free-fall time of a uniform cloud — <code>free_fall_time</code></h4>
+<p>The time a uniform, pressureless sphere of density rho takes to collapse from rest under its own gravity.</p>
+<div class="math">\[t_\mathrm{ff} = \sqrt{\frac{3\pi}{32\,G\rho}}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>rho</code></td><td>in</td><td>mean density (kg/m^3; g/cm^3)</td><td>kg/m^3</td></tr><tr><td><code>t_ff</code></td><td>out</td><td>free-fall time</td><td>s</td></tr><tr><td><code>t_ff_yr</code></td><td>out</td><td>free-fall time in years</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> rho &gt; 0; uniform, pressureless, non-rotating sphere starting at rest.</p>
+<pre><code class="shell">$ astronomy solve free_fall_time &quot;rho=1e-17 kg/m^3&quot;
+t_ff = 2.100669417e+13 s
+t_ff_yr = 665661.9695
+  by: Free-fall time of a uniform cloud  (t_ff = sqrt(3 pi / (32 G rho)))
+  rho = 1e-17 kg/m^3
+  assumes: rho &gt; 0; uniform, pressureless, non-rotating sphere starting at rest</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the time it takes for a uniform, pressureless sphere to collapse under its own gravity starting from rest. Given a mean density of 1e-17 kg/m^3, the resulting free-fall time is 2.10067e+13 s. This duration converts to approximately 665662, providing a fundamental timescale often used to estimate how quickly interstellar clouds might form stars if unsupported by other forces.</p>
+<h4 id="saha_hydrogen_ionization">Ionization fraction of hydrogen (Saha equation) — <code>saha_hydrogen_ionization</code></h4>
+<p>The ionized fraction of pure hydrogen in thermal equilibrium at temperature T and total hydrogen density n (Saha equation, ground-state partition functions).</p>
+<div class="math">\[\frac{x^2}{1-x} = \frac{1}{n}\left(\frac{2\pi m_e k T}{h^2}\right)^{3/2} e^{-\chi/kT}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>T</code></td><td>in</td><td>temperature</td><td>K</td></tr><tr><td><code>n</code></td><td>in</td><td>total density of hydrogen nuclei (m^-3 or cm^-3)</td><td>1/m^3</td></tr><tr><td><code>x</code></td><td>out</td><td>ionized fraction n_II / n</td><td>—</td></tr><tr><td><code>neutral</code></td><td>out</td><td>neutral fraction n_I / n</td><td>—</td></tr><tr><td><code>n_e</code></td><td>out</td><td>electron density</td><td>1/m^3</td></tr></tbody></table>
+<p><strong>Applies when:</strong> 1000 K &lt;= T &lt;= 1e6 K; pure hydrogen, n_e = n_II; g_I = 2, g_II = 1, chi = 13.598 eV.</p>
+<pre><code class="shell">$ astronomy solve saha_hydrogen_ionization &quot;T=10000 K&quot; &quot;n=1e+20 m^-3&quot;
+x = 0.807408863
+neutral = 0.192591137
+n_e = 8.07408863e+19 1/m^3
+  by: Ionization fraction of hydrogen (Saha equation)  (x^2/(1 - x) = (1/n) (2 pi m_e k T / h^2)^(3/2) exp(-chi / kT), solved in a cancellation-free form)
+  T = 10000 K
+  n = 1e+20 1/m^3
+  assumes: 1000 K &lt;= T &lt;= 1e6 K; pure hydrogen, n_e = n_II; g_I = 2, g_II = 1, chi = 13.598 eV</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the proportion of hydrogen atoms that have lost their electrons under thermal equilibrium conditions. Using the Saha equation, it balances temperature and density to find the ionization state. The result shows that at a temperature of 10000 K and a total hydrogen density of 1e+20 m^-3, the ionized fraction reaches 0.807409, which corresponds to a neutral fraction of 0.192591 and an electron density of 8.07409e+19 1/m^3. This helps characterize the physical state of gas in stellar atmospheres or nebulae.</p>
+<h4 id="luminosity_from_bolometric_magnitude">Luminosity from absolute bolometric magnitude — <code>luminosity_from_bolometric_magnitude</code></h4>
+<p>The luminosity of a star from its absolute bolometric magnitude on the IAU 2015 scale.</p>
+<div class="math">\[L = L_0\,10^{-0.4 M_\mathrm{bol}}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>M_bol</code></td><td>in</td><td>absolute bolometric magnitude</td><td>—</td></tr><tr><td><code>L</code></td><td>out</td><td>luminosity</td><td>W</td></tr><tr><td><code>L_Lsun</code></td><td>out</td><td>luminosity in solar luminosities</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> -30 &lt; M_bol &lt; 40.</p>
+<pre><code class="shell">$ astronomy solve luminosity_from_bolometric_magnitude M_bol=-5
+L = 3.0128e+30 W
+L_Lsun = 7870.428422
+  by: Luminosity from absolute bolometric magnitude  (L = L0 * 10^(-0.4 M_bol), L0 = 3.0128e28 W)
+  M_bol = -5
+  assumes: -30 &lt; M_bol &lt; 40</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the total energy output of a star based on its absolute bolometric magnitude. Applying the IAU 2015 scale definition converts the intrinsic brightness value of -5 into a physical power measurement. The resulting luminosity of 3.0128e+30 W W indicates how much energy the star radiates per second across all wavelengths. This value can also be expressed as 7870.43 times the Sun&#x27;s luminosity, providing a direct comparison to the Sun&#x27;s output without needing to account for distance from Earth.</p>
+<h4 id="stellar_luminosity">Luminosity of a star (Stefan-Boltzmann) — <code>stellar_luminosity</code></h4>
+<p>The luminosity of a star of radius R radiating as a blackbody at effective temperature T: L = 4 pi R^2 sigma T^4.</p>
+<div class="math">\[L = 4\pi R^2 \sigma T_\mathrm{eff}^4\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>R</code></td><td>in</td><td>stellar radius (m, km, Rsun)</td><td>m</td></tr><tr><td><code>T</code></td><td>in</td><td>effective temperature</td><td>K</td></tr><tr><td><code>L</code></td><td>out</td><td>luminosity</td><td>W</td></tr><tr><td><code>L_Lsun</code></td><td>out</td><td>luminosity in solar luminosities</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> R &gt; 0; T &gt; 0.</p>
+<pre><code class="shell">$ astronomy solve stellar_luminosity &quot;R=695700000 m&quot; &quot;T=5772 K&quot;
+L = 3.827990903e+26 W
+L_Lsun = 0.9999976236
+  by: Luminosity of a star (Stefan-Boltzmann)  (L = 4 pi R^2 sigma T^4 with sigma = 2 pi^5 k^4 / (15 h^3 c^2))
+  R = 695700000 m
+  T = 5772 K
+  assumes: R &gt; 0; T &gt; 0</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the total energy output per unit time for a star with radius 6.957e+08 m and effective temperature 5772 K. Applying the Stefan-Boltzmann law shows that the luminosity is 3.82799e+26 W. This value indicates how bright the star is compared to the Sun, expressed here as 0.999998 times the solar luminosity. Understanding this brightness helps place the star on the Hertzsprung-Russell diagram and informs its evolutionary stage.</p>
+<h4 id="stellar_radius">Radius of a star from luminosity and temperature — <code>stellar_radius</code></h4>
+<p>The radius of a star from its luminosity and effective temperature: R = sqrt(L / (4 pi sigma T^4)).</p>
+<div class="math">\[R = \sqrt{\frac{L}{4\pi\sigma T_\mathrm{eff}^4}}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>L</code></td><td>in</td><td>luminosity (W or Lsun)</td><td>W</td></tr><tr><td><code>T</code></td><td>in</td><td>effective temperature</td><td>K</td></tr><tr><td><code>R</code></td><td>out</td><td>stellar radius</td><td>m</td></tr><tr><td><code>R_Rsun</code></td><td>out</td><td>radius in solar radii</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> L &gt; 0; T &gt; 0; blackbody emission.</p>
+<pre><code class="shell">$ astronomy solve stellar_radius &quot;L=3.828e+26 W&quot; &quot;T=5772 K&quot;
+R = 695700826.6 m
+R_Rsun = 1.000001188
+  by: Radius of a star from luminosity and temperature  (R = sqrt(L / (4 pi sigma)) / T^2)
+  L = 3.828e+26 W
+  T = 5772 K
+  assumes: L &gt; 0; T &gt; 0; blackbody emission</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the physical size of a star by using its total energy output and surface temperature. Applying the Stefan-Boltzmann law, which relates luminosity to radius and temperature for a blackbody emitter, shows that the radius is 6.95701e+08 m. This value corresponds to 1 when expressed in units of the Sun&#x27;s radius, providing a direct measure of the star&#x27;s dimensions based on observable properties.</p>
+<h3>Telescopes (4)</h3>
+<h4 id="rayleigh_resolution">Diffraction limit of a telescope (Rayleigh criterion) — <code>rayleigh_resolution</code></h4>
+<p>The smallest angular separation a circular aperture of diameter D resolves at wavelength lambda: the angle of the first dark ring of the Airy pattern (1.21967 lambda/D for small angles; often rounded to 1.22).</p>
+<div class="math">\[\sin\theta = \frac{j_{1,1}}{\pi}\frac{\lambda}{D} \approx 1.22\,\frac{\lambda}{D}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>lam</code></td><td>in</td><td>wavelength (nm, m)</td><td>m</td></tr><tr><td><code>D</code></td><td>in</td><td>aperture diameter</td><td>m</td></tr><tr><td><code>theta</code></td><td>out</td><td>angular resolution</td><td>rad</td></tr><tr><td><code>theta_arcsec</code></td><td>out</td><td>angular resolution in arcseconds</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> lambda &lt;&lt; D; a circular unobstructed aperture, no atmosphere.</p>
+<pre><code class="shell">$ astronomy solve rayleigh_resolution &quot;lam=550 nm&quot; &quot;D=2.4 m&quot;
+theta = 2.795076834e-07 rad
+theta_arcsec = 0.05765259816
+  by: Diffraction limit of a telescope (Rayleigh criterion)  (sin(theta) = j_{1,1} lambda / (pi D), j_{1,1} = 3.8317059702 (first zero of J1))
+  lam = 5.5e-07 m
+  D = 2.4 m
+  assumes: lambda &lt;&lt; D; a circular unobstructed aperture, no atmosphere</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the smallest angular separation that a telescope with an aperture diameter of 2.4 m can resolve at a wavelength of 550 nm. The result, 2.79508e-07 rad, represents the angle to the first dark ring of the Airy pattern, indicating the fundamental resolution limit imposed by diffraction. In practical terms, this means two point sources separated by less than 0.0576526 will appear as a single blurred image rather than distinct objects.</p>
+<h4 id="light_gathering_power">Light-gathering power of two telescopes — <code>light_gathering_power</code></h4>
+<p>How many times more light one telescope collects than another (ratio of aperture areas) and the corresponding gain in limiting magnitude.</p>
+<div class="math">\[\frac{P_1}{P_2} = \left(\frac{D_1}{D_2}\right)^2,\quad \Delta m = 5\log_{10}\frac{D_1}{D_2}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>D1</code></td><td>in</td><td>aperture of the first telescope</td><td>m</td></tr><tr><td><code>D2</code></td><td>in</td><td>aperture of the second telescope (or the eye&#x27;s pupil)</td><td>m</td></tr><tr><td><code>area_ratio</code></td><td>out</td><td>light-gathering ratio (D1/D2)^2</td><td>—</td></tr><tr><td><code>mag_gain</code></td><td>out</td><td>gain in limiting magnitude 5 log10(D1/D2)</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> D1, D2 &gt; 0; unobstructed circular apertures.</p>
+<pre><code class="shell">$ astronomy solve light_gathering_power &quot;D1=200 mm&quot; &quot;D2=2 mm&quot;
+area_ratio = 10000
+mag_gain = 10
+  by: Light-gathering power of two telescopes  (ratio = (D1/D2)^2; gain = 2.5 log10(ratio))
+  D1 = 0.2 m
+  D2 = 0.002 m
+  assumes: D1, D2 &gt; 0; unobstructed circular apertures</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines how much more light one telescope can gather compared to another by comparing their aperture areas. Using the diameter of the first telescope (200 mm) and the diameter of the second (2 mm) gives the ratio of their collecting power as 10000. This ratio translates into a gain in limiting magnitude of 10, indicating how much fainter stars become visible with the larger instrument.</p>
+<h4 id="camera_pixel_scale">Pixel scale and field of view of a telescope camera — <code>camera_pixel_scale</code></h4>
+<p>The angle on the sky covered by one detector pixel at the focal plane of a telescope and, for a row of N pixels, the field of view.</p>
+<div class="math">\[\theta = 2\arctan\frac{w}{2f} \approx 206265&#x27;&#x27;\,\frac{w}{f}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>f</code></td><td>in</td><td>focal length of the telescope</td><td>m</td></tr><tr><td><code>p</code></td><td>in</td><td>pixel size (um, mm)</td><td>m</td></tr><tr><td><code>N</code></td><td>in</td><td>number of pixels across the detector (optional) (optional)</td><td>—</td></tr><tr><td><code>pixel_scale_arcsec</code></td><td>out</td><td>pixel scale in arcseconds per pixel</td><td>—</td></tr><tr><td><code>fov_deg</code></td><td>out</td><td>field of view in degrees (with N)</td><td>—</td></tr><tr><td><code>fov_arcmin</code></td><td>out</td><td>field of view in arcminutes (with N)</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> f, p &gt; 0; N &gt;= 1; distortion-free optics; angles centred on the axis.</p>
+<pre><code class="shell">$ astronomy solve camera_pixel_scale &quot;f=2000 mm&quot; &quot;p=3.76 um&quot; N=6248
+pixel_scale_arcsec = 0.3877778357
+fov_deg = 0.6730022391
+fov_arcmin = 40.38013435
+  by: Pixel scale and field of view of a telescope camera  (angle = 2 atan(w / (2 f)) for a width w centred on the optical axis (about 206265 w/f arcseconds))
+  f = 2 m
+  p = 3.76e-06 m
+  assumes: f, p &gt; 0; N &gt;= 1; distortion-free optics; angles centred on the axis</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the angular size on the sky covered by a single detector pixel, known as the pixel scale, and the total width of the sky visible to the camera, called the field of view. Using the telescope focal length 2000 mm and pixel size 3.76 um, the resulting pixel scale is 0.387778. If the number of pixels across the detector 6248 is provided, the total field of view is computed as 0.673002 or 40.3801. These values indicate how much detail can be resolved and how large an area of the sky is captured in one exposure.</p>
+<h4 id="telescope_magnification">Telescope magnification, exit pupil and true field — <code>telescope_magnification</code></h4>
+<p>The angular magnification of a telescope used with an eyepiece, the diameter of its exit pupil and (given the eyepiece&#x27;s apparent field) its true field of view.</p>
+<div class="math">\[M = \frac{f_\mathrm{obj}}{f_\mathrm{eye}},\quad d_\mathrm{exit} = \frac{D}{M}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>f_obj</code></td><td>in</td><td>focal length of the objective (mm, m)</td><td>m</td></tr><tr><td><code>f_eye</code></td><td>in</td><td>focal length of the eyepiece</td><td>m</td></tr><tr><td><code>D</code></td><td>in</td><td>aperture diameter</td><td>m</td></tr><tr><td><code>afov</code></td><td>in</td><td>apparent field of view of the eyepiece (optional) (optional)</td><td>rad</td></tr><tr><td><code>M</code></td><td>out</td><td>angular magnification</td><td>—</td></tr><tr><td><code>exit_pupil</code></td><td>out</td><td>exit-pupil diameter</td><td>m</td></tr><tr><td><code>exit_pupil_mm</code></td><td>out</td><td>exit-pupil diameter in millimetres</td><td>—</td></tr><tr><td><code>tfov_deg</code></td><td>out</td><td>true field of view in degrees (when afov is given)</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> focal lengths and aperture &gt; 0; thin lenses, afocal (focused at infinity); true field = apparent field / M.</p>
+<pre><code class="shell">$ astronomy solve telescope_magnification &quot;f_obj=1200 mm&quot; &quot;f_eye=25 mm&quot; &quot;D=200 mm&quot; &quot;afov=52 deg&quot;
+M = 48
+exit_pupil = 0.004166666667 m
+exit_pupil_mm = 4.166666667
+tfov_deg = 1.083333333
+  by: Telescope magnification, exit pupil and true field  (M = f_obj / f_eye; exit pupil = D / M; true field = apparent field / M)
+  f_obj = 1.2 m
+  f_eye = 0.025 m
+  D = 0.2 m
+  afov = 0.907571211 rad
+  assumes: focal lengths and aperture &gt; 0; thin lenses, afocal (focused at infinity); true field = apparent field / M</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the angular magnification by dividing the objective focal length 1200 mm by the eyepiece focal length 25 mm, resulting in 48. The exit pupil diameter is found by dividing the aperture 200 mm by this magnification, yielding 4.16667 millimetres. If the apparent field of view 52 deg is provided, the true field of view is calculated as 1.08333 degrees, indicating the actual sky area visible through the instrument.</p>
+<h3>Time (3)</h3>
+<h4 id="calendar_date_from_julian_date">Calendar date from a Julian date — <code>calendar_date_from_julian_date</code></h4>
+<p>The Gregorian calendar date and the time of day (decimal hours) of a Julian date.</p>
+<div class="math">\[Z = \lfloor \mathrm{JD} + 0.5\rfloor,\ F = \mathrm{JD} + 0.5 - Z\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>jd</code></td><td>in</td><td>Julian date (days)</td><td>—</td></tr><tr><td><code>year</code></td><td>out</td><td>year</td><td>—</td></tr><tr><td><code>month</code></td><td>out</td><td>month</td><td>—</td></tr><tr><td><code>day</code></td><td>out</td><td>day of the month</td><td>—</td></tr><tr><td><code>hours</code></td><td>out</td><td>time of day in decimal hours</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> 2299160.5 &lt;= JD &lt;= 5373484.5 (Gregorian era up to the year 9999).</p>
+<pre><code class="shell">$ astronomy solve calendar_date_from_julian_date jd=2451545
+year = 2000
+month = 1
+day = 1
+hours = 12
+  by: Calendar date from a Julian date  (Meeus&#x27; inverse algorithm in exact integer and rational arithmetic)
+  jd = 2451545
+  assumes: 2299160.5 &lt;= JD &lt;= 5373484.5 (Gregorian era up to the year 9999)</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the civil calendar date and time from a continuous astronomical time scale. By applying Meeus&#x27; inverse algorithm, the input Julian date 2.45154e+06 is converted into its constituent parts. The result provides the year 2000, month 1, and day 1, along with the fractional day expressed as decimal hours 12. This translation allows observers to map precise scientific timestamps back to standard dates for logging and reporting purposes.</p>
+<h4 id="sidereal_time">Greenwich and local mean sidereal time — <code>sidereal_time</code></h4>
+<p>The Greenwich mean sidereal time (IAU 1982 expression) at a Julian date in UT1, and the local mean sidereal time at an east longitude.</p>
+<div class="math">\[\mathrm{GMST} = 24110.54841^\mathrm{s} + 8640184.812866^\mathrm{s}\,T + 0.093104^\mathrm{s}\,T^2 - 6.2\times10^{-6}\,{}^\mathrm{s}T^3 + \mathrm{UT1}\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>jd</code></td><td>in</td><td>Julian date (UT1)</td><td>—</td></tr><tr><td><code>lon</code></td><td>in</td><td>east longitude (default 0) (optional)</td><td>rad</td></tr><tr><td><code>gmst_h</code></td><td>out</td><td>Greenwich mean sidereal time (hours)</td><td>—</td></tr><tr><td><code>lmst_h</code></td><td>out</td><td>local mean sidereal time (hours)</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> 2299160.5 &lt;= JD &lt;= 5373484.5; the date in UT1; east longitudes positive.</p>
+<pre><code class="shell">$ astronomy solve sidereal_time jd=2451545
+gmst_h = 18.69737456
+lmst_h = 18.69737456
+  by: Greenwich and local mean sidereal time  (GMST = 24110.54841 s + 8640184.812866 T + 0.093104 T^2 - 6.2e-6 T^3 + UT1 seconds of the day (T from J2000, Julian centuries); LMST = GMST + longitude/15)
+  jd = 2451545
+  assumes: 2299160.5 &lt;= JD &lt;= 5373484.5; the date in UT1; east longitudes positive</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the Earth&#x27;s rotation angle relative to distant stars, known as sidereal time, for the given Julian date in Universal Time One. The result provides the Greenwich mean sidereal time as 18.6974 and adjusts it by the observer&#x27;s east longitude to yield the local mean sidereal time of 18.6974, which indicates when celestial objects cross the observer&#x27;s meridian.</p>
+<h4 id="julian_date">Julian date of a calendar date — <code>julian_date</code></h4>
+<p>The Julian date and the modified Julian date of a Gregorian calendar date and time of day (in the same time scale as the date, e.g. TT or UT).</p>
+<div class="math">\[\mathrm{JD} = \lfloor 365.25(y + 4716)\rfloor + \lfloor 30.6001(m + 1)\rfloor + D + B - 1524.5\]</div>
+<table><thead><tr><th>symbol</th><th></th><th>meaning</th><th>SI unit</th></tr></thead><tbody><tr><td><code>year</code></td><td>in</td><td>year (Gregorian, 1583 or later)</td><td>—</td></tr><tr><td><code>month</code></td><td>in</td><td>month (1-12)</td><td>—</td></tr><tr><td><code>day</code></td><td>in</td><td>day of the month</td><td>—</td></tr><tr><td><code>hour</code></td><td>in</td><td>hour (0-23, default 0) (optional)</td><td>—</td></tr><tr><td><code>minute</code></td><td>in</td><td>minute (0-59, default 0) (optional)</td><td>—</td></tr><tr><td><code>second</code></td><td>in</td><td>second (0 &lt;= s &lt; 60, default 0) (optional)</td><td>—</td></tr><tr><td><code>JD</code></td><td>out</td><td>Julian date (days)</td><td>—</td></tr><tr><td><code>MJD</code></td><td>out</td><td>modified Julian date JD - 2400000.5</td><td>—</td></tr></tbody></table>
+<p><strong>Applies when:</strong> Gregorian calendar (on or after 1582-10-15); a valid date and time of day (no leap second).</p>
+<pre><code class="shell">$ astronomy solve julian_date year=2000 month=1 day=1 hour=12
+JD = 2451545
+MJD = 51544.5
+  by: Julian date of a calendar date  (Meeus&#x27; algorithm in exact integer arithmetic: JD = floor(365.25(y+4716)) + floor(30.6001(m+1)) + D + B - 1524.5)
+  assumes: Gregorian calendar (on or after 1582-10-15); a valid date and time of day (no leap second)</code></pre>
+<p><strong>What the worked example means:</strong> This calculation determines the continuous day count known as the Julian date from a specific Gregorian calendar date and time. The result, 2.45154e+06, represents the total number of days since the epoch, while 51544.5 provides the same value adjusted by subtracting 2400000.5 for modern astronomical use. These values allow for precise scheduling and positional calculations in astronomy.</p>
+<p>Questions and reports: support@ai999x.com. AI999X — The Future Is Self-Improving.</p></body></html>

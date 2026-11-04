@@ -509,7 +509,7 @@ def linear_size_from_angle(theta=None, d=None):
     return _P.solve("linear_size_from_angle", **given)
 
 def lookback_time(z=None, H0=None, Om=None):
-    """Lookback time to a redshift. How long ago the light we receive from redshift z was emitted, in a flat Lambda-CDM universe.
+    """Lookback time to a redshift. How long ago the light received from redshift z was emitted, in a flat Lambda-CDM universe.
     Formula: t_L = \\frac{1}{H_0}\\int_0^z \\frac{dz'}{(1+z')\\sqrt{\\Omega_m(1+z')^3 + \\Omega_\\Lambda}}
     Inputs:
         z: redshift
