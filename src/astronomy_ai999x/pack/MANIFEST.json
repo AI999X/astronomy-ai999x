@@ -1,5 +1,5 @@
 {
- "package": "1.1.0",
+ "package": "1.5.0",
  "pack": "1.0.0",
  "knowledge_db": null,
  "files": {
@@ -9,13 +9,7 @@
   "knowledge/reference_cases.json": "7414a14e2c4202a7fae8cdd14e1a2ef7267f35a9665b0633001349c698d4e4e7",
   "capabilities/procedures.py": "f1828c0c9bf4ee7b0f28f63bdbef102e95bfc4f78821904c71dbb10dc3d1ae8d",
   "capabilities/procedures_certified.json": "1567f2a11ff8d6e9820ba0662e128d05218d898450ed8e75b14c1c9e3e994d23",
-  "astronomy_knowledge_public.sqlite": "2cbb82fa4b4c2e3820cdffbcb8acc9c45384a2d5e140a539b10528e93b4bd285",
-  "search/encoder.int8.onnx": "521452d928a72da4d241b1835ab0f46b0e81ff58ffff0367b9a7029bd129fbd9",
-  "search/tokenizer.json": "b2f2deb461e6ad672b8e42aac29773e7a9be77d582cdf58808113ea43fda565e",
-  "search/index.json": "cbd28f9d940abc33d3bfd4a61beed818eda670deffcfe40b46845d84423f9ef9",
-  "reader/reader.int8.onnx": "ecee16f238097a01129c8c071809cc24d3edb25c7d73ca29bd5c383981ca0c33",
-  "reader/tokenizer.json": "a54ec88bce54ad97ea91cd47911b41025e80d47e13af62d47cf5758a65ba8387",
-  "reader/labels.json": "328c9073146573ae8e9890ac487d5a4cfe6914fef45fb0047633ac580f8fff80"
+  "astronomy_knowledge_public.sqlite": "2639cef86aafd7ff7c1d28e316919040d5c81db554e90e0077e2d3165ec706bf"
  },
  "engine": [
   "__init__.py",
