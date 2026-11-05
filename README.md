@@ -4,7 +4,7 @@
 
 **[Desktop app & command line](https://www.ai999x.com/desktop-cli/)** · **[Compute in your browser](https://www.ai999x.com/models/astronomy-ai999x/#try)** · **[Install (Python)](https://pypi.org/project/astronomy-ai999x/)** · **[Guides](https://huggingface.co/AI999X/astronomy-ai999x/tree/main/docs)** · **[Evaluation](https://huggingface.co/AI999X/astronomy-ai999x/tree/main/evaluation)** · **[AI999X on Hugging Face](https://huggingface.co/AI999X)** · **[Website](https://ai999x.com)** · **[Support: Buy Me a Coffee](https://buymeacoffee.com/ibnuljaiffarabi)**
 
-License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.0.3
+License: Apache-2.0 · Author: Ibnul Jaif Farabi (creator and engineer) · Organization: AI999X · Version 1.1.0
 
 Field: **Physical Sciences** · Tasks: Question Answering, Token Classification, Text Classification, Sentence Similarity, Feature Extraction
 
@@ -20,26 +20,13 @@ astronomy-ai999x is an offline, deterministic Python solver that answers astrono
 
 | Way to run it | For | Get it |
 |---|---|---|
-| **AI999X Astronomy desktop app** 1.2.0 | Windows, Linux — this model in its own app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-astronomy-1.2.0-windows-x86_64.zip) · [Linux (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-astronomy-1.2.0-linux-x86_64.tar.gz) |
-| **AI999X desktop app** 1.2.0 | Windows, Linux — every AI999X model in one app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-1.2.0-windows-x86_64.zip) · [Linux (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-1.2.0-linux-x86_64.tar.gz) |
-| **Command line** (`astronomy`) | Windows, Linux — one program per model, offline, no Python | [Windows (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-windows-x86_64.zip) · [Linux (x86-64)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-linux-x86_64.tar.gz) |
+| **AI999X Astronomy desktop app** 1.4.0 | Windows, Linux — this model in its own app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.4.0/ai999x-astronomy-1.4.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.4.0/ai999x-astronomy-1.4.0-linux-x86_64.tar.gz) |
+| **AI999X desktop app** 1.4.0 | Windows, Linux — every AI999X model in one app: search, ask in words, forms, live figures, explanations, offline | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz) |
+| **Command line** (`astronomy`) | Windows, Linux — one program per model, offline, no Python | [Windows (x86-64)](https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-windows-x86_64.zip) · [Linux (x86-64)](https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz) |
 | **In your browser** | any device — nothing to install | [Compute on the model page](https://www.ai999x.com/models/astronomy-ai999x/#try) |
 | **Python** | Python 3.10+ | `pip install astronomy-ai999x` |
 
-Checksums: [SHA256SUMS](https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS) · every version: [https://www.ai999x.com/downloads/desktop/latest/](https://www.ai999x.com/downloads/desktop/latest/) · install guide: [desktop & command line](https://www.ai999x.com/desktop-cli/)
-
-## Rust versions
-
-Astronomy also comes as native programs compiled from Rust, version 1.2.0 of the AI999X desktop app and command line: they run offline on your computer and need no Python. Each file is in this repository's `rust/` folder, on the [GitHub release v1.0.3](https://github.com/AI999X/astronomy-ai999x/releases/tag/v1.0.3) and on the website.
-
-| Program | System | File | Size | Download | Use |
-|---|---|---|---|---|---|
-| Desktop app (Astronomy) | Windows x86-64 | `ai999x-astronomy-1.2.0-windows-x86_64.zip` | 7.1 MB | [Hub](https://huggingface.co/AI999X/astronomy-ai999x/resolve/main/rust/ai999x-astronomy-1.2.0-windows-x86_64.zip) · [GitHub](https://github.com/AI999X/astronomy-ai999x/releases/download/v1.0.3/ai999x-astronomy-1.2.0-windows-x86_64.zip) · [website](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-astronomy-1.2.0-windows-x86_64.zip) | unzip, then double-click `ai999x-astronomy.exe` (no installer) |
-| Desktop app (Astronomy) | Linux x86-64 | `ai999x-astronomy-1.2.0-linux-x86_64.tar.gz` | 8.0 MB | [Hub](https://huggingface.co/AI999X/astronomy-ai999x/resolve/main/rust/ai999x-astronomy-1.2.0-linux-x86_64.tar.gz) · [GitHub](https://github.com/AI999X/astronomy-ai999x/releases/download/v1.0.3/ai999x-astronomy-1.2.0-linux-x86_64.tar.gz) · [website](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-astronomy-1.2.0-linux-x86_64.tar.gz) | extract, then run `./ai999x-astronomy` (X11 or Wayland desktop) |
-| Command line (`astronomy`) | Windows x86-64 | `ai999x-astronomy-cli-1.2.0-windows-x86_64.zip` | 2.7 MB | [Hub](https://huggingface.co/AI999X/astronomy-ai999x/resolve/main/rust/ai999x-astronomy-cli-1.2.0-windows-x86_64.zip) · [GitHub](https://github.com/AI999X/astronomy-ai999x/releases/download/v1.0.3/ai999x-astronomy-cli-1.2.0-windows-x86_64.zip) · [website (all models)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-windows-x86_64.zip) | unzip, then `astronomy.exe ask "<question>"` or `astronomy.exe solve <capability> name=value` |
-| Command line (`astronomy`) | Linux x86-64 | `ai999x-astronomy-cli-1.2.0-linux-x86_64.tar.gz` | 2.7 MB | [Hub](https://huggingface.co/AI999X/astronomy-ai999x/resolve/main/rust/ai999x-astronomy-cli-1.2.0-linux-x86_64.tar.gz) · [GitHub](https://github.com/AI999X/astronomy-ai999x/releases/download/v1.0.3/ai999x-astronomy-cli-1.2.0-linux-x86_64.tar.gz) · [website (all models)](https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-linux-x86_64.tar.gz) | extract, then `./astronomy ask "<question>"` or `./astronomy solve <capability> name=value` |
-
-The command-line archive holds `astronomy` with a README of its commands and examples, the licence and the notice. Checksums: [`rust/SHA256SUMS`](https://huggingface.co/AI999X/astronomy-ai999x/resolve/main/rust/SHA256SUMS) (`sha256sum -c SHA256SUMS`).
+Checksums: [SHA256SUMS](https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS) · every version: [https://downloads.ai999x.com/desktop/latest/](https://downloads.ai999x.com/desktop/latest/) · install guide: [desktop & command line](https://www.ai999x.com/desktop-cli/)
 
 ## Quick start
 
@@ -50,11 +37,11 @@ Download **AI999X Astronomy** for your system (above), unpack it and start it; t
 Linux, from a terminal:
 
 ```bash
-curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-astronomy-1.2.0-linux-x86_64.tar.gz
-curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-astronomy-1.4.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-tar xzf ai999x-astronomy-1.2.0-linux-x86_64.tar.gz
-./ai999x-astronomy-1.2.0-linux-x86_64/ai999x-astronomy
+tar xzf ai999x-astronomy-1.4.0-linux-x86_64.tar.gz
+./ai999x-astronomy-1.4.0-linux-x86_64/ai999x-astronomy
 ```
 
 ### Command line
@@ -62,23 +49,23 @@ tar xzf ai999x-astronomy-1.2.0-linux-x86_64.tar.gz
 Linux:
 
 ```bash
-curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/ai999x-cli-1.2.0-linux-x86_64.tar.gz
-curl -LO https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
-mkdir -p ~/.local/share && tar xzf ai999x-cli-1.2.0-linux-x86_64.tar.gz -C ~/.local/share
-echo 'export PATH="$HOME/.local/share/ai999x-cli-1.2.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
+mkdir -p ~/.local/share && tar xzf ai999x-cli-1.4.0-linux-x86_64.tar.gz -C ~/.local/share
+echo 'export PATH="$HOME/.local/share/ai999x-cli-1.4.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
 astronomy --version
 ```
 
 Windows (PowerShell):
 
 ```powershell
-$F = "ai999x-cli-1.2.0-windows-x86_64.zip"
-Invoke-WebRequest "https://www.ai999x.com/downloads/desktop/1.2.0/$F" -OutFile $F
-Invoke-WebRequest "https://www.ai999x.com/downloads/desktop/1.2.0/SHA256SUMS" -OutFile SHA256SUMS
+$F = "ai999x-cli-1.4.0-windows-x86_64.zip"
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.4.0/$F" -OutFile $F
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS" -OutFile SHA256SUMS
 (Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
 Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
-$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.2.0-windows-x86_64"; $env:Path += ";$D"
+$D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.4.0-windows-x86_64"; $env:Path += ";$D"
 [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$D", "User")
 astronomy --version
 ```
@@ -123,26 +110,6 @@ t_L_Gyr = 7.715337004
   H0 = 70
   Om = 0.3
   assumes: 0 < z <= 1100; flat Lambda-CDM, no radiation
-```
-
-**Draw the figures** — The live figures for your own inputs, written as SVG files into the folder given with --out (here the current folder); open them in any browser. Without --out the SVG text comes back as JSON.
-
-```console
-$ astronomy figures parallax_distance "p=3.723369071e-06 rad" --out .
-[
-  {
-    "slug": "parallax-distance-live-1",
-    "title": "Distance in parsecs as annual parallax (arcsec, mas, rad, deg) varies",
-    "caption": "Distance in parsecs as p runs from 9.308e-07 to 6.516e-06 rad, every other input as you entered it (41 solutions). Marked: your p = 3.723e-06 rad gives d_pc = 1.302. Your inputs: p = 3.723369071e-06 rad.",
-    "file": "./parallax-distance-live-1.svg"
-  },
-  {
-    "slug": "parallax-distance-live-2",
-    "title": "The computed values side by side",
-    "caption": "Every answer of one unit for your inputs: d_pc (distance in parsecs) = 1.302; d_ly (distance in light-years) = 4.247; p_arcsec (parallax in arcseconds) = 0.768. Your inputs: p = 3.723369071e-06 rad.",
-    "file": "./parallax-distance-live-2.svg"
-  }
-]
 ```
 
 **Many questions at once** — One JSON request per line in, one JSON answer per line out, in order: for scripts, notebooks and agents (the program starts once). In PowerShell: Get-Content cases.jsonl | astronomy batch
@@ -319,7 +286,7 @@ _What this means:_ This calculation determines the total all-sky comoving volume
 
 | Property | Value |
 |---|---|
-| Package | `astronomy-ai999x` 1.0.3 (import `astronomy_ai999x`) |
+| Package | `astronomy-ai999x` 1.1.0 (import `astronomy_ai999x`) |
 | Type | Deterministic neuro-symbolic astronomy engine (rule-based reading + certified symbolic capabilities) |
 | Capabilities | 67 certified procedures |
 | Knowledge pack | version 1.0.0 |
@@ -353,7 +320,7 @@ astronomy.ask("Who created you?").message
 # -> astronomy-ai999x was created and engineered by Ibnul Jaif Farabi at AI999X.
 ```
 
-The Python package also installs a Python command, `astronomy-ai999x "<question>"`; for the native program use `astronomy` (above). The outputs above were produced by running this exact code on astronomy-ai999x 1.0.3.
+The Python package also installs a Python command, `astronomy-ai999x "<question>"`; for the native program use `astronomy` (above). The outputs above were produced by running this exact code on astronomy-ai999x 1.1.0.
 
 ## Find the right capability, and draw it
 
@@ -508,10 +475,10 @@ _Equilibrium temperatures of the eight planets for the Sun (5772 K, radius 6.957
 ## Citation
 
 ```bibtex
-@software{astronomy_ai999x_1_0_3,
+@software{astronomy_ai999x_1_1_0,
   title  = {astronomy-ai999x: an offline, verified astronomy solver},
   author = {Farabi, Ibnul Jaif}, organization = {AI999X},
-  year   = {2026}, version = {1.0.3},
+  year   = {2026}, version = {1.1.0},
   url    = {https://huggingface.co/AI999X/astronomy-ai999x}
 }
 ```

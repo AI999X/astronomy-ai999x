@@ -1,6 +1,6 @@
 # astronomy: the Astronomy program — user guide
 
-**astronomy-ai999x 1.0.3**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
+**astronomy-ai999x 1.1.0**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
 
 Astronomy covers celestial mechanics and orbits, stellar properties, blackbody radiation, magnitudes and distances, cosmology basics, the Sun and space environment and plasma parameters. This guide is about `astronomy`, the model as a self-contained program for Windows and Linux: 67 capabilities in 13 topics, answered on your own computer with no network, no Python and nothing else to install. The same compiled model runs in the AI999X desktop app and in the browser on the model's page (https://www.ai999x.com/models/astronomy-ai999x/); the Python package (`pip install astronomy-ai999x`) has its own guide. Every command output printed here is what the program printed.
 
@@ -17,24 +17,24 @@ Astronomy covers celestial mechanics and orbits, stellar properties, blackbody r
 
 ## 1. Get it
 
-Version 1.4.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://www.ai999x.com/downloads/desktop/1.4.0/SHA256SUMS; the newest version is always under https://www.ai999x.com/downloads/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
+Version 1.4.0 of the AI999X desktop app and of the command-line bundle. Checksums for every file: https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS; the newest version is always under https://downloads.ai999x.com/desktop/latest/. Full instructions: https://www.ai999x.com/desktop-cli/
 
 | what | system | download |
 |---|---|---|
-| Desktop app: Astronomy | Windows x86-64 | https://www.ai999x.com/downloads/desktop/1.4.0/ai999x-astronomy-1.4.0-windows-x86_64.zip |
-| Desktop app: Astronomy | Linux x86-64 | https://www.ai999x.com/downloads/desktop/1.4.0/ai999x-astronomy-1.4.0-linux-x86_64.tar.gz |
-| Desktop app: all models | Windows x86-64 | https://www.ai999x.com/downloads/desktop/1.4.0/ai999x-1.4.0-windows-x86_64.zip |
-| Desktop app: all models | Linux x86-64 | https://www.ai999x.com/downloads/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz |
-| Command line | Windows x86-64 | https://www.ai999x.com/downloads/desktop/1.4.0/ai999x-cli-1.4.0-windows-x86_64.zip |
-| Command line | Linux x86-64 | https://www.ai999x.com/downloads/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz |
+| Desktop app: Astronomy | Windows x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-astronomy-1.4.0-windows-x86_64.zip |
+| Desktop app: Astronomy | Linux x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-astronomy-1.4.0-linux-x86_64.tar.gz |
+| Desktop app: all models | Windows x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-windows-x86_64.zip |
+| Desktop app: all models | Linux x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz |
+| Command line | Windows x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-windows-x86_64.zip |
+| Command line | Linux x86-64 | https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz |
 
 ### Desktop app
 
 Astronomy in its own app: search, questions in words, input forms, live figures and explanations. Windows: Download ai999x-astronomy-1.4.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x-astronomy.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://www.ai999x.com/downloads/desktop/1.4.0/ai999x-astronomy-1.4.0-linux-x86_64.tar.gz
-curl -LO https://www.ai999x.com/downloads/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-astronomy-1.4.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
 tar xzf ai999x-astronomy-1.4.0-linux-x86_64.tar.gz
 ./ai999x-astronomy-1.4.0-linux-x86_64/ai999x-astronomy
@@ -43,8 +43,8 @@ tar xzf ai999x-astronomy-1.4.0-linux-x86_64.tar.gz
 It opens on this model: type a question or pick a capability, fill in the form and press Compute. The AI999X desktop app with every model works the same way (choose the model first). Windows: Download ai999x-1.4.0-windows-x86_64.zip, right-click it → Extract All, then open the folder and start ai999x.exe. If Windows SmartScreen asks, choose More info → Run anyway. Linux:
 
 ```shell
-curl -LO https://www.ai999x.com/downloads/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz
-curl -LO https://www.ai999x.com/downloads/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-1.4.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
 tar xzf ai999x-1.4.0-linux-x86_64.tar.gz
 ./ai999x-1.4.0-linux-x86_64/ai999x
@@ -55,8 +55,8 @@ tar xzf ai999x-1.4.0-linux-x86_64.tar.gz
 The bundle holds one program per model; `astronomy` is this one. The checksum line should print OK.
 
 ```shell
-curl -LO https://www.ai999x.com/downloads/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz
-curl -LO https://www.ai999x.com/downloads/desktop/1.4.0/SHA256SUMS
+curl -LO https://downloads.ai999x.com/desktop/1.4.0/ai999x-cli-1.4.0-linux-x86_64.tar.gz
+curl -LO https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS
 sha256sum -c --ignore-missing SHA256SUMS
 mkdir -p ~/.local/share && tar xzf ai999x-cli-1.4.0-linux-x86_64.tar.gz -C ~/.local/share
 echo 'export PATH="$HOME/.local/share/ai999x-cli-1.4.0-linux-x86_64:$PATH"' >> ~/.bashrc && source ~/.bashrc
@@ -69,8 +69,8 @@ The fourth line should print True.
 
 ```powershell
 $F = "ai999x-cli-1.4.0-windows-x86_64.zip"
-Invoke-WebRequest "https://www.ai999x.com/downloads/desktop/1.4.0/$F" -OutFile $F
-Invoke-WebRequest "https://www.ai999x.com/downloads/desktop/1.4.0/SHA256SUMS" -OutFile SHA256SUMS
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.4.0/$F" -OutFile $F
+Invoke-WebRequest "https://downloads.ai999x.com/desktop/1.4.0/SHA256SUMS" -OutFile SHA256SUMS
 (Get-FileHash $F -Algorithm SHA256).Hash.ToLower() -eq ((Select-String -SimpleMatch $F SHA256SUMS).Line -split ' ')[0]
 Expand-Archive $F -DestinationPath "$env:LOCALAPPDATA\AI999X" -Force
 $D = "$env:LOCALAPPDATA\AI999X\ai999x-cli-1.4.0-windows-x86_64"; $env:Path += ";$D"
@@ -99,40 +99,7 @@ $ astronomy --version
 astronomy-ai999x 1.0.3 (Rust build, ax-engine 0.1.0)
 ```
 
-### 2.2 Ask in words
-
-Write the question as you would say it: the program reads the quantities and their units, picks the capability and answers.
-
-```shell
-$ astronomy ask "Parallax distance: p = 0.768 arcsec"
-Read as: Distance from parallax
-d = 4.017809351e+16 m
-d_pc = 1.302083333
-d_ly = 4.246827835
-p_arcsec = 0.768
-  by: Distance from parallax  (d = 1/p with p in arcseconds gives parsecs)
-  p = 3.723369071e-06 rad
-  assumes: p > 0 (small-angle definition of the parsec)
-```
-
-### 2.3 Find a capability
-
-Search the capabilities by what you want to know; the first column is the id to pass to info and solve.
-
-```shell
-$ astronomy search "lookback time to a redshift"
-lookback_time                        Lookback time to a redshift  (cosmology / time)
-redshift_at_lookback_time            Redshift at a given lookback time  (cosmology / time)
-age_at_redshift                      Age of the universe at a redshift  (cosmology / time)
-cosmological_distances               Cosmological distances at a redshift  (cosmology / distances)
-comoving_volume                      Comoving volume out to a redshift  (cosmology / volumes)
-angular_size_at_redshift             Angular size of an object at a redshift  (cosmology / angular scale)
-recession_velocity_from_redshift     Radial velocity from a Doppler redshift  (cosmology / redshift)
-redshift_from_wavelengths            Redshift and radial velocity from a spectral line  (cosmology / redshift)
-… 9 more
-```
-
-### 2.4 List the capabilities
+### 2.2 List the capabilities
 
 Every capability the program answers: its id (what you pass to solve) and its name.
 
@@ -149,7 +116,7 @@ angular_size_at_redshift                 Angular size of an object at a redshift
 … 59 more
 ```
 
-### 2.5 What a capability needs
+### 2.3 What a capability needs
 
 The equation or method, every input and output with its SI unit. Read this before solve: it tells you the input names.
 
@@ -164,7 +131,7 @@ Lookback time to a redshift
   out  t_L_Gyr  lookback time in Gyr []
 ```
 
-### 2.6 Solve
+### 2.4 Solve
 
 Inputs as name=value, each with any unit of the right kind. The answer lists every output, the method used, each input converted to SI, and the conditions the answer assumes.
 
@@ -173,13 +140,13 @@ $ astronomy solve lookback_time z=1.0 H0=70.0 Om=0.3
 t_L = 2.43477519e+17 s
 t_L_Gyr = 7.715337004
   by: Lookback time to a redshift  (t_L = (1/H0) integral_0^z dz' / ((1 + z') E(z')) by mpmath quadrature)
-  z = 1
-  H0 = 70
-  Om = 0.3
+  z = 1   []
+  H0 = 70   []
+  Om = 0.3   []
   assumes: 0 < z <= 1100; flat Lambda-CDM, no radiation
 ```
 
-### 2.7 Machine-readable answer
+### 2.5 Machine-readable answer
 
 --json prints the same answer as one line of JSON (values in SI): for scripts and other programs.
 
@@ -188,7 +155,7 @@ $ astronomy solve lookback_time z=1.0 H0=70.0 Om=0.3 --json
 {"outcome":"SOLVED","message":"","value":7.71533700361,"unit":"","solved_for":"t_L_Gyr","si":[["z",1.0],["H0",70.0],["Om",0.3]],"values":[["t_L",2.43477519025e+17,"s"],["t_L_Gyr",7.71533700361,""]],"target":"t_L_Gyr","phrase":"lookback time","assumptions":["0 < z <= 1100","flat Lambda-CDM, no radiation"],"name":"Lookback time to a redshift","equation":"t_L = (1/H0) integral_0^z dz' / ((1 + z') E(z')) by mpmath quadrature"}
 ```
 
-### 2.8 When an input is missing
+### 2.6 When an input is missing
 
 No number is guessed: the answer names what is missing, shows a complete call, and the program exits with status 1.
 
@@ -197,29 +164,7 @@ $ astronomy solve lookback_time z=1.0 H0=70.0
 NEEDS_INPUT: lookback_time needs Om (matter density parameter Omega_m (flat: Omega_Lambda = 1 - Omega_m)). Example: solve('lookback_time', z=3, H0=70, Om=1).
 ```
 
-### 2.9 Draw the figures
-
-The live figures for your own inputs, written as SVG files into the folder given with --out (here the current folder); open them in any browser. Without --out the SVG text comes back as JSON.
-
-```shell
-$ astronomy figures parallax_distance "p=3.723369071e-06 rad" --out .
-[
-  {
-    "slug": "parallax-distance-live-1",
-    "title": "Distance in parsecs as annual parallax (arcsec, mas, rad, deg) varies",
-    "caption": "Distance in parsecs as p runs from 9.308e-07 to 6.516e-06 rad, every other input as you entered it (41 solutions). Marked: your p = 3.723e-06 rad gives d_pc = 1.302. Your inputs: p = 3.723369071e-06 rad.",
-    "file": ".\\parallax-distance-live-1.svg"
-  },
-  {
-    "slug": "parallax-distance-live-2",
-    "title": "The computed values side by side",
-    "caption": "Every answer of one unit for your inputs: d_pc (distance in parsecs) = 1.302; d_ly (distance in light-years) = 4.247; p_arcsec (parallax in arcseconds) = 0.768. Your inputs: p = 3.723369071e-06 rad.",
-    "file": ".\\parallax-distance-live-2.svg"
-  }
-]
-```
-
-### 2.10 Many questions at once
+### 2.7 Many questions at once
 
 One JSON request per line in, one JSON answer per line out, in order: for scripts, notebooks and agents (the program starts once). In PowerShell: Get-Content cases.jsonl | astronomy batch
 
@@ -232,7 +177,7 @@ One JSON request per line in, one JSON answer per line out, in order: for script
 
 ```shell
 $ astronomy batch < cases.jsonl
-{"outcome":"SOLVED","message":"","value":7.71533700361,"unit":"","solved_for":"t_L_Gyr","si":[["z",1.0],["H0",70.0],["Om",0.3]],"values":[["t_L",2.43477519025e+17,"s"],["t_L_Gyr",7.71533700361,""]],"target":"t_L_Gyr","phrase":"lookback time","assumptions":["0 < z <= 1100","flat Lambda-CDM, no radiation"],"name":"Lookback time to a redshift","equation":"t_L = (1/H0) integral_0^z dz' / ((1 + z') E(z')) by mpmath quadrature"}
+{"outcome":"SOLVED","message":"","value":7.71533700361,"unit":"","solved_for":"t_L_Gyr","si":[["H0",70.0],["Om",0.3],["z",1.0]],"values":[["t_L",2.43477519025e+17,"s"],["t_L_Gyr",7.71533700361,""]],"target":"t_L_Gyr","phrase":"lookback time","assumptions":["0 < z <= 1100","flat Lambda-CDM, no radiation"],"name":"Lookback time to a redshift","equation":"t_L = (1/H0) integral_0^z dz' / ((1 + z') E(z')) by mpmath quadrature"}
 {"outcome":"SOLVED","message":"","value":1.30208333331,"unit":"","solved_for":"d_pc","si":[["p",3.723369071e-6]],"values":[["d",4.01780935082e+16,"m"],["d_pc",1.30208333331,""],["d_ly",4.24682783476,""],["p_arcsec",0.768000000016,""]],"target":"d_pc","phrase":"distance","assumptions":["p > 0 (small-angle definition of the parsec)"],"name":"Distance from parallax","equation":"d = 1/p with p in arcseconds gives parsecs"}
 ```
 
@@ -292,24 +237,6 @@ answers = [json.loads(line) for line in out.splitlines()]
 
 `astronomy figures <capability> name=value ... --out DIR` draws the live figures for those inputs and writes each as an SVG file into DIR (an existing folder); without `--out` the SVG text comes back as JSON. The desktop app and the model page draw the same figures as soon as you press Compute.
 
-```shell
-$ astronomy figures parallax_distance "p=3.723369071e-06 rad" --out .
-[
-  {
-    "slug": "parallax-distance-live-1",
-    "title": "Distance in parsecs as annual parallax (arcsec, mas, rad, deg) varies",
-    "caption": "Distance in parsecs as p runs from 9.308e-07 to 6.516e-06 rad, every other input as you entered it (41 solutions). Marked: your p = 3.723e-06 rad gives d_pc = 1.302. Your inputs: p = 3.723369071e-06 rad.",
-    "file": ".\\parallax-distance-live-1.svg"
-  },
-  {
-    "slug": "parallax-distance-live-2",
-    "title": "The computed values side by side",
-    "caption": "Every answer of one unit for your inputs: d_pc (distance in parsecs) = 1.302; d_ly (distance in light-years) = 4.247; p_arcsec (parallax in arcseconds) = 0.768. Your inputs: p = 3.723369071e-06 rad.",
-    "file": ".\\parallax-distance-live-2.svg"
-  }
-]
-```
-
 ## 7. In a web page or Node.js: WebAssembly
 
 The same model is a WebAssembly module, `astronomy_ai999x.wasm` (https://www.ai999x.com/compute/rust/astronomy_ai999x.wasm), with a small loader, `ax-wasm.js` (https://www.ai999x.com/compute/rust/ax-wasm.js). It runs in a browser, a Web Worker or Node.js, with no server.
@@ -356,7 +283,7 @@ rs = 2953.250077 m
 rs_km = 2.953250077
 M_Msun = 1
   by: Schwarzschild radius  (r_s = 2 G M / c^2)
-  M = 1.988409871e+30 kg
+  M = 1.988409871e+30 kg   []
   assumes: M > 0; non-rotating, uncharged mass
 ```
 
@@ -391,9 +318,9 @@ age = 3.673425692e+16 s
 age_Gyr = 1.164038359
 age_now_Gyr = 9.312306873
   by: Age of the universe at a redshift  (t(z) = (1/H0) integral_z^inf dz' / ((1 + z') E(z')) by mpmath quadrature)
-  z = 3
-  H0 = 70
-  Om = 1
+  z = 3   []
+  H0 = 70   []
+  Om = 1   []
   assumes: 0 <= z <= 1100; flat Lambda-CDM, no radiation (not accurate in the radiation era)
 ```
 
@@ -427,10 +354,10 @@ theta_arcsec = 192.6470937
 scale_kpc_per_arcsec = 5.190838755
 D_A_Mpc = 1070.68735
   by: Angular size of an object at a redshift  (theta = D / D_A with D_A = D_C / (1 + z))
-  z = 3
-  H0 = 70
-  Om = 1
-  D = 3.085677581e+22 m
+  z = 3   []
+  H0 = 70   []
+  Om = 1   []
+  D = 3.085677581e+22 m   []
   assumes: 0 < z <= 1100; D > 0; small angles; flat Lambda-CDM, no radiation
 ```
 
@@ -461,9 +388,9 @@ $ astronomy solve comoving_volume z=3 H0=70 Om=1
 V = 9.667367618e+78 m^3
 V_Gpc3 = 329.0459866
   by: Comoving volume out to a redshift  (V = (4 pi / 3) D_C^3 (flat space))
-  z = 3
-  H0 = 70
-  Om = 1
+  z = 3   []
+  H0 = 70   []
+  Om = 1   []
   assumes: 0 < z <= 1100; flat Lambda-CDM, no radiation
 ```
 
@@ -502,9 +429,9 @@ D_A_Mpc = 1070.68735
 mu = 46.16891327
 D_L = 5.286073524e+26 m
   by: Cosmological distances at a redshift  (D_C = (c/H0) integral_0^z dz'/E(z'), E = sqrt(Om (1+z)^3 + 1 - Om) (mpmath quadrature); D_L = (1+z) D_C; D_A = D_C/(1+z))
-  z = 3
-  H0 = 70
-  Om = 1
+  z = 3   []
+  H0 = 70   []
+  Om = 1   []
   assumes: 0 < z <= 1100; 1 <= H0 <= 1000 km/s/Mpc; 0.01 <= Omega_m <= 1; flat, no radiation
 ```
 
@@ -537,8 +464,8 @@ H_z = 70
 rho_c = 9.203873923e-27 kg/m^3
 n_H = 5.502662485 1/m^3
   by: Hubble parameter and critical density  (H(z) = H0 sqrt(Om (1+z)^3 + 1 - Om); rho_c = 3 H^2 / (8 pi G))
-  H0 = 70
-  Om = 0.3
+  H0 = 70   []
+  Om = 0.3   []
   assumes: 1 <= H0 <= 1000; 0.01 <= Omega_m <= 1; 0 <= z <= 1100; flat, no radiation
 ```
 
@@ -569,9 +496,9 @@ $ astronomy solve lookback_time z=3 H0=70 Om=1
 t_L = 2.571397985e+17 s
 t_L_Gyr = 8.148268514
   by: Lookback time to a redshift  (t_L = (1/H0) integral_0^z dz' / ((1 + z') E(z')) by mpmath quadrature)
-  z = 3
-  H0 = 70
-  Om = 1
+  z = 3   []
+  H0 = 70   []
+  Om = 1   []
   assumes: 0 < z <= 1100; flat Lambda-CDM, no radiation
 ```
 
@@ -602,7 +529,7 @@ v = 179875474.8 m/s
 beta = 0.6
 v_cz = 299792458 m/s
   by: Radial velocity from a Doppler redshift  (v/c = ((1+z)^2 - 1) / ((1+z)^2 + 1))
-  z = 1
+  z = 1   []
   assumes: -1 < z; a purely kinematic (special-relativistic, radial) Doppler shift; not a cosmological recession
 ```
 
@@ -636,8 +563,8 @@ v = 179875474.8 m/s
 beta = 0.6
 d_lambda = 6.5628e-07 m
   by: Redshift and radial velocity from a spectral line  (z = lambda_obs/lambda_rest - 1; v/c = ((1+z)^2 - 1)/((1+z)^2 + 1))
-  lam_obs = 1.31256e-06 m
-  lam_rest = 6.5628e-07 m
+  lam_obs = 1.31256e-06 m   []
+  lam_rest = 6.5628e-07 m   []
   assumes: both wavelengths > 0; a purely kinematic radial Doppler shift
 ```
 
@@ -668,9 +595,9 @@ $ astronomy solve redshift_at_lookback_time "t=2.524608e+17 s" H0=70 Om=0.3
 z = 1.074672875
 age_now_Gyr = 13.46698395
   by: Redshift at a given lookback time  (t(z) = 2/(3 H0 sqrt(OL)) asinh( sqrt(OL/Om) (1+z)^(-3/2) ), inverted in closed form (Om = 1: t = 2/(3 H0) (1+z)^(-3/2)))
-  t = 2.524608e+17 s
-  H0 = 70
-  Om = 0.3
+  t = 2.524608e+17 s   []
+  H0 = 70   []
+  Om = 0.3   []
   assumes: 0 < t < present age; flat Lambda-CDM, no radiation
 ```
 
@@ -705,9 +632,9 @@ M = 2
 mu = 5
 d_pc = 99.99999998
   by: Absolute magnitude  (M = m - 5 log10(d / 10 pc) - A)
-  m = 8
-  d = 3.085677581e+18 m
-  A = 1
+  m = 8   []
+  d = 3.085677581e+18 m   []
+  A = 1   []
   assumes: d > 0; A >= 0
 ```
 
@@ -742,7 +669,7 @@ d_au = 206264.8062
 d_ly = 3.261563777
 d_pc = 0.9999999998
   by: Astronomical distance units  (1 au = 149597870700 m; 1 pc = au * 648000/pi; 1 ly = c * 365.25 days)
-  d = 3.085677581e+16 m
+  d = 3.085677581e+16 m   []
   assumes: d > 0
 ```
 
@@ -772,8 +699,8 @@ $ astronomy solve combined_magnitude m1=5 m2=5
 m = 4.247425011
 brightening = 0.7525749892
   by: Combined magnitude of two stars  (fluxes add: m = -2.5 log10(10^(-0.4 m1) + 10^(-0.4 m2)))
-  m1 = 5
-  m2 = 5
+  m1 = 5   []
+  m2 = 5   []
   assumes: |m1 - m2| <= 100
 ```
 
@@ -805,8 +732,8 @@ d = 1.496070192e+11 m
 d_pc = 4.848433293e-06
 d_ly = 1.58134744e-05
   by: Distance from luminosity and flux (inverse-square law)  (F = L / (4 pi d^2): d = sqrt(L / (4 pi F)))
-  L = 3.828e+26 W
-  F = 1361 W/m^2
+  L = 3.828e+26 W   []
+  F = 1361 W/m^2   []
   assumes: L, F > 0; isotropic emission, no extinction
 ```
 
@@ -839,7 +766,7 @@ d_pc = 10
 d_ly = 32.61563777
 p_arcsec = 0.1
   by: Distance from parallax  (d = 1/p with p in arcseconds gives parsecs)
-  p = 4.848136811e-07 rad
+  p = 4.848136811e-07 rad   []
   assumes: p > 0 (small-angle definition of the parsec)
 ```
 
@@ -874,8 +801,8 @@ d_pc = 1000
 d_ly = 3261.563777
 mu = 10
   by: Distance from the distance modulus  (d = 10^((m - M - A)/5 + 1) pc)
-  m = 10
-  M = 0
+  m = 10   []
+  M = 0   []
   assumes: A >= 0; -10 < m - M - A < 60
 ```
 
@@ -905,8 +832,8 @@ $ astronomy solve flux_ratio_from_magnitudes m1=1 m2=6
 ratio = 100
 dm = -5
   by: Flux ratio from a magnitude difference  (Pogson's scale: F1/F2 = 10^(-0.4 (m1 - m2)))
-  m1 = 1
-  m2 = 6
+  m1 = 1   []
+  m2 = 6   []
   assumes: |m1 - m2| <= 100
 ```
 
@@ -933,7 +860,7 @@ $$
 $ astronomy solve magnitude_difference_from_flux_ratio ratio=100
 dm = -5
   by: Magnitude difference from a flux ratio  (m1 - m2 = -2.5 log10(F1/F2))
-  ratio = 100
+  ratio = 100   []
   assumes: F1/F2 > 0
 ```
 
@@ -970,9 +897,9 @@ K = 12.45977416 m/s
 a = 7.782417562e+11 m
 a_au = 5.202224821
   by: Radial-velocity semi-amplitude of a star  (K = (2 pi G / P)^(1/3) m sin i / ((M + m)^(2/3) sqrt(1 - e^2)))
-  M_star = 1.988409871e+30 kg
-  m_p = 1.898124597e+27 kg
-  P = 374273136 s
+  M_star = 1.988409871e+30 kg   []
+  m_p = 1.898124597e+27 kg   []
+  P = 374273136 s   []
   assumes: 0 <= e < 0.99; 0 < i <= 180 degrees; two-body Keplerian orbit
 ```
 
@@ -1007,8 +934,8 @@ depth_ppm = 10560.16944
 k = 0.1027626851
 grazing = false
   by: Transit depth  (overlapping area of the two disks divided by the stellar disk area; (Rp/Rs)^2 for a full transit)
-  Rp = 71492000 m
-  Rs = 695700000 m
+  Rp = 71492000 m   []
+  Rs = 695700000 m   []
   assumes: Rp < Rs; 0 <= b < 1 + Rp/Rs; uniform stellar disk (no limb darkening)
 ```
 
@@ -1045,11 +972,11 @@ T23 = 0.8230336921 s
 T14_h = 0.0002908882087
 b = 0
   by: Transit duration  (T14 = (P/pi) asin( sqrt((Rs + Rp)^2 - (b Rs)^2) / (a sin i) ), T23 with Rs - Rp)
-  P = 6.283185307 s
-  a = 2 m
-  Rs = 0.9 m
-  Rp = 0.1 m
-  i = 1.570796327 rad
+  P = 6.283185307 s   []
+  a = 2 m   []
+  Rs = 0.9 m   []
+  Rp = 0.1 m   []
+  i = 1.570796327 rad   []
   assumes: circular orbit; Rp < Rs; a > Rs + Rp; 0 < i <= 90 degrees; b < 1 + Rp/Rs (the planet transits)
 ```
 
@@ -1086,9 +1013,9 @@ theta_E_arcsec = 0.0007134359322
 R_E = 4.269139855e+11 m
 R_E_au = 2.85374373
   by: Einstein radius of a point-mass lens  (theta_E = sqrt( (4 G M / c^2) (D_s - D_l) / (D_l D_s) ))
-  M = 9.942049353e+29 kg
-  D_l = 1.234271033e+20 m
-  D_s = 2.468542065e+20 m
+  M = 9.942049353e+29 kg   []
+  D_l = 1.234271033e+20 m   []
+  D_s = 2.468542065e+20 m   []
   assumes: D_s > D_l > 0; point mass, weak field; non-cosmological distances (D_ls = D_s - D_l)
 ```
 
@@ -1123,7 +1050,7 @@ $ astronomy solve airmass_extinction "zen=60 deg"
 X = 2
 alt_deg = 30
   by: Airmass and atmospheric extinction  (X = 1/cos z; m0 = m - k X)
-  zen = 1.047197551 rad
+  zen = 1.047197551 rad   []
   assumes: 0 <= z <= 85 degrees; plane-parallel atmosphere; k >= 0
 ```
 
@@ -1155,8 +1082,8 @@ theta = 1.570796327 rad
 theta_arcsec = 324000
 theta_deg = 90
   by: Angular size  (theta = 2 atan(D / (2 d)); for D << d this is D/d radians)
-  D = 2 m
-  d = 1 m
+  D = 2 m   []
+  d = 1 m   []
   assumes: D > 0; d > 0 (distance to the object's centre plane)
 ```
 
@@ -1188,8 +1115,8 @@ D = 2 m
 D_km = 0.002
 D_au = 1.336917424e-11
   by: Linear size from angular size  (D = 2 d tan(theta/2); for small angles D = theta d)
-  theta = 1.570796327 rad
-  d = 1 m
+  theta = 1.570796327 rad   []
+  d = 1 m   []
   assumes: 0 < theta < 180 degrees; d > 0
 ```
 
@@ -1220,9 +1147,9 @@ $$
 $ astronomy solve plane_change_delta_v "v1=3 km/s" "v2=4 km/s" "di=90 deg"
 dv = 5000 m/s
   by: Delta-v of a combined plane change  (law of cosines: dv^2 = v1^2 + v2^2 - 2 v1 v2 cos(di), written as (v1 - v2)^2 + 4 v1 v2 sin^2(di/2))
-  v1 = 3000 m/s
-  v2 = 4000 m/s
-  di = 1.570796327 rad
+  v1 = 3000 m/s   []
+  v2 = 4000 m/s   []
+  di = 1.570796327 rad   []
   assumes: v1, v2 > 0; 0 <= di <= 180 degrees; an impulsive burn
 ```
 
@@ -1255,8 +1182,8 @@ dv = 3200.102349 m/s
 v_circ = 7725.730493 m/s
 v_depart = 10925.83284 m/s
   by: Departure burn from a circular orbit  (dv = sqrt(v_inf^2 + 2 mu / r) - sqrt(mu / r))
-  M = 5.972e+24 kg
-  r = 6678000 m
+  M = 5.972e+24 kg   []
+  r = 6678000 m   []
   assumes: M, r > 0; v_inf >= 0; a single impulsive burn
 ```
 
@@ -1295,9 +1222,9 @@ t_transfer = 18990.31973 s
 t_days = 0.2197953672
 a_transfer = 24421000 m
   by: Hohmann transfer between circular orbits  (vp = sqrt(2 mu r2 / (r1 (r1 + r2))), va = sqrt(2 mu r1 / (r2 (r1 + r2))); t = pi sqrt(a^3/mu))
-  r1 = 6678000 m
-  r2 = 42164000 m
-  M = 5.972e+24 kg
+  r1 = 6678000 m   []
+  r2 = 42164000 m   []
+  M = 5.972e+24 kg   []
   assumes: r1, r2, M > 0; r1 != r2; impulsive burns, coplanar circular orbits
 ```
 
@@ -1334,9 +1261,9 @@ M1_Msun = 0.75002833
 M2_Msun = 0.2500094434
 a_au = 0.9999999999
   by: Masses of a visual binary star  (M1 + M2 = 4 pi^2 (a1 + a2)^3 / (G P^2); M1 a1 = M2 a2)
-  P = 31557600 s
-  a1 = 3.739946768e+10 m
-  a2 = 1.12198403e+11 m
+  P = 31557600 s   []
+  a1 = 3.739946768e+10 m   []
+  a2 = 1.12198403e+11 m   []
   assumes: P, a1, a2 > 0; true (de-projected) semi-major axes
 ```
 
@@ -1376,9 +1303,9 @@ ra = 2.571946396 m
 P = 14.9970043 s
 energy = -0.279943626 J/kg
   by: Orbital elements from position and velocity  (vis-viva a = r / (2 - r v^2/mu); e^2 = (s cos^2 g - 1)^2 + (s cos g sin g)^2 with s = r v^2/mu)
-  M = 1.4982e+10 kg
-  r = 1 m
-  v = 1.2 m/s
+  M = 1.4982e+10 kg   []
+  r = 1 m   []
+  v = 1.2 m/s   []
   assumes: v^2 < 2 G M / r (bound orbit); |gamma| < 90 degrees; two-body motion
 ```
 
@@ -1418,10 +1345,10 @@ r = 1.499999999 m
 v = 0.5773339959 m/s
 P = 6.283362419 s
   by: Position on an elliptical orbit at a given time (Kepler's equation)  (Kepler's equation M = E - e sin E solved by safeguarded Newton iteration; tan(nu/2) = sqrt((1+e)/(1-e)) tan(E/2); r = a(1 - e cos E))
-  M = 1.4982e+10 kg
-  a = 1 m
-  e = 0.5
-  t = 3.141592654 s
+  M = 1.4982e+10 kg   []
+  a = 1 m   []
+  e = 0.5   []
+  t = 3.141592654 s   []
   assumes: 0 <= e < 0.99; t >= 0 (reduced modulo the period); two-body motion
 ```
 
@@ -1458,9 +1385,9 @@ a = 2 m
 e = 0.5
 P = 17.7720327 s
   by: Speeds at periapsis and apoapsis  (energy and angular momentum: vp = sqrt(2 mu ra / (rp (rp + ra))), va = vp rp / ra)
-  rp = 1 m
-  ra = 3 m
-  M = 1.4982e+10 kg
+  rp = 1 m   []
+  ra = 3 m   []
+  M = 1.4982e+10 kg   []
   assumes: 0 < rp < ra; M > 0; two-body orbit, the orbiting mass negligible
 ```
 
@@ -1495,11 +1422,11 @@ dt = 3.141681209 s
 dt_days = 3.636205103e-05
 P = 6.283362419 s
   by: Time of flight between two points of an elliptical orbit  (eccentric anomalies from the true anomalies, mean anomalies M = E - e sin E, dt = (M2 - M1)/n)
-  M = 1.4982e+10 kg
-  a = 1 m
-  e = 0.5
-  nu1 = 0 rad
-  nu2 = 3.141592654 rad
+  M = 1.4982e+10 kg   []
+  a = 1 m   []
+  e = 0.5   []
+  nu1 = 0 rad   []
+  nu2 = 3.141592654 rad   []
   assumes: 0 <= e < 0.99; nu1 != nu2; motion in the forward (prograde) direction
 ```
 
@@ -1533,9 +1460,9 @@ $ astronomy solve planet_equilibrium_temperature "T_star=1000 K" "R_star=2 m" "a
 T_eq = 500 K
 S = 14175.93605 W/m^2
   by: Equilibrium temperature of a planet  ((1 - A) S pi Rp^2 = 4 pi Rp^2 sigma T^4 with S = sigma T*^4 (R*/a)^2: T = T* sqrt(R*/(2a)) (1 - A)^(1/4))
-  T_star = 1000 K
-  R_star = 2 m
-  a = 4 m
+  T_star = 1000 K   []
+  R_star = 2 m   []
+  a = 4 m   []
   assumes: 0 <= A < 1; a > R_star; full heat redistribution, unit emissivity
 ```
 
@@ -1566,9 +1493,9 @@ $ astronomy solve atmospheric_scale_height "T=288 K" "mu=28.97 g/mol" "g=9.81 m/
 H = 8425.761664 m
 H_km = 8.425761664
   by: Scale height of an isothermal atmosphere  (H = R T / (mu g))
-  T = 288 K
-  mu = 0.02897 kg/mol
-  g = 9.81 m/s^2
+  T = 288 K   []
+  mu = 0.02897 kg/mol   []
+  g = 9.81 m/s^2   []
   assumes: T, mu, g > 0; isothermal ideal gas, constant gravity
 ```
 
@@ -1600,8 +1527,8 @@ $ astronomy solve alfven_speed "B=5 nT" "n=5 cm^-3"
 v_A = 48759.91586 m/s
 v_A_km_s = 48.75991586
   by: Alfven speed  (v_A = B / sqrt(mu0 n (m_p + m_e)))
-  B = 5e-09 T
-  n = 5000000 1/m^3
+  B = 5e-09 T   []
+  n = 5000000 1/m^3   []
   assumes: B, n > 0; mass density n (m_p + m_e); non-relativistic (v_A << c)
 ```
 
@@ -1631,8 +1558,8 @@ $ astronomy solve debye_length "T=100000 K" "n=1e+18 m^-3"
 lambda_D = 2.18225558e-05 m
 lambda_D_nm = 21822.5558
   by: Debye length  (lambda_D = sqrt(eps0 k T / (n e^2)))
-  T = 100000 K
-  n = 1e+18 1/m^3
+  T = 100000 K   []
+  n = 1e+18 1/m^3   []
   assumes: T, n > 0; electron screening only
 ```
 
@@ -1664,7 +1591,7 @@ omega_c = 95788331.43 rad/s
 f_c = 15245186.44 Hz
 T_c = 6.559447496e-08 s
   by: Gyrofrequency (cyclotron frequency)  (omega_c = |q| B / m)
-  B = 1 T
+  B = 1 T   []
   particle = proton
   assumes: B > 0; non-relativistic particle
 ```
@@ -1698,8 +1625,8 @@ r_L = 835174.7943 m
 r_L_km = 835.1747943
 r_L_nm = 8.351747943e+14
   by: Gyroradius (Larmor radius)  (r_L = m v_perp / (|q| B))
-  B = 5e-09 T
-  v_perp = 400000 m/s
+  B = 5e-09 T   []
+  v_perp = 400000 m/s   []
   particle = proton
   assumes: B, v_perp > 0; v_perp < 0.1 c (non-relativistic)
 ```
@@ -1730,7 +1657,7 @@ $ astronomy solve inertial_length "n=5 cm^-3" particle=proton
 d = 101835.3511 m
 d_km = 101.8353511
   by: Inertial length (skin depth)  (d = c / omega_p = c sqrt(eps0 m / (n e^2)))
-  n = 5000000 1/m^3
+  n = 5000000 1/m^3   []
   particle = proton
   assumes: n > 0
 ```
@@ -1761,8 +1688,8 @@ $ astronomy solve lower_hybrid_frequency "B=1 T" "n=1e+18 m^-3"
 omega_lh = 1253639221 rad/s
 f_lh = 199522878.9 Hz
   by: Lower hybrid frequency  (1/omega_lh^2 = 1/(omega_ci omega_ce) + 1/omega_pi^2)
-  B = 1 T
-  n = 1e+18 1/m^3
+  B = 1 T   []
+  n = 1e+18 1/m^3   []
   assumes: B, n > 0; cold quasi-neutral electron-proton plasma
 ```
 
@@ -1793,7 +1720,7 @@ p_B = 397887.3578 Pa
 energy_density = 397887.3578 Pa
 p_B_nPa = 3.978873578e+14
   by: Magnetic pressure  (p_B = B^2 / (2 mu0))
-  B = 1 T
+  B = 1 T   []
   assumes: B > 0
 ```
 
@@ -1823,8 +1750,8 @@ $ astronomy solve debye_number "T=1000000 K" "n=1e+15 m^-3"
 N_D = 43531681.94
 lambda_D = 0.00218225558 m
   by: Number of particles in a Debye sphere  (N_D = (4 pi / 3) n lambda_D^3)
-  T = 1000000 K
-  n = 1e+15 1/m^3
+  T = 1000000 K   []
+  n = 1e+15 1/m^3   []
   assumes: T, n > 0
 ```
 
@@ -1857,9 +1784,9 @@ beta = 0.6939898808
 p_thermal = 6.903245e-12 Pa
 p_magnetic = 9.947183945e-12 Pa
   by: Plasma beta  (beta = n k T / (B^2 / (2 mu0)))
-  T = 100000 K
-  n = 5000000 1/m^3
-  B = 5e-09 T
+  T = 100000 K   []
+  n = 5000000 1/m^3   []
+  B = 5e-09 T   []
   assumes: T, n, B > 0; one species (add species' pressures for a total beta)
 ```
 
@@ -1889,7 +1816,7 @@ $ astronomy solve plasma_frequency "n=1e+12 m^-3"
 omega_p = 56414602.25 rad/s
 f_p = 8978662.811 Hz
   by: Plasma frequency  (omega_p = sqrt(n e^2 / (eps0 m)))
-  n = 1e+12 1/m^3
+  n = 1e+12 1/m^3   []
   assumes: n > 0; cold, unmagnetized plasma; singly charged particles
 ```
 
@@ -1918,9 +1845,9 @@ $$
 $ astronomy solve thermal_speed "T=1000000 K" convention=rms particle=proton
 v_th = 157363.2716 m/s
   by: Thermal speed of plasma particles  (v = sqrt(c k T / m) with c = 2 (most probable), 3 (rms), 8/pi (mean))
-  T = 1000000 K
-  particle = proton
+  T = 1000000 K   []
   convention = rms
+  particle = proton
   assumes: T > 0; Maxwellian distribution in three dimensions; the convention must be stated
 ```
 
@@ -1950,8 +1877,8 @@ $ astronomy solve upper_hybrid_frequency "B=1 T" "n=1e+18 m^-3"
 omega_uh = 1.847081091e+11 rad/s
 f_uh = 2.939720859e+10 Hz
   by: Upper hybrid frequency  (omega_uh = sqrt(omega_pe^2 + omega_ce^2))
-  B = 1 T
-  n = 1e+18 1/m^3
+  B = 1 T   []
+  n = 1e+18 1/m^3   []
   assumes: B, n > 0; cold plasma, waves perpendicular to B
 ```
 
@@ -1984,9 +1911,9 @@ $ astronomy solve altaz_from_hadec "H=0 deg" "dec=0 deg" "lat=45 deg"
 alt_deg = 45
 az_deg = 180
   by: Altitude and azimuth from hour angle and declination  (sin a = sin(lat) sin(dec) + cos(lat) cos(dec) cos H; tan A = -cos(dec) sin H / (sin(dec) cos(lat) - cos(dec) sin(lat) cos H))
-  H = 0 rad
-  dec = 0 rad
-  lat = 0.7853981634 rad
+  H = 0 rad   []
+  dec = 0 rad   []
+  lat = 0.7853981634 rad   []
   assumes: |dec| <= 90 degrees; |lat| <= 90 degrees; not at the zenith or nadir; no refraction
 ```
 
@@ -2020,8 +1947,8 @@ alt_lower_deg = -20
 circumpolar = false
 never_rises = false
   by: Altitude of a star at culmination  (upper: a = 90 - |lat - dec|; lower: a = |lat + dec| - 90)
-  dec = 0.3490658504 rad
-  lat = 0.872664626 rad
+  dec = 0.3490658504 rad   []
+  lat = 0.872664626 rad   []
   assumes: |dec|, |lat| <= 90 degrees; geometric horizon, no refraction
 ```
 
@@ -2053,10 +1980,10 @@ $ astronomy solve angular_separation "ra1=0 deg" "dec1=0 deg" "ra2=90 deg" "dec2
 sep_deg = 90
 sep_arcsec = 324000
   by: Angular separation of two sky positions  (Vincenty's formula (accurate at all separations))
-  ra1 = 0 rad
-  dec1 = 0 rad
-  ra2 = 1.570796327 rad
-  dec2 = 0 rad
+  ra1 = 0 rad   []
+  dec1 = 0 rad   []
+  ra2 = 1.570796327 rad   []
+  dec2 = 0 rad   []
   assumes: |dec| <= 90 degrees
 ```
 
@@ -2086,10 +2013,10 @@ $$
 $ astronomy solve position_angle "ra1=0 deg" "dec1=0 deg" "ra2=1 deg" "dec2=0 deg"
 pa_deg = 90
   by: Position angle between two sky positions  (tan PA = sin(dra) cos(dec2) / (cos(dec1) sin(dec2) - sin(dec1) cos(dec2) cos(dra)))
-  ra1 = 0 rad
-  dec1 = 0 rad
-  ra2 = 0.01745329252 rad
-  dec2 = 0 rad
+  ra1 = 0 rad   []
+  dec1 = 0 rad   []
+  ra2 = 0.01745329252 rad   []
+  dec2 = 0 rad   []
   assumes: |dec| < 90 degrees; distinct, non-antipodal positions
 ```
 
@@ -2123,8 +2050,8 @@ time_up_sidereal_h = 12
 az_rise_deg = 90
 az_set_deg = 270
   by: Rising and setting of a star  (cos H0 = -tan(lat) tan(dec); cos A_rise = sin(dec) / cos(lat))
-  dec = 0 rad
-  lat = 0.7853981634 rad
+  dec = 0 rad   []
+  lat = 0.7853981634 rad   []
   assumes: the star rises and sets: |tan(lat) tan(dec)| < 1; geometric horizon (no refraction, no star size)
 ```
 
@@ -2155,7 +2082,7 @@ $ astronomy solve bolometric_magnitude_from_luminosity "L=3.828e+26 W"
 M_bol = 4.739995934
 L_Lsun = 1
   by: Absolute bolometric magnitude from luminosity  (M_bol = -2.5 log10(L / L0), L0 = 3.0128e28 W (IAU 2015 B2))
-  L = 3.828e+26 W
+  L = 3.828e+26 W   []
   assumes: L > 0
 ```
 
@@ -2187,8 +2114,8 @@ m_bol = 5
 F = 2.518021003e-10 W/m^2
 M_bol = 0
   by: Apparent bolometric magnitude and flux  (F = L/(4 pi d^2), m_bol = -2.5 log10(F/F0), F0 = L0/(4 pi (10 pc)^2))
-  L = 3.0128e+28 W
-  d = 3.085677581e+18 m
+  L = 3.0128e+28 W   []
+  d = 3.085677581e+18 m   []
   assumes: L > 0; d > 0; no extinction
 ```
 
@@ -2216,8 +2143,8 @@ $$
 $ astronomy solve effective_temperature "L=3.828e+26 W" "R=695700000 m"
 T = 5772.003429 K
   by: Effective temperature of a star  (T = (L / (4 pi R^2 sigma))^(1/4))
-  L = 3.828e+26 W
-  R = 695700000 m
+  L = 3.828e+26 W   []
+  R = 695700000 m   []
   assumes: L > 0; R > 0; blackbody emission
 ```
 
@@ -2246,7 +2173,7 @@ $ astronomy solve free_fall_time "rho=1e-17 kg/m^3"
 t_ff = 2.100669417e+13 s
 t_ff_yr = 665661.9695
   by: Free-fall time of a uniform cloud  (t_ff = sqrt(3 pi / (32 G rho)))
-  rho = 1e-17 kg/m^3
+  rho = 1e-17 kg/m^3   []
   assumes: rho > 0; uniform, pressureless, non-rotating sphere starting at rest
 ```
 
@@ -2278,8 +2205,8 @@ x = 0.807408863
 neutral = 0.192591137
 n_e = 8.07408863e+19 1/m^3
   by: Ionization fraction of hydrogen (Saha equation)  (x^2/(1 - x) = (1/n) (2 pi m_e k T / h^2)^(3/2) exp(-chi / kT), solved in a cancellation-free form)
-  T = 10000 K
-  n = 1e+20 1/m^3
+  T = 10000 K   []
+  n = 1e+20 1/m^3   []
   assumes: 1000 K <= T <= 1e6 K; pure hydrogen, n_e = n_II; g_I = 2, g_II = 1, chi = 13.598 eV
 ```
 
@@ -2308,7 +2235,7 @@ $ astronomy solve luminosity_from_bolometric_magnitude M_bol=-5
 L = 3.0128e+30 W
 L_Lsun = 7870.428422
   by: Luminosity from absolute bolometric magnitude  (L = L0 * 10^(-0.4 M_bol), L0 = 3.0128e28 W)
-  M_bol = -5
+  M_bol = -5   []
   assumes: -30 < M_bol < 40
 ```
 
@@ -2338,8 +2265,8 @@ $ astronomy solve stellar_luminosity "R=695700000 m" "T=5772 K"
 L = 3.827990903e+26 W
 L_Lsun = 0.9999976236
   by: Luminosity of a star (Stefan-Boltzmann)  (L = 4 pi R^2 sigma T^4 with sigma = 2 pi^5 k^4 / (15 h^3 c^2))
-  R = 695700000 m
-  T = 5772 K
+  R = 695700000 m   []
+  T = 5772 K   []
   assumes: R > 0; T > 0
 ```
 
@@ -2369,8 +2296,8 @@ $ astronomy solve stellar_radius "L=3.828e+26 W" "T=5772 K"
 R = 695700826.6 m
 R_Rsun = 1.000001188
   by: Radius of a star from luminosity and temperature  (R = sqrt(L / (4 pi sigma)) / T^2)
-  L = 3.828e+26 W
-  T = 5772 K
+  L = 3.828e+26 W   []
+  T = 5772 K   []
   assumes: L > 0; T > 0; blackbody emission
 ```
 
@@ -2402,8 +2329,8 @@ $ astronomy solve rayleigh_resolution "lam=550 nm" "D=2.4 m"
 theta = 2.795076834e-07 rad
 theta_arcsec = 0.05765259816
   by: Diffraction limit of a telescope (Rayleigh criterion)  (sin(theta) = j_{1,1} lambda / (pi D), j_{1,1} = 3.8317059702 (first zero of J1))
-  lam = 5.5e-07 m
-  D = 2.4 m
+  lam = 5.5e-07 m   []
+  D = 2.4 m   []
   assumes: lambda << D; a circular unobstructed aperture, no atmosphere
 ```
 
@@ -2433,8 +2360,8 @@ $ astronomy solve light_gathering_power "D1=200 mm" "D2=2 mm"
 area_ratio = 10000
 mag_gain = 10
   by: Light-gathering power of two telescopes  (ratio = (D1/D2)^2; gain = 2.5 log10(ratio))
-  D1 = 0.2 m
-  D2 = 0.002 m
+  D1 = 0.2 m   []
+  D2 = 0.002 m   []
   assumes: D1, D2 > 0; unobstructed circular apertures
 ```
 
@@ -2467,8 +2394,8 @@ pixel_scale_arcsec = 0.3877778357
 fov_deg = 0.6730022391
 fov_arcmin = 40.38013435
   by: Pixel scale and field of view of a telescope camera  (angle = 2 atan(w / (2 f)) for a width w centred on the optical axis (about 206265 w/f arcseconds))
-  f = 2 m
-  p = 3.76e-06 m
+  f = 2 m   []
+  p = 3.76e-06 m   []
   assumes: f, p > 0; N >= 1; distortion-free optics; angles centred on the axis
 ```
 
@@ -2504,10 +2431,10 @@ exit_pupil = 0.004166666667 m
 exit_pupil_mm = 4.166666667
 tfov_deg = 1.083333333
   by: Telescope magnification, exit pupil and true field  (M = f_obj / f_eye; exit pupil = D / M; true field = apparent field / M)
-  f_obj = 1.2 m
-  f_eye = 0.025 m
-  D = 0.2 m
-  afov = 0.907571211 rad
+  f_obj = 1.2 m   []
+  f_eye = 0.025 m   []
+  D = 0.2 m   []
+  afov = 0.907571211 rad   []
   assumes: focal lengths and aperture > 0; thin lenses, afocal (focused at infinity); true field = apparent field / M
 ```
 
@@ -2542,7 +2469,7 @@ month = 1
 day = 1
 hours = 12
   by: Calendar date from a Julian date  (Meeus' inverse algorithm in exact integer and rational arithmetic)
-  jd = 2451545
+  jd = 2451545   []
   assumes: 2299160.5 <= JD <= 5373484.5 (Gregorian era up to the year 9999)
 ```
 
@@ -2572,7 +2499,7 @@ $ astronomy solve sidereal_time jd=2451545
 gmst_h = 18.69737456
 lmst_h = 18.69737456
   by: Greenwich and local mean sidereal time  (GMST = 24110.54841 s + 8640184.812866 T + 0.093104 T^2 - 6.2e-6 T^3 + UT1 seconds of the day (T from J2000, Julian centuries); LMST = GMST + longitude/15)
-  jd = 2451545
+  jd = 2451545   []
   assumes: 2299160.5 <= JD <= 5373484.5; the date in UT1; east longitudes positive
 ```
 
