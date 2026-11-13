@@ -1004,7 +1004,7 @@ $$
 
 ![x (ionized fraction n_II / n) against T (temperature) from 5000 K to 15000 K](https://www.ai999x.com/?ax_fig=astronomy-ai999x/saha-hydrogen-ionization-curve-2)
 
-*x (ionized fraction n_II / n) against T (temperature) from 5000 K to 15000 K. One curve for each value of n (total density of hydrogen nuclei (m^-3 or cm^-3)): 6.7699e+20 1/m^3, 3.3849e+20 1/m^3, 1.3540e+21 1/m^3. 31 points per curve computed by astronomy-ai999x; marked: the worked example, T = 10000 K, x = 0.5.*
+*x (ionized fraction n_II / n) against T (temperature) from 5000 K to 15000 K. One curve for each value of n (total density of hydrogen nuclei (m^-3 or cm^-3)): 1.0000e+20 1/m^3, 5.0000e+19 1/m^3, 2.0000e+20 1/m^3. 31 points per curve computed by astronomy-ai999x; marked: the worked example, T = 10000 K, x = 0.807409.*
 
 ```python
 astronomy_ai999x.solve('saha_hydrogen_ionization', T=10000.0, n=6.769876143152214e+20)
