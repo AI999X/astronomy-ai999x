@@ -10,8 +10,8 @@ Astronomy covers celestial mechanics and orbits, stellar properties, blackbody r
 
 | | |
 |---|---|
-| **Desktop app** (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-astronomy-1.6.6-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-astronomy-1.6.6-linux-x86_64.tar.gz) |
-| **Command line** `astronomy` (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-cli-1.6.6-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-cli-1.6.6-linux-x86_64.tar.gz) |
+| **Desktop app** (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-astronomy-1.6.7-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-astronomy-1.6.7-linux-x86_64.tar.gz) |
+| **Command line** `astronomy` (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-cli-1.6.7-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.7/ai999x-cli-1.6.7-linux-x86_64.tar.gz) |
 | **Browser** (any device) | [Try it on the model page](https://www.ai999x.com/models/astronomy-ai999x/#capabilities) |
 | **Python** 3.10+ | `pip install astronomy-ai999x`: on Windows and Linux (x86-64) `pip` installs the same compiled engine; on other systems (macOS, ARM) it installs a pure-Python build that gives the same answers |
 
@@ -116,83 +116,6 @@ print(a.outcome, a.values)
 # SOLVED {'area_ratio': 10000.0, 'mag_gain': 10.0}
 ```
 
-## Command line: 15 examples
-
-Each command below was run with `astronomy` of this release; the lines under it are the answer it printed (the full answer goes on with the method, every input in SI units and the conditions it assumes).
-
-```text
-$ astronomy solve schwarzschild_radius "M=1.988409871e+30 kg"
-rs = 2953.250077 m
-rs_km = 2.953250077
-M_Msun = 1
-
-$ astronomy solve age_at_redshift z=3 H0=70 Om=1
-age = 3.673425692e+16 s
-age_Gyr = 1.164038359
-age_now_Gyr = 9.312306873
-
-$ astronomy solve absolute_magnitude m=8 "d=3.085677581e+18 m" A=1
-M = 2
-mu = 5
-d_pc = 99.99999998
-
-$ astronomy solve radial_velocity_semi_amplitude "M_star=1.988409871e+30 kg" "m_p=1.898124597e+27 kg" "P=11.86 yr"
-K = 12.45977416 m/s
-a = 7.782417562e+11 m
-a_au = 5.202224821
-
-$ astronomy solve einstein_radius "M=9.942049353e+29 kg" "D_l=1.234271033e+20 m" "D_s=2.468542065e+20 m"
-theta_E = 3.458835005e-09 rad
-theta_E_arcsec = 0.0007134359322
-R_E = 4.269139855e+11 m
-R_E_au = 2.85374373
-
-$ astronomy solve airmass_extinction "zen=60 deg"
-X = 2
-alt_deg = 30
-
-$ astronomy solve plane_change_delta_v "v1=3 km/s" "v2=4 km/s" "di=90 deg"
-dv = 5000 m/s
-
-$ astronomy solve planet_equilibrium_temperature "T_star=1000 K" "R_star=2 m" "a=4 m"
-T_eq = 500 K
-S = 14175.93605 W/m^2
-
-$ astronomy solve alfven_speed "B=5 nT" "n=5 cm^-3"
-v_A = 48759.91586 m/s
-v_A_km_s = 48.75991586
-
-$ astronomy solve altaz_from_hadec "H=0 deg" "dec=0 deg" "lat=45 deg"
-alt_deg = 45
-az_deg = 180
-
-$ astronomy solve bolometric_magnitude_from_luminosity "L=3.828e+26 W"
-M_bol = 4.739995934
-L_Lsun = 1
-
-$ astronomy solve rayleigh_resolution "lam=550 nm" "D=2.4 m"
-theta = 2.795076834e-07 rad
-theta_arcsec = 0.05765259816
-
-$ astronomy solve calendar_date_from_julian_date jd=2451545
-year = 2000
-month = 1
-day = 1
-hours = 12
-
-$ astronomy solve angular_size_at_redshift z=3 H0=70 Om=1 "D=3.085677581e+22 m"
-theta_arcsec = 192.6470937
-scale_kpc_per_arcsec = 5.190838755
-D_A_Mpc = 1070.68735
-
-$ astronomy solve distance_unit_conversion "d=3.085677581e+16 m"
-d_m = 3.085677581e+16 m
-d_km = 3.085677581e+13
-d_au = 206264.8062
-d_ly = 3.261563777
-d_pc = 0.9999999998
-```
-
 ## Guides
 
 - Desktop app guide: the window, every calculation, scenes and charts: [PDF](https://huggingface.co/AI999X/astronomy-ai999x/blob/main/docs/astronomy_ai999x_desktop_guide.pdf) · [HTML](https://huggingface.co/AI999X/astronomy-ai999x/blob/main/docs/astronomy_ai999x_desktop_guide.html) · [Markdown](https://huggingface.co/AI999X/astronomy-ai999x/blob/main/docs/astronomy_ai999x_desktop_guide.md)
@@ -201,13 +124,13 @@ d_pc = 0.9999999998
 
 Every calculation, with its formula, a worked example and its figures: **[Astronomy on ai999x.com](https://www.ai999x.com/models/astronomy-ai999x/)**. Install guides for the app and the command line: [https://www.ai999x.com/desktop-cli/](https://www.ai999x.com/desktop-cli/).
 
-Version 1.6.6 · License: Apache-2.0 · Author: Ibnul Jaif Farabi · Organization: AI999X · Contact: support@ai999x.com · [Support the project](https://buymeacoffee.com/ibnuljaiffarabi)
+Version 1.6.7 · License: Apache-2.0 · Author: Ibnul Jaif Farabi · Organization: AI999X · Contact: support@ai999x.com · [Support the project](https://buymeacoffee.com/ibnuljaiffarabi)
 
 *The Future Is Self-Improving.*
 
 ## Source and releases
 
-This repository holds the installable source of each release, exactly as published on [PyPI](https://pypi.org/project/astronomy-ai999x/) (`pip install .` builds it). Releases are tagged `v1.6.6`; the [GitHub release](https://github.com/AI999X/astronomy-ai999x/releases/tag/v1.6.6) carries the wheel, the desktop app and the command-line program for Windows and Linux, and their checksums.
+This repository holds the installable source of each release, exactly as published on [PyPI](https://pypi.org/project/astronomy-ai999x/) (`pip install .` builds it). Releases are tagged `v1.6.7`; the [GitHub release](https://github.com/AI999X/astronomy-ai999x/releases/tag/v1.6.7) carries the wheel, the desktop app and the command-line program for Windows and Linux, and their checksums.
 
 ## Build the program from source
 
