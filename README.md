@@ -10,8 +10,8 @@ Astronomy covers celestial mechanics and orbits, stellar properties, blackbody r
 
 | | |
 |---|---|
-| **Desktop app** (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.5/ai999x-astronomy-1.6.5-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.5/ai999x-astronomy-1.6.5-linux-x86_64.tar.gz) |
-| **Command line** `astronomy` (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.4/ai999x-cli-1.6.4-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.4/ai999x-cli-1.6.4-linux-x86_64.tar.gz) |
+| **Desktop app** (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-astronomy-1.6.6-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-astronomy-1.6.6-linux-x86_64.tar.gz) |
+| **Command line** `astronomy` (Windows, Linux) | [Windows](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-cli-1.6.6-windows-x86_64.zip) · [Linux](https://github.com/AI999X/ai999x-desktop/releases/download/v1.6.6/ai999x-cli-1.6.6-linux-x86_64.tar.gz) |
 | **Browser** (any device) | [Try it on the model page](https://www.ai999x.com/models/astronomy-ai999x/#capabilities) |
 | **Python** 3.10+ | `pip install astronomy-ai999x`: on Windows and Linux (x86-64) `pip` installs the same compiled engine; on other systems (macOS, ARM) it installs a pure-Python build that gives the same answers |
 
@@ -193,110 +193,6 @@ d_ly = 3.261563777
 d_pc = 0.9999999998
 ```
 
-## Rust library: 15 examples
-
-The crate `astronomy-ai999x` (in `rust/` of the GitHub repository) answers a JSON request with `astronomy_ai999x::solve_json`. Each call below was compiled and run on this release; the comment under it is what it printed. The whole program is `rust/astronomy/examples/readme.rs`: `cd rust && cargo run --release --example readme -p astronomy-ai999x`.
-
-```rust
-use serde_json::{json, Value};
-
-fn show(request: Value) {
-    let answer: Value = serde_json::from_str(&astronomy_ai999x::solve_json(&request.to_string())).unwrap();
-    println!("{}", answer["outcome"].as_str().unwrap_or(""));
-    for v in answer["values"].as_array().into_iter().flatten() {
-        let unit = v[2].as_str().unwrap_or("");
-        let unit = if unit.is_empty() || unit == "1" { String::new() } else { format!(" {unit}") };
-        println!("{} = {}{}", v[0].as_str().unwrap_or(""), v[1], unit);
-    }
-}
-
-show(json!({"key": "schwarzschild_radius", "inputs": {"M": "1.988409871e+30 kg"}}));
-// SOLVED
-// rs = 2953.25007655 m
-// rs_km = 2.95325007655
-// M_Msun = 1.00000000015
-
-show(json!({"key": "age_at_redshift", "inputs": {"z": "3", "H0": "70", "Om": "1"}}));
-// SOLVED
-// age = 3.67342569225e+16 s
-// age_Gyr = 1.16403835914
-// age_now_Gyr = 9.31230687315
-
-show(json!({"key": "absolute_magnitude", "inputs": {"m": "8", "d": "3.085677581e+18 m", "A": "1"}}));
-// SOLVED
-// M = 2.00000000035
-// mu = 4.99999999965
-// d_pc = 99.9999999841
-
-show(json!({"key": "radial_velocity_semi_amplitude", "inputs": {"M_star": "1.988409871e+30 kg", "m_p": "1.898124597e+27 kg", "P": "11.86 yr"}}));
-// SOLVED
-// K = 12.4597741597 m/s
-// a = 778241756181.0 m
-// a_au = 5.20222482138
-
-show(json!({"key": "einstein_radius", "inputs": {"M": "9.942049353e+29 kg", "D_l": "1.234271033e+20 m", "D_s": "2.468542065e+20 m"}}));
-// SOLVED
-// theta_E = 3.45883500541e-9 rad
-// theta_E_arcsec = 0.000713435932231
-// R_E = 426913985510.0 m
-// R_E_au = 2.85374372986
-
-show(json!({"key": "airmass_extinction", "inputs": {"zen": "60 deg"}}));
-// SOLVED
-// X = 2.0
-// alt_deg = 30.0
-
-show(json!({"key": "plane_change_delta_v", "inputs": {"v1": "3 km/s", "v2": "4 km/s", "di": "90 deg"}}));
-// SOLVED
-// dv = 5000.0 m/s
-
-show(json!({"key": "planet_equilibrium_temperature", "inputs": {"T_star": "1000 K", "R_star": "2 m", "a": "4 m"}}));
-// SOLVED
-// T_eq = 500.0 K
-// S = 14175.936048 W/m^2
-
-show(json!({"key": "alfven_speed", "inputs": {"B": "5 nT", "n": "5 cm^-3"}}));
-// SOLVED
-// v_A = 48759.9158597 m/s
-// v_A_km_s = 48.7599158597
-
-show(json!({"key": "altaz_from_hadec", "inputs": {"H": "0 deg", "dec": "0 deg", "lat": "45 deg"}}));
-// SOLVED
-// alt_deg = 45.0
-// az_deg = 180.0
-
-show(json!({"key": "bolometric_magnitude_from_luminosity", "inputs": {"L": "3.828e+26 W"}}));
-// SOLVED
-// M_bol = 4.73999593392
-// L_Lsun = 1.0
-
-show(json!({"key": "rayleigh_resolution", "inputs": {"lam": "550 nm", "D": "2.4 m"}}));
-// SOLVED
-// theta = 2.79507683415e-7 rad
-// theta_arcsec = 0.0576525981642
-
-show(json!({"key": "calendar_date_from_julian_date", "inputs": {"jd": "2451545"}}));
-// SOLVED
-// year = 2000
-// month = 1
-// day = 1
-// hours = 12.0
-
-show(json!({"key": "angular_size_at_redshift", "inputs": {"z": "3", "H0": "70", "Om": "1", "D": "3.085677581e+22 m"}}));
-// SOLVED
-// theta_arcsec = 192.647093677
-// scale_kpc_per_arcsec = 5.19083875471
-// D_A_Mpc = 1070.68735
-
-show(json!({"key": "distance_unit_conversion", "inputs": {"d": "3.085677581e+16 m"}}));
-// SOLVED
-// d_m = 3.085677581e+16 m
-// d_km = 30856775810000.0
-// d_au = 206264.806214
-// d_ly = 3.26156377665
-// d_pc = 0.999999999841
-```
-
 ## Guides
 
 - Desktop app guide: the window, every calculation, scenes and charts: [PDF](https://huggingface.co/AI999X/astronomy-ai999x/blob/main/docs/astronomy_ai999x_desktop_guide.pdf) · [HTML](https://huggingface.co/AI999X/astronomy-ai999x/blob/main/docs/astronomy_ai999x_desktop_guide.html) · [Markdown](https://huggingface.co/AI999X/astronomy-ai999x/blob/main/docs/astronomy_ai999x_desktop_guide.md)
@@ -305,7 +201,7 @@ show(json!({"key": "distance_unit_conversion", "inputs": {"d": "3.085677581e+16 
 
 Every calculation, with its formula, a worked example and its figures: **[Astronomy on ai999x.com](https://www.ai999x.com/models/astronomy-ai999x/)**. Install guides for the app and the command line: [https://www.ai999x.com/desktop-cli/](https://www.ai999x.com/desktop-cli/).
 
-Version 1.6.4 · License: Apache-2.0 · Author: Ibnul Jaif Farabi · Organization: AI999X · Contact: support@ai999x.com · [Support the project](https://buymeacoffee.com/ibnuljaiffarabi)
+Version 1.6.6 · License: Apache-2.0 · Author: Ibnul Jaif Farabi · Organization: AI999X · Contact: support@ai999x.com · [Support the project](https://buymeacoffee.com/ibnuljaiffarabi)
 
 *The Future Is Self-Improving.*
 
