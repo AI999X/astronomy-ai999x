@@ -1,6 +1,6 @@
 # astronomy: the Astronomy program, user guide
 
-**astronomy-ai999x 1.6.4**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
+**astronomy-ai999x 1.6.6**, Rust build: command line, desktop app and browser. **Creator / engineer:** Ibnul Jaif Farabi · **Company:** AI999X · support@ai999x.com
 
 Astronomy covers celestial mechanics and orbits, stellar properties, blackbody radiation, magnitudes and distances, cosmology basics, the Sun and space environment and plasma parameters. This guide is about `astronomy`, the model as a self-contained program for Windows and Linux: 67 capabilities in 13 topics, answered on your own computer with no network, no Python and nothing else to install. The same compiled model runs in the AI999X desktop app and in the browser on the model's page (https://www.ai999x.com/models/astronomy-ai999x/); the Python package (`pip install astronomy-ai999x`) has its own guide. Every command output printed here is what the program printed.
 
@@ -96,7 +96,7 @@ Prints the model, its version and that this is the Rust build.
 
 ```shell
 $ astronomy --version
-astronomy-ai999x 1.6.4 (Rust build, ax-engine 1.6.4)
+astronomy-ai999x 1.6.6 (Rust build, ax-engine 1.6.6)
 ```
 
 ### 2.2 Ask in words
